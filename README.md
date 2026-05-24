@@ -67,16 +67,16 @@ Las Pull Request para este proyecto deben cumplir con el siguiente checklist:
     ```
 
     ### Tipos de tarea:
-    - feat
-    - fix
-    - docs
-    - chore
-    - refactor
+    - **feat**: Al agregar una nueva funcionalidad a la aplicación.
+    - **fix**: Al corregir un error o bug en la aplicación.
+    - **docs**: Al agregar o actualizar documentación.
+    - **chore**: Al realizar tareas de mantenimiento o configuración.
+    - **refactor**: Al reestructurar código sin cambiar su comportamiento.
 
     ### Tipos de alcance:
-    - tests
-    - seo
-    - design
-    - behavior
-    - performance
+    - **tests**: Al agregar o actualizar pruebas.
+    - **seo**: Al agregar o actualizar elementos relacionados con la optimización para motores de búsqueda.
+    - **design**: Al agregar o actualizar elementos relacionados con el diseño de la aplicación.
+    - **behavior**: Al agregar o actualizar elementos relacionados con el comportamiento de la aplicación.
+    - **performance**: Al agregar o actualizar elementos relacionados con el rendimiento de la aplicación.
 
