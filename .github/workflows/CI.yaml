@@ -1,0 +1,52 @@
+name: Code Quality & Testing
+
+on:
+  push:
+    branches: [main, develop, qa]
+  pull_request:
+    branches: [main, develop, qa]
+
+jobs:
+  audit-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: trujillo-y-asociados
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+    
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '26'
+          cache: 'npm'
+          cache-dependency-path: trujillo-y-asociados/package-lock.json
+    
+      - name: Install dependencies
+        run: npm ci
+    
+      - name: Check Typescript & Astro Syntax
+        run: npx astro check && npx tsc --noEmit
+
+      - name: Build project
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        if: github.event_name == 'pull_request'
+
+      - name: Run E2E Tests
+        run: npm run test:e2e
+        if: github.event_name == 'pull_request'
+
+      - name: Run Lighthouse SEO & Performance Audit
+        uses: treosh/lighthouse-ci-action@v12
+        if: github.event_name == 'pull_request'
+        with:
+          configPath: './trujillo-y-asociados/lighthouserc.json'
+          workingDirectory: 'trujillo-y-asociados'
+          uploadArtifacts: 'true'
+          temporaryPublicStorage: 'true'
