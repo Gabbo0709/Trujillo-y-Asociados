@@ -1,0 +1,77 @@
+---
+import '@styles/global.css';
+
+interface Props {
+    title: string;
+    description: string;
+    ogImage?: string;
+    noIndex?: boolean;
+}
+
+const { 
+    title,
+    description,
+    ogImage = '/images/og-default.jpg',
+    noIndex = false
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos Técnicos Críticos -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Control de Indexación Dinámica -->
+    {noIndex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
+
+    <!-- SEO Esencial -->
+    <title>{title} | Trujillo & Asociados</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph (Facebook / Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={`${title} | Trujillo & Asociados`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={`${title} | Trujillo & Asociados`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Rendimiento (LCP): Pre-carga asíncrona de Web Fonts Críticas -->
+    <link 
+      rel="preload" 
+      href="/fonts/gambetta-bold.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin="anonymous" 
+    />
+    <link 
+      rel="preload" 
+      href="/fonts/roboto-regular.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin="anonymous" 
+    />
+  </head>
+  <body>
+    <slot name="header" />
+    
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+  </body>
+</html>
