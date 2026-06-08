@@ -34,9 +34,9 @@
   --space-12: 3rem;
   --space-16: 4rem;
 
-  --radius-brand: 12px; /* Actualizar acorde al borde que comparta Max */
+  --radius-brand: 12px; /* TODO(TA-01): Actualizar acorde al borde que comparta Max */
 
-  --focus-ring: 3px solid hsl(var(--color-terracota-legal-hsl), 0.5);
+  --focus-ring: 3px solid hsla(var(--color-terracota-legal-hsl), 0.5);
   --max-width-landing: 1280px;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
