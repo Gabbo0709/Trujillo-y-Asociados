@@ -51,11 +51,11 @@ jobs:
       #   run: pnpm run test:e2e
       #   if: github.event_name == 'pull_request'
 
-      # - name: Run Lighthouse SEO & Performance Audit
-      #   uses: treosh/lighthouse-ci-action@v12
-      #   if: github.event_name == 'pull_request'
-      #   with:
-      #     configPath: './trujillo-y-asociados/lighthouserc.json'
-      #     workingDirectory: 'trujillo-y-asociados'
-      #     uploadArtifacts: 'true'
-      #     temporaryPublicStorage: 'true'
+      - name: Run Lighthouse SEO & Performance Audit
+        uses: treosh/lighthouse-ci-action@v12
+        if: github.event_name == 'pull_request'
+        with:
+          configPath: './trujillo-y-asociados/lighthouserc.json'
+          staticDistDir: './trujillo-y-asociados/dist'
+          uploadArtifacts: 'true'
+          temporaryPublicStorage: 'true'
