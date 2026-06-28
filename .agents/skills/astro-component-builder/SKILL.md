@@ -50,7 +50,7 @@ const features = [
 ];
 ---
 
-<section class="features-module">
+<article class="features-module">
   <header class="features-header">
     <h2 class="features-title">Engineered for Performance</h2>
     <p class="features-subtitle">Pure Astro implementation.</p>
@@ -66,7 +66,7 @@ const features = [
       </li>
     ))}
   </ul>
-</section>
+</article>
 
 <style>
   .features-module {
