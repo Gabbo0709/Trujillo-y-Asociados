@@ -5,5 +5,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
     site: 'https://trujilloasociados.com', 
     trailingSlash: 'never',
-    integrations: [sitemap()]
+    integrations: [sitemap()],
+    build: {
+        inlineStylesheets: 'always'
+    }
 });

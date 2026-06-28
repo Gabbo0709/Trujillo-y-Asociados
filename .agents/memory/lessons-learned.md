@@ -27,3 +27,7 @@
 ## Context: Path Aliases Import Conventions
 - **Mistake/Anti-Pattern:** Using relative import paths (e.g., `../layouts/BaseLayout.astro`) for core directories that have configured path aliases.
 - **Corrected Behavior:** Use the configured path aliases (e.g., `@layouts/BaseLayout.astro`, `@styles/...`, `@components/...`) defined in `tsconfig.json` for all imports from those directories.
+
+## Context: CSS Rendering Optimization
+- **Mistake/Anti-Pattern:** Leaving Astro to load compiled stylesheets as separate files in the `<head>` of single-page landing architectures, causing Lighthouse to flag them as render-blocking resources.
+- **Corrected Behavior:** Configure Astro to inline all styles directly into the HTML payload by setting `build: { inlineStylesheets: 'always' }` in `astro.config.mjs`, eliminating render-blocking CSS roundtrips and maximizing performance.
