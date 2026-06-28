@@ -33,7 +33,7 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: trujillo-y-asociados/pnpm-lock.yaml        
     
-      - name: Install dependencies
+      - name: Install dependencies and devDependencies
         run: pnpm install --frozen-lockfile
     
       - name: Check Typescript & Astro Syntax
@@ -51,11 +51,10 @@ jobs:
       #   run: pnpm run test:e2e
       #   if: github.event_name == 'pull_request'
 
-      # - name: Run Lighthouse SEO & Performance Audit
-      #   uses: treosh/lighthouse-ci-action@v12
-      #   if: github.event_name == 'pull_request'
-      #   with:
-      #     configPath: './trujillo-y-asociados/lighthouserc.json'
-      #     workingDirectory: 'trujillo-y-asociados'
-      #     uploadArtifacts: 'true'
-      #     temporaryPublicStorage: 'true'
+      - name: Run Lighthouse SEO & Performance Audit
+        uses: treosh/lighthouse-ci-action@v12
+        if: github.event_name == 'pull_request'
+        with:
+          configPath: './trujillo-y-asociados/lighthouserc.json'
+          uploadArtifacts: 'true'
+          temporaryPublicStorage: 'true'

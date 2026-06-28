@@ -47,7 +47,7 @@ p {
 a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: var(--transition-smooth);
+  transition: color var(--ease-smooth);
 }
 
  a:focus-visible,
@@ -73,7 +73,7 @@ a {
   font-family: var(--font-sans);
   font-weight: 600;
   border-radius: var(--radius-brand);
-  transition: var(--transition-smooth);
+  transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
   border: 1px solid transparent;
 }
 
