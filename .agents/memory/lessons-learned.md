@@ -29,8 +29,9 @@
 - **Corrected Behavior:** Use the configured path aliases (e.g., `@layouts/BaseLayout.astro`, `@styles/...`, `@components/...`) defined in `tsconfig.json` for all imports from those directories.
 
 ## Context: CSS Rendering Optimization
-- **Mistake/Anti-Pattern:** Leaving Astro to load compiled stylesheets as separate files in the `<head>` of single-page landing architectures, causing Lighthouse to flag them as render-blocking resources.
-- **Corrected Behavior:** Configure Astro to inline all styles directly into the HTML payload by setting `build: { inlineStylesheets: 'always' }` in `astro.config.mjs`, eliminating render-blocking CSS roundtrips and maximizing performance.
+- **Mistake/Anti-Pattern 1 (render-blocking):** Leaving Astro to load compiled stylesheets as separate files in the `<head>` of single-page landing architectures, causing Lighthouse to flag them as render-blocking resources.
+- **Mistake/Anti-Pattern 2 (inlineStylesheets regression):** Setting `build: { inlineStylesheets: 'always' }` in `astro.config.mjs`. This inlines **all** CSS — including every scoped component style — into the HTML document. This forces the browser to parse the entire CSSOM synchronously during HTML parsing, blocking the main thread far longer. In one test run, TBT spiked from 442ms → 1,176ms and total task time jumped 66%, dropping the Lighthouse score from 87 → 74.
+- **Corrected Behavior:** Use `build: { inlineStylesheets: 'auto' }` (Astro's smart default). This only inlines CSS payloads under 4KB. Our global CSS (~3.6KB) gets inlined. Larger scoped component CSS remains as non-blocking external files. This is the correct balance and avoids both the render-blocking and the parse-overload problems.
 
 ## Context: Software Rendering Optimization in Headless CI
 - **Mistake/Anti-Pattern:** Using GPU/CPU-heavy graphical CSS properties like `backdrop-filter: blur(...)` or complex `filter` effects. In headless CI runners (e.g., GitHub Actions), these effects are rendered via software emulation, causing massive CPU main-thread blocks, long layout tasks, and high Total Blocking Time (TBT) / Render Delay.
