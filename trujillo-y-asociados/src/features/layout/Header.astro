@@ -1,9 +1,14 @@
 ---
-// src/features/layout/Header.astro
 import { Image } from 'astro:assets';
+import logoImage from './assets/images/ta-completo-3.png';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
 
 // Content Matrix for clean template rendering and SEO semantic routing
-const navLinks = [
+const navLinks: NavLink[] = [
   { href: '#firma', label: 'Nuestra Firma' },
   { href: '#contacto', label: 'Contacto' },
   { href: '#faq', label: 'FAQ' }
@@ -11,49 +16,47 @@ const navLinks = [
 ---
 
 <header class="site-header">
-  <div class="header-container layout-container">
-    <!-- Brand Logo -->
-    <a href="/" class="logo-link" aria-label="Trujillo & Asociados Inicio">
-      <Image 
-        src="/T&A Completo 3.png" 
-        alt="Trujillo & Asociados" 
-        width={136} 
-        height={44} 
-        loading="eager" 
-        fetchpriority="high"
-        class="logo-image"
-      />
-    </a>
+  <!-- Brand Logo -->
+  <a href="/" class="logo-link" aria-label="Trujillo & Asociados Inicio">
+    <Image 
+      src={logoImage} 
+      alt="Trujillo & Asociados" 
+      width={136} 
+      height={44} 
+      loading="eager" 
+      fetchpriority="high"
+      class="logo-image"
+    />
+  </a>
 
-    <!-- Accessibility Hamburger Toggle for Mobile -->
-    <button class="mobile-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir menú de navegación">
-      <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path class="line line-top" d="M4 6h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path class="line line-middle" d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path class="line line-bottom" d="M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
+  <!-- Accessibility Hamburger Toggle for Mobile -->
+  <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir menú de navegación">
+    <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="line line-top" d="M4 6h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path class="line line-middle" d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path class="line line-bottom" d="M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
 
-    <!-- Main Navigation List -->
-    <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
-      <ul class="nav-list">
-        {navLinks.map((link) => (
-          <li class="nav-item">
-            <a href={link.href} class="nav-link">{link.label}</a>
-          </li>
-        ))}
-        <!-- Inline Mobile CTA to avoid layout shifts and keep spacing clean -->
-        <li class="nav-item mobile-only-cta">
-          <a href="#agendar" class="cta-link-mobile btn-primary">Agendar Consulta</a>
+  <!-- Main Navigation List -->
+  <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
+    <ul class="nav-list">
+      {navLinks.map((link) => (
+        <li class="nav-item">
+          <a href={link.href} class="nav-link">{link.label}</a>
         </li>
-      </ul>
-    </nav>
+      ))}
+      <!-- Inline Mobile CTA to avoid layout shifts and keep spacing clean -->
+      <li class="nav-item mobile-only-cta">
+        <a href="#agendar" class="cta-link-mobile btn-primary">Agendar Consulta</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Desktop CTA Button -->
-    <a href="#agendar" class="cta-link-desktop btn-primary-header">
-      Agendar Consulta
-    </a>
-  </div>
+  <!-- Desktop CTA Button -->
+  <a href="#agendar" class="cta-link-desktop btn-primary-header">
+    Agendar Consulta
+  </a>
 </header>
 
 <style>
@@ -67,13 +70,13 @@ const navLinks = [
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: var(--transition-smooth);
-  }
 
-  .header-container {
+    /* Center items inside header directly with zero redundant inner divs */
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 72px;
+    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
   }
 
   /* Brand Logo & Styles */
@@ -298,23 +301,33 @@ const navLinks = [
 </style>
 
 <script>
-  function initHeader() {
+  function initHeader(): void {
     const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle');
     const nav = document.querySelector<HTMLElement>('.main-navigation');
     
     if (toggle && nav) {
-      toggle.addEventListener('click', () => {
+      // Guard against multiple initializations
+      if (toggle.dataset.initialized === 'true') {
+        return;
+      }
+      toggle.dataset.initialized = 'true';
+
+      const updateMenuState = (isOpen: boolean): void => {
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        nav.classList.toggle('is-active', isOpen);
+      };
+
+      toggle.addEventListener('click', (): void => {
         const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isExpanded));
-        nav.classList.toggle('is-active');
+        updateMenuState(!isExpanded);
       });
       
-      // Close mobile navigation when a menu link is clicked (e.g. hash routing)
-      const navLinks = nav.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          toggle.setAttribute('aria-expanded', 'false');
-          nav.classList.remove('is-active');
+      // Close mobile navigation when any menu link or CTA is clicked (e.g. hash routing)
+      const closeLinks = nav.querySelectorAll('.nav-link, .cta-link-mobile');
+      closeLinks.forEach(link => {
+        link.addEventListener('click', (): void => {
+          updateMenuState(false);
         });
       });
     }
