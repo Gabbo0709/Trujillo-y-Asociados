@@ -48,3 +48,11 @@
 ## Context: Semantic HTML / Accessible Section Landmarks
 - **Mistake/Anti-Pattern:** Creating layout `<section>` landmark elements without an accessible name (`aria-labelledby` or `aria-label`), which prevents assistive technologies (like screen readers) from properly announcing them as navigable regions.
 - **Corrected Behavior:** Ensure every `<section>` element contains a descriptive accessible name. Use `aria-labelledby` referencing the section's primary header element (e.g. `<h1>` or `<h2>` with a matching `id`), or apply an explicit `aria-label` when no visible heading exists.
+
+## Context: Typography Layout Performance (TBT)
+- **Mistake/Anti-Pattern:** Applying `text-wrap: balance;` or `text-wrap: pretty;` globally to headers (`h1, h2, h3`) and paragraphs (`p`), especially when combined with fluid responsive typography (e.g., `clamp()` with `vw` units). In headless CI runners simulating mobile devices, this forces an extremely expensive binary search for line-breaking during render, spiking "Style & Layout" time by ~470ms and destroying the Total Blocking Time (TBT) metric.
+- **Corrected Behavior:** Never apply `text-wrap: balance` globally. Reserve it only for static, non-fluid titles where absolutely necessary, or omit it entirely if layout performance drops. 
+
+## Context: Responsive Image Optimization (LCP)
+- **Mistake/Anti-Pattern:** Using a `sizes` attribute like `sizes="(max-width: 768px) 800px, 100vw"` to serve smaller images to mobile. Since mobile screens often have a 3x Device Pixel Ratio (DPR), the browser calculates `800px (CSS width) * 3 (DPR) = 2400px`, completely defeating the responsive optimization and downloading the largest 1927px fallback anyway, wrecking the LCP.
+- **Corrected Behavior:** Provide granular `widths` (e.g., `widths={[360, 720, 1080, 1440, 1927]}`) and use a straightforward `sizes="100vw"` attribute. The browser will automatically multiply `100vw` (e.g. 360 CSS pixels) by the screen's DPR (e.g. 3x = 1080px) and request the correctly optimized `1080w` variant, drastically improving LCP on mobile.
