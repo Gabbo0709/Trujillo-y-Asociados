@@ -31,7 +31,7 @@ To maintain a perfect Lighthouse score, asset delivery must be flawless:
 
 ### 3. Cross-Referencing Constraints
 While building, you must actively comply with the project's active rules:
-- **Semantic Integrity:** Check against `@/.agents/rules/semantic-html.md`. If you find yourself typing a structural `<div>`, halt and substitute it with a semantic landmark (`<section>`, `<article>`, etc.).
+- **Semantic Integrity:** Check against `@/.agents/rules/semantic-html-writing.md`. If you find yourself typing a structural `<div>`, halt and substitute it with a semantic landmark (`<section>`, `<article>`, etc.).
 - **Code Quality:** Check against `@/.agents/rules/clean-code-conventions.md`. Keep CSS selectors flat, avoid deeply nested structures, and use meaningful kebab-case class names.
 
 ## Implementation Example Template
