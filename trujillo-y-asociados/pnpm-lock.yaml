@@ -8,15 +8,16 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.9
-        version: 0.9.9(prettier@3.9.1)(typescript@6.0.3)
       '@astrojs/sitemap':
         specifier: ^3.7.3
         version: 3.7.3
       astro:
         specifier: ^6.3.7
         version: 6.3.7(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0)
+    devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.9
+        version: 0.9.9(prettier@3.9.1)(typescript@6.0.3)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
