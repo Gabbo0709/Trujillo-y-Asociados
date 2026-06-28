@@ -1,33 +1,12 @@
 ---
 // src/pages/index.astro
 import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '../features/landing/components/Hero.astro';
 ---
 
 <BaseLayout 
   title="Inicio" 
   description="Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal."
 >
-  <section class="hero-section layout-container">
-    <h1 class="hero-title">Defensa Digna, Labor de Herencia.</h1>
-    <p class="hero-desc">Representación legal prestigiosa, estratégica y comprometida con el resguardo de su patrimonio familiar y empresarial.</p>
-  </section>
+  <Hero />
 </BaseLayout>
-
-<style>
-  .hero-section {
-    padding-block: var(--space-16);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    align-items: center;
-    text-align: center;
-  }
-  .hero-title {
-    max-width: 22ch;
-  }
-  .hero-desc {
-    font-size: var(--text-lg);
-    color: var(--color-text-body);
-    max-width: 55ch;
-  }
-</style>

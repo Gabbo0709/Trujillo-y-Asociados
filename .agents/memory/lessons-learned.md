@@ -44,3 +44,7 @@
 ## Context: inlineStylesheets Configuration (Reconfirmed)
 - **Mistake/Anti-Pattern:** Proposing `build: { inlineStylesheets: 'always' }` even when the total CSS payload is small (~8KB). The user has explicitly rejected this approach twice — the CSSOM synchronous parse overhead it causes on headless CI runners consistently degrades TBT regardless of CSS size.
 - **Corrected Behavior:** Always use `build: { inlineStylesheets: 'auto' }`. Do not propose `'always'` under any circumstance. If the CSS exceeds the 4KB auto threshold and causes a render-blocking audit, address the root cause of CSS size instead.
+
+## Context: Semantic HTML / Accessible Section Landmarks
+- **Mistake/Anti-Pattern:** Creating layout `<section>` landmark elements without an accessible name (`aria-labelledby` or `aria-label`), which prevents assistive technologies (like screen readers) from properly announcing them as navigable regions.
+- **Corrected Behavior:** Ensure every `<section>` element contains a descriptive accessible name. Use `aria-labelledby` referencing the section's primary header element (e.g. `<h1>` or `<h2>` with a matching `id`), or apply an explicit `aria-label` when no visible heading exists.
