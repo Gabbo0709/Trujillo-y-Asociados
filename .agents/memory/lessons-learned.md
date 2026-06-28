@@ -31,3 +31,7 @@
 ## Context: CSS Rendering Optimization
 - **Mistake/Anti-Pattern:** Leaving Astro to load compiled stylesheets as separate files in the `<head>` of single-page landing architectures, causing Lighthouse to flag them as render-blocking resources.
 - **Corrected Behavior:** Configure Astro to inline all styles directly into the HTML payload by setting `build: { inlineStylesheets: 'always' }` in `astro.config.mjs`, eliminating render-blocking CSS roundtrips and maximizing performance.
+
+## Context: Software Rendering Optimization in Headless CI
+- **Mistake/Anti-Pattern:** Using GPU/CPU-heavy graphical CSS properties like `backdrop-filter: blur(...)` or complex `filter` effects. In headless CI runners (e.g., GitHub Actions), these effects are rendered via software emulation, causing massive CPU main-thread blocks, long layout tasks, and high Total Blocking Time (TBT) / Render Delay.
+- **Corrected Behavior:** Avoid `backdrop-filter` or complex CSS filters on sticky headers or large layout elements. Rely on solid or flat opacity colors to ensure lightning-fast software rasterization and low TBT.
