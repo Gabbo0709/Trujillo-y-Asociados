@@ -56,14 +56,16 @@ const features = [
     <p class="features-subtitle">Pure Astro implementation.</p>
   </header>
 
-  <div class="features-grid" role="list"> <!-- Div only used as a non-structural layout hook -->
+  <ul class="features-grid">
     {features.map((item) => (
-      <article class="feature-card" role="listitem">
-        <h3 class="card-title">{item.title}</h3>
-        <p class="card-body">{item.body}</p>
-      </article>
+      <li class="features-grid-item">
+        <article class="feature-card">
+          <h3 class="card-title">{item.title}</h3>
+          <p class="card-body">{item.body}</p>
+        </article>
+      </li>
     ))}
-  </div>
+  </ul>
 </section>
 
 <style>
@@ -71,6 +73,9 @@ const features = [
     padding: var(--spacing-xl) var(--spacing-md);
   }
   .features-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
