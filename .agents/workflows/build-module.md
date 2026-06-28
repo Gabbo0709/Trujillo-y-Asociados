@@ -30,7 +30,7 @@ Command: /build-module
 - Once the blueprint is approved, activate the `astro-component-builder` skill.
 - Generate the isolated component inside `src/components/`.
 - Apply pure CSS inside scoped `<style>` tags using the exact variables from `@/.agents/context/visual-identity.md` (e.g., `--color-terracota-legal`, `--color-capuchino-white`).
-- Strictly enforce the `@/.agents/rules/semantic-html.md` constraint (zero un-semantic `<div>` layout wrappers).
+- Strictly enforce the `@/.agents/rules/semantic-html-writing.md` constraint (zero un-semantic `<div>` layout wrappers).
 
 ## Step 6: Code Quality & Lighthouse Checklist
 - Cross-reference the generated code against `@/.agents/rules/lighthouse-core-vitals.md` and `@/.agents/rules/clean-code-conventions.md`.
