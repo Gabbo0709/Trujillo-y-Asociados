@@ -22,7 +22,7 @@ You are an expert performance engineer. Every line of code, style block, or asse
 
 ### 3. JavaScript Minimization (INP & TBT Prevention)
 - **Zero-JS Default:** Leverage Astro's "Island Architecture" to its maximum potential. Keep client-side JavaScript at zero unless explicitly needed for interactivity.
-- **Script Handling:** If client-side JS is necessary, use native Astro `<script>` tags (which default to `type="module"` and are deferred automatically) to keep Total Blocking Time (TBT) and Interaction to Next Paint (INP) at absolute zero.
+- **Script Handling:** If client-side JS is necessary, use native Astro `<script>` tags (which default to `type="module"` and are deferred automatically). To protect Total Blocking Time (TBT) and Interaction to Next Paint (INP), keep scripts lightweight, break up long tasks, and offload third-party scripts to Web Workers.
 
 ### 4. Accessibility (A11y) & Best Practices
 - **Contrast Ratios:** Text and interactive elements must satisfy a minimum contrast ratio of 4.5:1 (WCAG AA standard), striving for 7:1 (AAA) where possible.
