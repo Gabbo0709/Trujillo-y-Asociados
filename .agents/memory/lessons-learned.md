@@ -14,7 +14,7 @@
 
 ## Context: Asset Optimization Pipeline & LCP
 - **Mistake/Anti-Pattern:** Keeping static images (like brand logos) inside the `/public` folder and using raw strings for the `src` attribute. This completely bypasses Astro's build-time image optimization pipeline, preventing AVIF/WebP conversion, automatic sizing, and unique content hashing, which harms Largest Contentful Paint (LCP) and technical SEO.
-- **Corrected Behavior:** Place components' static assets inside the feature domain directory (e.g., `src/features/layout/assets/images/`), sanitize the file name, and import them via ESM modules (e.g., `import logo from './assets/...'`). Pass the imported object to the `<Image>` component to enable automatic caching, compression, and format optimization.
+- **Corrected Behavior:** Place components' static assets inside the feature domain directory (e.g., `src/features/layout/assets/images/`), sanitize the file name, and import them via ESM modules (e.g., `import logo from './assets/...'`). Pass the imported object to the `<Image>` component to enable automatic caching, compression, and format optimization. For static display sizes, always define `densities={[1, 1.5, 2]}` to output responsive srcset files for high-DPI (Retina) screens, resolving the `image-size-responsive` audit.
 
 ## Context: DOM Tree Flattening & CSS Layout Math
 - **Mistake/Anti-Pattern:** Using redundant inner `div` tags solely to serve as max-width centering wrappers, increasing DOM tree depth unnecessarily.
