@@ -1,0 +1,209 @@
+---
+import { Image } from 'astro:assets';
+import heroBg from '../assets/images/bg-library.webp';
+---
+
+<section class="hero-module" aria-labelledby="hero-heading">
+  <figure class="hero-media">
+    <Image 
+      src={heroBg} 
+      alt="Biblioteca Trujillo y Asociados" 
+      loading="eager" 
+      fetchpriority="high"
+      class="hero-bg-image"
+      widths={[360, 720, 1080, 1440, 1927]}
+      sizes="100vw"
+    />
+
+  </figure>
+
+  <article class="hero-presentation">
+    <header class="hero-header">
+      <h1 id="hero-heading" class="hero-title">
+        <span class="hero-title-group">Asesoría en <strong class="hero-badge">CDMX</strong></span>
+        Derecho Laboral
+      </h1>
+    </header>
+    
+    <aside class="hero-cta-section">
+      <a 
+        href="#consulta" 
+        class="hero-cta-link"
+        aria-label="Agendar una consulta para evaluación gratuita"
+      >
+        <span class="hero-cta-text">Agendar una Consulta</span>
+        <span class="hero-cta-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </span>
+      </a>
+      <p class="hero-evaluation-text">
+        Evaluación gratuita a su caso.
+      </p>
+    </aside>
+  </article>
+</section>
+
+<style>
+  .hero-module {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-media {
+    position: relative;
+    min-height: 400px;
+    display: grid;
+    place-items: end center;
+    padding-bottom: var(--space-8);
+    margin: 0;
+  }
+
+  .hero-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .hero-motto-box {
+    background-color: hsla(var(--color-capuchino-white-hsl), 0.9);
+    padding: var(--space-4);
+    border: 1px solid hsla(var(--color-chocolate-alto-hsl), 0.3);
+    border-radius: var(--radius-brand);
+    text-align: center;
+  }
+
+  .hero-motto {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--color-text-title);
+    margin: 0;
+  }
+
+  .hero-presentation {
+    background-color: var(--color-text-title);
+    color: var(--color-bg-primary);
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-block: var(--space-12);
+    border-top: 1px solid hsla(var(--color-capuchino-white-hsl), 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .hero-presentation {
+      grid-template-columns: 3fr 1fr;
+    }
+  }
+
+  .hero-header {
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-title {
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    font-size: clamp(2rem, 5vw, 6rem);
+    margin: 0;
+    color: var(--color-capuchino-white-hsl);
+    line-height: 1.15;
+  }
+
+  .hero-title-group {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+  }
+
+  .hero-badge {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-title);
+    font-size: clamp(0.9rem, 0.35em, 2.3rem);
+    font-weight: bold;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  .hero-cta-section {
+    background-color: #2B0E0C;
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .hero-evaluation-text {
+    order: 2;
+    font-style: italic;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .hero-cta-link {
+    order: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-title);
+    padding: var(--space-4);
+    font-weight: 500;
+    text-decoration: none;
+    width: 100%;
+    transition: background-color var(--ease-smooth);
+  }
+
+  .hero-cta-link:hover {
+    background-color: var(--color-bg-surface);
+  }
+
+  .hero-cta-text {
+    font-size: 11pt;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--ease-smooth);
+  }
+
+  .hero-cta-link:hover .hero-cta-icon {
+    transform: translate(4px, -4px);
+  }
+
+  @media (min-width: 768px) {
+    .hero-cta-section {
+      grid-column: span 1 / span 1;
+      background-color: var(--color-text-title);
+      padding: var(--space-12);
+      border-top: none;
+      border-left: 1px solid hsla(var(--color-capuchino-white-hsl), 0.2);
+      gap: var(--space-4);
+    }
+
+    /* Flip order back for desktop layout context */
+    .hero-cta-link {
+      order: 2;
+    }
+
+    .hero-evaluation-text {
+      order: 1;
+      margin-bottom: var(--space-4);
+    }
+  }
+</style>
