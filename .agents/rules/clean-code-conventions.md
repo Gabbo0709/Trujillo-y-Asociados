@@ -6,7 +6,7 @@ globs: trujillo-y-asociados/src/**/*
 Clean Code Conventions & CSS/JS Architecture
 
 ## Core Mandate
-You write clean, highly maintainable, and self-documenting code. Because this project avoids heavy CSS or JS frameworks, code organization and readability within pure Astro, CSS, and Vanilla JavaScript are paramount to prevent technical debt.
+You write clean, highly maintainable, and self-documenting code. Because this project avoids heavy CSS or JS frameworks, code organization and readability within pure Astro, CSS, and TypeScript are paramount to prevent technical debt.
 
 ## Technical Standards
 
@@ -18,11 +18,12 @@ You write clean, highly maintainable, and self-documenting code. Because this pr
   - Never style generic layout tags globally within component styles (e.g., doing `section { padding: 20px; }` inside a local component). Use explicit class selectors to ensure absolute style isolation.
 - **Variables:** Utilize CSS Custom Properties (`--variable-name`) for design tokens like colors, font families, and consistent spacing scales. Define these globally and consume them locally.
 
-### 2. JavaScript Style & Conventions (Vanilla JS)
+### 2. TypeScript Style & Conventions (TypeScript)
+- **Strict Type Safety:** Always write typed TypeScript code. Avoid using `any` at all costs. Utilize explicit type declarations for function parameters, return values, and complex objects.
 - **Modern Standards:** Write clean ECMAScript (ES6+) code. Prefer declarative array methods (`.map()`, `.filter()`, `.reduce()`) over traditional `for` loops where performance permits.
-- **Naming Conventions:** Use clear, descriptive `camelCase` for variable and function names. Use `PascalCase` for component names or constructor functions. Variables must be self-documenting (e.g., `isMenuOpen` instead of `flag`).
-- **Scope Isolation:** Ensure all client-side scripts inside Astro `<script>` tags are strictly scoped. Do not pollute the global `window` object unless absolutely necessary for an integration, and document it explicitly if done.
-- **DOM Manipulation:** Cache DOM queries. If an element is accessed multiple times, store its reference in a variable instead of re-querying the DOM with `document.querySelector`.
+- **Naming Conventions:** Use clear, descriptive `camelCase` for variables, properties, and function names. Use `PascalCase` for types, interfaces, classes, and Astro components. Variables and types must be self-documenting (e.g., `isMenuOpen` instead of `flag`).
+- **Scope Isolation:** Ensure all client-side scripts inside Astro `<script lang="ts">` tags (which default to TypeScript) are strictly scoped. Do not pollute the global `window` object unless absolutely necessary for an integration, and document it explicitly if done (using proper global type declarations if needed).
+- **DOM Manipulation & Type Casting:** Cache DOM queries. When querying elements, cast them to their specific elements if needed (e.g., `document.querySelector<HTMLButtonElement>('.button')`) to ensure proper type safety and autocomplete. If an element is accessed multiple times, store its reference in a variable.
 
 ### 3. Astro Structure & Layout Cleanliness
 - **Frontmatter Separation:** Keep the Astro component frontmatter (`---`) clean. Use it strictly for component lifecycle tasks: importing components, extracting component properties (`Astro.props`), or setting up static content arrays. Do not mix business logic with layout structures.
