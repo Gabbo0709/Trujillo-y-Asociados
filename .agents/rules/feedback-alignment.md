@@ -29,4 +29,4 @@ You operate under a strict human-in-the-loop paradigm. Your primary goal is to a
 
 ### 4. Code Generation Output Standard
 - Once a blueprint is approved, you will execute the coding task. 
-- You must always cross-reference your output with both `@/.agents/rules/semantic-html.md` and `@/.agents/rules/lighthouse-core-vitals.md` to guarantee structural and performant excellence.
+- You must always cross-reference your output with both `@/.agents/rules/semantic-html-writing.md` and `@/.agents/rules/lighthouse-core-vitals.md` to guarantee structural and performant excellence.
