@@ -1,0 +1,328 @@
+---
+// src/features/layout/Header.astro
+import { Image } from 'astro:assets';
+
+// Content Matrix for clean template rendering and SEO semantic routing
+const navLinks = [
+  { href: '#firma', label: 'Nuestra Firma' },
+  { href: '#contacto', label: 'Contacto' },
+  { href: '#faq', label: 'FAQ' }
+];
+---
+
+<header class="site-header">
+  <div class="header-container layout-container">
+    <!-- Brand Logo -->
+    <a href="/" class="logo-link" aria-label="Trujillo & Asociados Inicio">
+      <Image 
+        src="/T&A Completo 3.png" 
+        alt="Trujillo & Asociados" 
+        width={136} 
+        height={44} 
+        loading="eager" 
+        fetchpriority="high"
+        class="logo-image"
+      />
+    </a>
+
+    <!-- Accessibility Hamburger Toggle for Mobile -->
+    <button class="mobile-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir menú de navegación">
+      <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="line line-top" d="M4 6h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="line line-middle" d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="line line-bottom" d="M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Main Navigation List -->
+    <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li class="nav-item">
+            <a href={link.href} class="nav-link">{link.label}</a>
+          </li>
+        ))}
+        <!-- Inline Mobile CTA to avoid layout shifts and keep spacing clean -->
+        <li class="nav-item mobile-only-cta">
+          <a href="#agendar" class="cta-link-mobile btn-primary">Agendar Consulta</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Desktop CTA Button -->
+    <a href="#agendar" class="cta-link-desktop btn-primary-header">
+      Agendar Consulta
+    </a>
+  </div>
+</header>
+
+<style>
+  /* Header Container Styling */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: hsl(var(--color-chocolate-alto-hsl));
+    border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--transition-smooth);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  /* Brand Logo & Styles */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    height: 48px; /* Strict touch target requirement */
+  }
+
+  .logo-image {
+    display: block;
+    height: 44px;
+    width: auto;
+    transition: var(--transition-smooth);
+  }
+
+  .logo-link:hover .logo-image {
+    transform: scale(1.03);
+  }
+
+  /* Main Navigation List Layout */
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    color: hsla(var(--color-capuchino-white-hsl), 0.8);
+    transition: var(--transition-smooth);
+    padding: var(--space-2) var(--space-1);
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+
+  /* Premium Micro-animation for Desktop links */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color: hsl(var(--color-capuchino-white-hsl));
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover {
+    color: #ffffff;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Desktop CTA Style (Custom refined outline button to overlay beautifully on Dark Chocolate) */
+  .btn-primary-header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    background-color: transparent;
+    color: hsl(var(--color-capuchino-white-hsl));
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    border-radius: var(--radius-brand);
+    transition: var(--transition-smooth);
+    border: 1px solid hsla(var(--color-capuchino-white-hsl), 0.35);
+    height: 44px;
+  }
+
+  .btn-primary-header:hover {
+    background-color: hsl(var(--color-capuchino-white-hsl));
+    color: hsl(var(--color-chocolate-alto-hsl));
+    border-color: hsl(var(--color-capuchino-white-hsl));
+  }
+
+  .btn-primary-header:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  /* Mobile Toggle Trigger Button */
+  .mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: hsl(var(--color-capuchino-white-hsl));
+    cursor: pointer;
+    width: 48px;
+    height: 48px; /* A11y Minimum Touch Target */
+    padding: 0;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+  }
+
+  .mobile-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-toggle:focus-visible {
+    outline: var(--focus-ring);
+  }
+
+  .line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .line-top {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .line-middle {
+    opacity: 0;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .line-bottom {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Mobile specific layout targets */
+  .mobile-only-cta {
+    display: none;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .cta-link-desktop {
+      display: none;
+    }
+
+    .main-navigation {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: hsl(var(--color-chocolate-alto-hsl));
+      border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.1);
+      padding: var(--space-6) var(--space-8);
+      animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .main-navigation.is-active {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-4);
+    }
+
+    .nav-link {
+      display: block;
+      padding: var(--space-3) 0;
+      font-size: var(--text-base);
+      border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.05);
+    }
+
+    .nav-link::after {
+      display: none; /* Disable underlines on mobile menu */
+    }
+
+    .mobile-only-cta {
+      display: block;
+      margin-top: var(--space-4);
+    }
+
+    .cta-link-mobile {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3);
+      font-size: var(--text-base);
+      background-color: hsl(var(--color-capuchino-white-hsl));
+      color: hsl(var(--color-chocolate-alto-hsl));
+      border-radius: var(--radius-brand);
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .cta-link-mobile:hover {
+      background-color: #ffffff;
+      color: hsl(var(--color-chocolate-alto-hsl));
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  function initHeader() {
+    const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle');
+    const nav = document.querySelector<HTMLElement>('.main-navigation');
+    
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isExpanded));
+        nav.classList.toggle('is-active');
+      });
+      
+      // Close mobile navigation when a menu link is clicked (e.g. hash routing)
+      const navLinks = nav.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-active');
+        });
+      });
+    }
+  }
+
+  // Run on initial load
+  initHeader();
+
+  // Re-initialize after Astro Swaps (for compatibility with View Transitions)
+  document.addEventListener('astro:after-swap', initHeader);
+</script>
