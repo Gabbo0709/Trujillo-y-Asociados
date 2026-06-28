@@ -36,3 +36,11 @@
 ## Context: Software Rendering Optimization in Headless CI
 - **Mistake/Anti-Pattern:** Using GPU/CPU-heavy graphical CSS properties like `backdrop-filter: blur(...)` or complex `filter` effects. In headless CI runners (e.g., GitHub Actions), these effects are rendered via software emulation, causing massive CPU main-thread blocks, long layout tasks, and high Total Blocking Time (TBT) / Render Delay.
 - **Corrected Behavior:** Avoid `backdrop-filter` or complex CSS filters on sticky headers or large layout elements. Rely on solid or flat opacity colors to ensure lightning-fast software rasterization and low TBT.
+
+## Context: CSS Transition Property Scope
+- **Mistake/Anti-Pattern:** Using `transition: all .3s cubic-bezier(…)` (via a `--transition-smooth` custom property) on multiple selectors across the codebase. The `all` keyword forces the browser to compute transition eligibility for **every** CSS property on every state recalculation, creating massive Style & Layout overhead (~879ms) on slow CI runners (benchmarkIndex ~1911). Combined with 12+ selectors using it, TBT spiked to 1,090ms.
+- **Corrected Behavior:** Define only a timing variable (`--ease-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1)`) and compose it in each selector with explicit property names: e.g. `transition: color var(--ease-smooth);` or `transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);`. Never use `all` in transition shorthand.
+
+## Context: inlineStylesheets Configuration (Reconfirmed)
+- **Mistake/Anti-Pattern:** Proposing `build: { inlineStylesheets: 'always' }` even when the total CSS payload is small (~8KB). The user has explicitly rejected this approach twice — the CSSOM synchronous parse overhead it causes on headless CI runners consistently degrades TBT regardless of CSS size.
+- **Corrected Behavior:** Always use `build: { inlineStylesheets: 'auto' }`. Do not propose `'always'` under any circumstance. If the CSS exceeds the 4KB auto threshold and causes a render-blocking audit, address the root cause of CSS size instead.

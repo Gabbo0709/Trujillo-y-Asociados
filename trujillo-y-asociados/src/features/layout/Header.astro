@@ -68,7 +68,6 @@ const navLinks: NavLink[] = [
     z-index: 100;
     background-color: hsl(var(--color-chocolate-alto-hsl));
     border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.1);
-    transition: var(--transition-smooth);
 
     /* Center items inside header directly with zero redundant inner divs */
     display: flex;
@@ -89,7 +88,7 @@ const navLinks: NavLink[] = [
     display: block;
     height: 44px;
     width: auto;
-    transition: var(--transition-smooth);
+    transition: transform var(--ease-smooth);
   }
 
   .logo-link:hover .logo-image {
@@ -111,7 +110,7 @@ const navLinks: NavLink[] = [
     font-weight: 500;
     font-size: var(--text-sm);
     color: hsla(var(--color-capuchino-white-hsl), 0.8);
-    transition: var(--transition-smooth);
+    transition: color var(--ease-smooth);
     padding: var(--space-2) var(--space-1);
     letter-spacing: 0.02em;
     position: relative;
@@ -126,7 +125,7 @@ const navLinks: NavLink[] = [
     width: 0;
     height: 1.5px;
     background-color: hsl(var(--color-capuchino-white-hsl));
-    transition: var(--transition-smooth);
+    transition: width var(--ease-smooth);
     transform: translateX(-50%);
   }
 
@@ -156,7 +155,7 @@ const navLinks: NavLink[] = [
     font-weight: 600;
     font-size: var(--text-sm);
     border-radius: var(--radius-brand);
-    transition: var(--transition-smooth);
+    transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
     border: 1px solid hsla(var(--color-capuchino-white-hsl), 0.35);
     height: 44px;
   }
@@ -185,7 +184,7 @@ const navLinks: NavLink[] = [
     height: 48px; /* A11y Minimum Touch Target */
     padding: 0;
     border-radius: 50%;
-    transition: var(--transition-smooth);
+    transition: background-color var(--ease-smooth);
   }
 
   .mobile-toggle:hover {
@@ -278,7 +277,7 @@ const navLinks: NavLink[] = [
       border-radius: var(--radius-brand);
       font-weight: 600;
       text-align: center;
-      transition: var(--transition-smooth);
+      transition: background-color var(--ease-smooth), color var(--ease-smooth);
     }
 
     .cta-link-mobile:hover {

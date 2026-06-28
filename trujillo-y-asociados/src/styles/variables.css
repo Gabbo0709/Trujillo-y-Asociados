@@ -38,5 +38,5 @@
 
   --focus-ring: 3px solid hsla(var(--color-terracota-legal-hsl), 0.5);
   --max-width-landing: 1280px;
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
