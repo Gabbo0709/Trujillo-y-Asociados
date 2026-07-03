@@ -62,7 +62,7 @@ const { cards = defaultCards } = Astro.props;
         <div class="info-card">
           <h3 class="card-title">{card.title}</h3>
           <div class="card-content">
-            {card.title === "Headquarters" ? (
+            {card.title === "Oficina (placeholder)" ? (
               <address class="address-block">
                 {card.lines.map((line) => <span>{line}</span>)}
               </address>
