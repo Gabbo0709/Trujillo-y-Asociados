@@ -28,7 +28,7 @@ Present a 3-step structured engagement lifecycle ("Nuestro proceso de trabajo") 
     <div class="flex flex-col gap-4">
       <div class="bg-[#FFFDFB] p-4 grid grid-cols-1 md:grid-cols-4 gap-6 items-center border border-gray-200">
         <div class="md:col-span-1 h-32 w-full overflow-hidden">
-          <img src="/assets/process-diagnostico.jpg" alt="Diagnóstico stage representation" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/process-diagnostico.jpg" alt="Diagnóstico stage representation" class="w-full h-full object-cover" loading="lazy" width="512" height="256" />
         </div>
         <div class="md:col-span-1">
           <h3 class="text-xl font-medium">Diagnóstico</h3>
