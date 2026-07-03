@@ -22,7 +22,7 @@ Render a clean, block-styled customer review slider or marquee showcase area ("E
       <!-- Repeat this testimonial card block for each testimonial (3 total on desktop) -->
       <div class="flex flex-col justify-between">
         <blockquote class="text-sm italic font-light leading-relaxed mb-6">
-          "The precision of Fidem Valorem’s counsel transformed our approach to international expansion. Their authoritative insight is unparalleled."
+          "(Testimonio placeholder) La asesoría de Trujillo &amp; Asociados fue decisiva para resolver nuestro caso con claridad y confianza."
         </blockquote>
         <cite class="not-italic text-xs font-medium tracking-wide opacity-80 block">
           Lenaic Duval / <span class="uppercase">CEO</span>
