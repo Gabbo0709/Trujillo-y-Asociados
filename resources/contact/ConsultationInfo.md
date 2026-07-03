@@ -33,6 +33,7 @@ const defaultCards: InfoCard[] = [
   {
     title: "Oficina (placeholder)",
     lines: ["C. Guaymas 8–Interior 401, Roma Nte.", "Cuauhtémoc, 06700 Ciudad de México, CDMX"]
+  },
   {
     title: "Direct Lines",
     lines: ["123-45-6789", "info@mysite.com"]
