@@ -116,6 +116,7 @@ const faqSchema = {
             class="tab-trigger" 
             data-target={category.id}
             aria-selected={index === 0 ? "true" : "false"}
+            tabindex={index === 0 ? "0" : "-1"}
             role="tab" id={`tab-${category.id}`} aria-controls={`panel-${category.id}`}
           >
             {category.label}
