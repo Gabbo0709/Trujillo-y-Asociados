@@ -76,7 +76,7 @@ Render the distinct client tabular support index section containing localized he
     <!-- Footer Disclaimer Callout Segment -->
     <div class="disclaimer-block">
       <p class="disclaimer-text">
-        Fidem Valorem Legal operates with unwavering discretion and bespoke intent. Each practice area is managed by lead counsel with decades of litigation experience within high-stakes financial environments.
+        Trujillo &amp; Asociados opera con estricta confidencialidad. Cada área de práctica es gestionada por counsel líder con amplia experiencia en litigio.
       </p>
     </div>
 
