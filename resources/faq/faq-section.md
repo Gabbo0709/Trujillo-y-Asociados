@@ -347,13 +347,18 @@ const faqSchema = {
           const targetId = trigger.getAttribute('data-target');
 
           // Mutate semantic control states
-          triggers.forEach(t => t.setAttribute('aria-selected', t === trigger ? 'true' : 'false'));
+          triggers.forEach(t => {
+            const isActive = t === trigger;
+            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            t.setAttribute('tabindex', isActive ? '0' : '-1');
+          });
+          trigger.focus();
           
           panels.forEach(panel => {
-            if (panel.getAttribute('data-panel-id') === targetId) {
-              panel.setAttribute('data-state', 'active');
-            } else {
-              panel.setAttribute('data-state', 'hidden');
+            const isActive = panel.getAttribute('data-panel-id') === targetId;
+            panel.setAttribute('data-state', isActive ? 'active' : 'hidden');
+            panel.hidden = !isActive;
+            if (!isActive) {
               // Close any open accordions within the hidden panel to reset presentation layers safely
               panel.querySelectorAll('details[open]').forEach(details => details.removeAttribute('open'));
             }
