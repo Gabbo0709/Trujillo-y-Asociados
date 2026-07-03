@@ -58,11 +58,11 @@ const { cards = defaultCards } = Astro.props;
 
     <!-- Cards Display Framework -->
     <div class="cards-grid">
-      {cards.map((card) => (
+      {cards.map((card, index) => (
         <div class="info-card">
           <h3 class="card-title">{card.title}</h3>
           <div class="card-content">
-            {card.title === "Oficina (placeholder)" ? (
+            {index === 0 ? (
               <address class="address-block">
                 {card.lines.map((line) => <span>{line}</span>)}
               </address>
