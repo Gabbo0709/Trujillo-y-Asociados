@@ -50,7 +50,7 @@ const defaultMembers: TeamMember[] = [
 const { members = defaultMembers } = Astro.props;
 ---
 ```
----
+<!-- (removed stray markdown horizontal rule delimiter) -->
 ```html
 <section class="team-section">
   <div class="wrapper">
