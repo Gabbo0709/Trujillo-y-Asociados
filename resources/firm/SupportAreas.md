@@ -38,7 +38,7 @@ Render the distinct client tabular support index section containing localized he
       <!-- Entry Row: IRS Disputes -->
       <div class="tabular-row">
         <div class="category-col">
-          <h3 class="category-name">IRS Disputes & Litigation</h3>
+          <h3 class="category-name">Litigio laboral (placeholder)</h3>
         </div>
         <div class="description-col">
           <p class="description-text">
