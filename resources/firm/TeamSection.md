@@ -25,6 +25,7 @@ export interface Props {
 ```
 
 ## Structural Schema (HTML + Scoped CSS)
+```TypeScript
 ---
 import type { TeamMember } from '../types';
 
@@ -48,7 +49,9 @@ const defaultMembers: TeamMember[] = [
 
 const { members = defaultMembers } = Astro.props;
 ---
-
+```
+---
+```html
 <section class="team-section">
   <div class="wrapper">
     <h2 class="main-heading">Nuestro Equipo</h2>
@@ -152,3 +155,4 @@ const { members = defaultMembers } = Astro.props;
     }
   }
 </style>
+```
