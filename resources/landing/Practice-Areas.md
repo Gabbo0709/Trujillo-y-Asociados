@@ -21,7 +21,7 @@ export interface AreaItem {
 }
 ```
 
-Structural Schema (HTML)
+## Structural Schema (HTML)
 
 
 ```html

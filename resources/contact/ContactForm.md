@@ -28,19 +28,19 @@ Implement the multi-column input execution layer containing the layout anchor he
         
         <!-- Full Name Input Field -->
         <div class="input-group">
-          <label for="fullName" class="field-label">Full Name *</label>
+          <label for="fullName" class="field-label">Nombre completo *</label>
           <input type="text" id="fullName" name="fullName" required class="underline-input" />
         </div>
 
         <!-- Email Input Field -->
         <div class="input-group">
-          <label for="email" class="field-label">Email *</label>
+          <label for="email" class="field-label">Correo electrónico *</label>
           <input type="email" id="email" name="email" required class="underline-input" />
         </div>
 
         <!-- Phone Input Field -->
         <div class="input-group">
-          <label for="phone" class="field-label">Phone *</label>
+          <label for="phone" class="field-label">Teléfono *</label>
           <div class="phone-input-container">
             <span class="globe-icon" aria-hidden="true">🌐 🗗</span>
             <input type="tel" id="phone" name="phone" required class="underline-input phone-field" />
@@ -49,13 +49,13 @@ Implement the multi-column input execution layer containing the layout anchor he
 
         <!-- Subject Input Field -->
         <div class="input-group">
-          <label for="subject" class="field-label">Subject</label>
+          <label for="subject" class="field-label">Asunto</label>
           <input type="text" id="subject" name="subject" class="underline-input" />
         </div>
 
         <!-- Message Textarea Block -->
         <div class="input-group full-width">
-          <label for="message" class="field-label">Message</label>
+          <label for="message" class="field-label">Mensaje</label>
           <textarea id="message" name="message" rows="4" class="underline-textarea"></textarea>
         </div>
 
@@ -63,7 +63,7 @@ Implement the multi-column input execution layer containing the layout anchor he
 
       <!-- Action Submission Control Trigger -->
       <div class="button-row">
-        <button type="submit" class="submit-action-btn">Submit Inquiry</button>
+        <button type="submit" class="submit-action-btn">Enviar consulta</button>
       </div>
     </form>
 

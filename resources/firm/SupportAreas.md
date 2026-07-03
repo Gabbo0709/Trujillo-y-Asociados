@@ -35,14 +35,14 @@ Render the distinct client tabular support index section containing localized he
         </div>
       </div>
 
-      <!-- Entry Row: IRS Disputes -->
+      <!-- Entry Row: Litigio laboral (placeholder) -->
       <div class="tabular-row">
         <div class="category-col">
           <h3 class="category-name">Litigio laboral (placeholder)</h3>
         </div>
         <div class="description-col">
           <p class="description-text">
-            Our firm delivers resolute representation in high-stakes federal tax controversies. From audit defense to complex appellate litigation, we safeguard client assets through meticulous legal strategy and intellectual vigor.
+            Descripción (placeholder): representación y defensa en litigio laboral conforme a la legislación mexicana.
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@ Render the distinct client tabular support index section containing localized he
       <!-- Entry Row: International Tax -->
       <div class="tabular-row">
         <div class="category-col">
-          <h3 class="category-name">International Tax Advisory</h3>
+          <h3 class="category-name">Asesoría laboral corporativa (placeholder)</h3>
         </div>
         <div class="description-col">
           <p class="description-text">

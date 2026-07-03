@@ -52,8 +52,8 @@ const { cards = defaultCards } = Astro.props;
     
     <!-- Title Wrapper Layout Matrix -->
     <div class="title-row">
-      <p class="sidebar-text">Reach out for confidential and comprehensive legal support.</p>
-      <h2 class="main-title">Initiate Your Consultation</h2>
+      <p class="sidebar-text">Contáctanos para recibir asesoría legal confidencial.</p>
+      <h2 class="main-title">Inicie su consulta</h2>
     </div>
 
     <!-- Cards Display Framework -->

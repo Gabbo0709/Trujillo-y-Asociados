@@ -102,8 +102,8 @@ const faqSchema = {
 
 <section class="faq-section">
   <div class="faq-container">
-    <h2 class="faq-heading">Frequently Asked Questions</h2>
-    <p class="faq-subtext">Use this space to promote your business, its products or its services.</p>
+    <h2 class="faq-heading">Preguntas frecuentes</h2>
+    <p class="faq-subtext">Respuestas rápidas a las dudas más comunes.</p>
 
     <!-- Native Shell Wrapper using Standard Web Component API -->
     <faq-controller data-active-category={categories[0]?.id ?? ''}>
