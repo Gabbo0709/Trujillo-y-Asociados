@@ -1,4 +1,4 @@
-### 3. `PracticeAreas.astro.md`
+<!-- Component Specification: PracticeAreas.astro -->
 
 # Component Specification: PracticeAreas.astro
 
