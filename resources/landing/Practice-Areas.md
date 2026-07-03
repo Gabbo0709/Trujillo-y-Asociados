@@ -1,6 +1,5 @@
 ### 3. `PracticeAreas.astro.md`
 
-```markdown
 # Component Specification: PracticeAreas.astro
 
 ## Objective
@@ -49,5 +48,4 @@ Structural Schema (HTML)
     
     </div>
 </section>
-
 ```
