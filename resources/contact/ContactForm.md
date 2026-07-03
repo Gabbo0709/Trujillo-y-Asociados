@@ -18,8 +18,8 @@ Implement the multi-column input execution layer containing the layout anchor he
     
     <!-- Left Static Context Column -->
     <div class="brand-column">
-      <h2 class="form-main-heading">Contact</h2>
-      <p class="response-notice">Our team will respond within one business day.</p>
+      <h2 class="form-main-heading">Contacto</h2>
+      <p class="response-notice">Nuestro equipo responderá dentro de un día hábil.</p>
     </div>
 
     <!-- Right Interaction Input Form -->

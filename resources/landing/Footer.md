@@ -38,7 +38,7 @@ Implement the comprehensive semantic webpage footer layout, embedding institutio
 
     <div class="md:col-span-4 flex flex-col justify-between items-start md:items-end text-left md:text-right gap-6">
       <address class="not-italic text-xs leading-relaxed opacity-90 max-w-xs">
-        <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" rel="noopener noreferrer" class="hover:underline">
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="hover:underline">
           C. Guaymas 8–Interior 401, Roma Nte.<br/>
           Cuauhtémoc, 06700 Ciudad de México, CDMX
         </a>

@@ -82,7 +82,7 @@ const { categories = defaultCategories } = Astro.props;
 
 // Generate Google Search FAQ Structured Schema Data
 const faqSchema = {
-  "@context": "[https://schema.org](https://schema.org)",
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": categories.flatMap(cat => 
     cat.items.map(item => ({
@@ -98,25 +98,25 @@ const faqSchema = {
 ---
 
 <!-- Inject JSON-LD Schema directly in server execution loop for optimal SEO crawler parsing -->
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 
 <section class="faq-section">
   <div class="faq-container">
-    <h2 class="faq-heading">Frequent Asked Questions</h2>
+    <h2 class="faq-heading">Frequently Asked Questions</h2>
     <p class="faq-subtext">Use this space to promote your business, its products or its services.</p>
 
     <!-- Native Shell Wrapper using Standard Web Component API -->
-    <faq-controller data-active-category={categories[0].id}>
+    <faq-controller data-active-category={categories[0]?.id ?? ''}>
       
       <!-- Tab Navigation Header -->
-      <nav class="tabs-navigation" aria-label="FAQ Categories">
+      <nav class="tabs-navigation" aria-label="FAQ Categories" role="tablist">
         {categories.map((category, index) => (
           <button 
             type="button" 
             class="tab-trigger" 
             data-target={category.id}
             aria-selected={index === 0 ? "true" : "false"}
-            role="tab"
+            role="tab" id={`tab-${category.id}`} aria-controls={`panel-${category.id}`}
           >
             {category.label}
           </button>
@@ -130,6 +130,8 @@ const faqSchema = {
             id={`panel-${category.id}`} 
             class="category-panel" 
             data-panel-id={category.id}
+            role="tabpanel"
+            aria-labelledby={`tab-${category.id}`}
             data-state={index === 0 ? "active" : "hidden"}
           >
             {category.items.map((item) => (

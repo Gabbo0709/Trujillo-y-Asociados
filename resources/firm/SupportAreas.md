@@ -26,7 +26,7 @@ Render the distinct client tabular support index section containing localized he
       <!-- List Entry Block -->
       <div class="tabular-row">
         <div class="category-col">
-          <h3 class="category-name">Corporate Tax Planning</h3>
+          <h3 class="category-name">Asesoría laboral preventiva (placeholder)</h3>
         </div>
         <div class="description-col">
           <p class="description-text">

@@ -31,9 +31,8 @@ import type { InfoCard } from '../types';
 
 const defaultCards: InfoCard[] = [
   {
-    title: "Headquarters",
-    lines: ["500 Terry Francine St.", "San Francisco, CA 94158"]
-  },
+    title: "Oficina (placeholder)",
+    lines: ["C. Guaymas 8–Interior 401, Roma Nte.", "Cuauhtémoc, 06700 Ciudad de México, CDMX"]
   {
     title: "Direct Lines",
     lines: ["123-45-6789", "info@mysite.com"]

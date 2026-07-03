@@ -1,7 +1,7 @@
 # Component Specification: WorkProcess.astro
 
 ## Objective
-Present the 3-step structured engagement lifecycle ("Nuestro proceso de trabajo") along with contextual imagery.
+Present a 3-step structured engagement lifecycle ("Nuestro proceso de trabajo") along with contextual imagery. The schema below shows one step card; repeat/map the pattern for all 3 steps.
 
 ## Architecture & Performance
 - **Type**: Pure Astro Component.

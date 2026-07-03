@@ -19,6 +19,7 @@ Render a clean, block-styled customer review slider or marquee showcase area ("E
     <h2 class="text-3xl font-serif mb-12">Experiencia del cliente</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Repeat this testimonial card block for each testimonial (3 total on desktop) -->
       <div class="flex flex-col justify-between">
         <blockquote class="text-sm italic font-light leading-relaxed mb-6">
           "The precision of Fidem Valorem’s counsel transformed our approach to international expansion. Their authoritative insight is unparalleled."

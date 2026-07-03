@@ -35,6 +35,7 @@ export interface Props {
       </h2>
     </div>
 
+    <!-- Render one card per metric (e.g., `metrics.map(...)`) -->
     <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="bg-[#FFFDFB] text-[#3D1411] p-6 flex flex-col justify-between min-h-[250px]">
         <div>

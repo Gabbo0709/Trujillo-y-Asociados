@@ -5,7 +5,7 @@ Render the institutional philosophy section featuring the partners' corporate po
 
 ## Architecture & Performance
 - **Type**: Pure Astro Component (Static SSR, Zero-JS client-side footprint).
-- **SEO**: Wraps narrative in a semantic `<section>` block using an asynchronous layout layout engine.
+- **SEO**: Wraps narrative in a semantic `<section>` block using an asynchronous layout engine.
 - **Images**: Enforce `loading="lazy"` and explicit aspect-ratio handling to avoid cumulative layout shifts (CLS).
 
 ## Component Location
