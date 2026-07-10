@@ -56,3 +56,19 @@
 ## Context: Responsive Image Optimization (LCP)
 - **Mistake/Anti-Pattern:** Using a `sizes` attribute like `sizes="(max-width: 768px) 800px, 100vw"` to serve smaller images to mobile. Since mobile screens often have a 3x Device Pixel Ratio (DPR), the browser calculates `800px (CSS width) * 3 (DPR) = 2400px`, completely defeating the responsive optimization and downloading the largest 1927px fallback anyway, wrecking the LCP.
 - **Corrected Behavior:** Provide granular `widths` (e.g., `widths={[360, 720, 1080, 1440, 1927]}`) and use a straightforward `sizes="100vw"` attribute. The browser will automatically multiply `100vw` (e.g. 360 CSS pixels) by the screen's DPR (e.g. 3x = 1080px) and request the correctly optimized `1080w` variant, drastically improving LCP on mobile.
+
+## Context: Client-Side Component Interactivity in Astro
+- **Mistake/Anti-Pattern:** Using global selectors and event listeners in raw `<script>` tags, which requires manual initialization, manual de-duplication checks (`data-initialized` attributes), and explicit handlers for Astro view transitions (`astro:after-swap`).
+- **Corrected Behavior:** Wrap interactive component templates inside a custom HTML element (e.g., `<layout-header>`) and define its behavior inside a class extending `HTMLElement` (Web Components) registered with `customElements.define`. Use `this.querySelector` within `connectedCallback` to query children. This scopes the logic, prevents namespace collision, and leverages native browser lifecycles to automatically initialize the element when mounted, avoiding transition listener duplicates.
+
+## Context: Component Styling Integration
+- **Mistake/Anti-Pattern:** Co-locating styles in a separate `.css` file next to the `.astro` component (e.g. `Hero.css` next to `Hero.astro`), forcing multiple file imports and separating styles from the component template.
+- **Corrected Behavior:** Keep CSS styles inline inside a `<style>` block directly within the `.astro` component file itself to ensure proper encapsulation and leverage Astro's native component-scoped styling.
+
+## Context: Asset Audit & Pre-existing Images
+- **Mistake/Anti-Pattern:** Generating a new image asset or assuming a placeholder name without checking if a component asset with a different filename (e.g. `hero-image.png` instead of `hero-trophy.jpg`) is already present in the assets directory.
+- **Corrected Behavior:** Audit the target assets folder before planning image integration. If an asset matching the layout intent is already present, import and utilize that file instead of generating a new one.
+
+## Context: Static SVG Cluttering vs Vite Raw Imports
+- **Mistake/Anti-Pattern:** Hardcoding raw SVG XML paths directly inside component templates (e.g., inside conditional loops). This bloats the template, reduces maintainability, and bypasses the project's static assets hierarchy.
+- **Corrected Behavior:** Save SVG assets inside the assets folder (e.g., `@landing/assets/icons/`) and import them into the component frontmatter using Vite's `?raw` loader suffix (e.g., `import brainSvg from '@landing/assets/icons/brain.svg?raw';`). Render them in the template using `<Fragment set:html={svgString} />` and scope their styling using scoped `:global(svg)` selectors.
