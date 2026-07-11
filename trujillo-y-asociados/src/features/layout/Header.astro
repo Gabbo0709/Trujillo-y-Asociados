@@ -9,8 +9,8 @@ interface NavLink {
 
 // Content Matrix for clean template rendering and SEO semantic routing
 const navLinks: NavLink[] = [
-  { href: '#asesoria', label: 'Asesoría a Empresas' },
   { href: '#firma', label: 'Nuestra Firma' },
+  { href: '#asesoria', label: 'Asesoría a Empresas' },
   { href: '#contacto', label: 'Contacto' }
 ];
 ---
@@ -101,9 +101,8 @@ const navLinks: NavLink[] = [
   }
 
   .nav-link {
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: var(--text-md);
+    font-family: var(--font-sans);;
+    font-size: var(--text-lg);
     color: hsla(var(--color-brand-secondary), 0.8);
     transition: color var(--ease-smooth);
     padding: var(--space-2) var(--space-1);
@@ -165,6 +164,22 @@ const navLinks: NavLink[] = [
     outline-offset: 3px;
   }
 
+  @media (768px < width <= 1024px) {
+    .logo-image {
+      max-width: 150px;
+    }
+
+    .nav-link {
+      font-size: var(--text-sm);
+      padding: 0;
+    }
+
+    .btn-primary-header {
+      font-size: var(--text-sm);
+      padding: 0;
+    }
+  }
+  
   /* Mobile Toggle Trigger Button */
   .mobile-toggle {
     display: none;
