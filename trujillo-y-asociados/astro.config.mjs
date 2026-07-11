@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://trujilloasociados.com', 
+    output: 'static',
     trailingSlash: 'never',
     integrations: [sitemap()],
     build: {
