@@ -76,3 +76,18 @@
 ## Context: Footer Component Specification
 - **Mistake/Anti-Pattern:** Attempting to wrap layout landmarks (like `<aside>`) in wrapper `<div>` tags, using absolute pathing imports (`/src/features/...`), and writing Tailwind utility classes inside component specifications instead of custom scoped Vanilla CSS.
 - **Corrected Behavior:** Strictly enforce semantic HTML layouts with zero `div` wrappers, import local layout assets (like `logo.webp`) using relative pathing imports (e.g., `../assets/...`), and define all styles strictly via pure Vanilla CSS rules inside a scoped `<style>` block.
+
+## Context: Media Query Range Syntax (CSS Level 4)
+- **Mistake/Anti-Pattern:** Using legacy `min-width` or `max-width` syntax in CSS media queries.
+- **Corrected Behavior:** Use the modern CSS Media Queries Level 4 range syntax (e.g., `width >= 768px`, `width <= 768px`, `width < 1024px`) for all `@media` conditions.
+
+## Context: Card Layout & Border Radius
+- **Mistake/Anti-Pattern:** Applying a border-radius or rounded corners to cards (containers/articles) on the landing page.
+- **Corrected Behavior:** Ensure all cards on the landing page have straight corners (no `border-radius` / `border-radius: 0;`).
+
+## Context: Layout Padding & Single Source of Truth
+- **Mistake/Anti-Pattern:** Calculating layout padding inline (e.g., `padding-inline: max(...)`) in individual components.
+- **Corrected Behavior:** Use the global `--layout-padding-inline` CSS variable defined in `variables.css` for all primary landing page sections and header/footer layout landmarks to maintain a Single Source of Truth (SSOT).
+
+
+
