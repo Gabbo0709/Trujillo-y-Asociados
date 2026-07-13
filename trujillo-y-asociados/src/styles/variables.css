@@ -1,14 +1,15 @@
 :root {
-  --color-capuchino-white-hsl: 46, 38%, 86%;   /* #EAE2CC */
-  --color-espresso-leve-hsl: 42, 21%, 64%;     /* #B6AB91 */
   --color-terracota-legal-hsl: 5, 66%, 15%;    /* #3F120C */
+  --color-espresso-leve-hsl: 42, 21%, 64%;     /* #B6AB91 */
   --color-chocolate-alto-hsl: 8, 54%, 16%;     /* #3F1F13 */
+  --color-capuchino-white-hsl: 46, 38%, 86%;   /* #EAE2CC */
 
-  --color-brand-primary: var(--color-chocolate-alto-hsl);
-  --color-brand-secondary: var(--color-espresso-leve-hsl);
-  --color-brand-highlight: var(--color-terracota-legal-hsl);
+  --color-brand-primary: var(--color-terracota-legal-hsl);
+  --color-brand-secondary: var(--color-capuchino-white-hsl);
+  --color-brand-muted: var(--color-chocolate-alto-hsl);
 
-  --color-bg-primary: hsl(var(--color-capuchino-white-hsl));
+  --color-bg-primary: hsl(var(--color-espresso-leve-hsl));
+  --color-bg-secondary: hsl(var(--color-terracota-legal-hsl));
   --color-bg-surface: hsl(0, 0%, 100%);
   
   --color-text-title: hsl(var(--color-terracota-legal-hsl));

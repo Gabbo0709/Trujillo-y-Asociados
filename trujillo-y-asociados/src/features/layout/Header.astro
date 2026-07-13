@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logoImage from './assets/images/ta-completo-3.webp';
+import logoImage from './assets/images/logo.png';
 
 interface NavLink {
   href: string;
@@ -9,9 +9,9 @@ interface NavLink {
 
 // Content Matrix for clean template rendering and SEO semantic routing
 const navLinks: NavLink[] = [
+  { href: '#asesoria', label: 'Asesoría a Empresas' },
   { href: '#firma', label: 'Nuestra Firma' },
-  { href: '#contacto', label: 'Contacto' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '#contacto', label: 'Contacto' }
 ];
 ---
 
@@ -21,9 +21,8 @@ const navLinks: NavLink[] = [
     <Image 
       src={logoImage} 
       alt="Trujillo & Asociados" 
-      width={136} 
-      height={44} 
-      densities={[1, 1.5, 2]}
+      widths={[150, 300, 450, 600, 900, 1200]}
+      sizes="(max-width: 768px) 150px, (max-width: 1024px) 200px, 250px"
       loading="eager" 
       fetchpriority="high"
       class="logo-image"
@@ -66,33 +65,29 @@ const navLinks: NavLink[] = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: hsl(var(--color-chocolate-alto-hsl));
-    border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.1);
-
-    /* Center items inside header directly with zero redundant inner divs */
-    display: flex;
+    background-color: hsl(var(--color-brand-primary));
+    border-bottom: 1px solid hsla(var(--color-brand-secondary), 0.1);
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
-    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-right: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-left: var(--space-12);
+    padding-block: var(--space-6);
   }
 
   /* Brand Logo & Styles */
   .logo-link {
     display: flex;
     align-items: center;
-    height: 48px; /* Strict touch target requirement */
   }
 
   .logo-image {
     display: block;
-    height: 44px;
-    width: auto;
+    height: auto;
+    width: 100%;
+    max-width: 250px;
     transition: transform var(--ease-smooth);
-  }
-
-  .logo-link:hover .logo-image {
-    transform: scale(1.03);
   }
 
   /* Main Navigation List Layout */
@@ -108,8 +103,8 @@ const navLinks: NavLink[] = [
   .nav-link {
     font-family: var(--font-sans);
     font-weight: 500;
-    font-size: var(--text-sm);
-    color: hsla(var(--color-capuchino-white-hsl), 0.8);
+    font-size: var(--text-md);
+    color: hsla(var(--color-brand-secondary), 0.8);
     transition: color var(--ease-smooth);
     padding: var(--space-2) var(--space-1);
     letter-spacing: 0.02em;
@@ -124,7 +119,7 @@ const navLinks: NavLink[] = [
     left: 50%;
     width: 0;
     height: 1.5px;
-    background-color: hsl(var(--color-capuchino-white-hsl));
+    background-color: hsl(var(--color-brand-secondary));
     transition: width var(--ease-smooth);
     transform: translateX(-50%);
   }
@@ -150,20 +145,19 @@ const navLinks: NavLink[] = [
     justify-content: center;
     padding: var(--space-2) var(--space-4);
     background-color: transparent;
-    color: hsl(var(--color-capuchino-white-hsl));
+    color: hsl(var(--color-brand-secondary));
     font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: var(--text-sm);
-    border-radius: var(--radius-brand);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-lg);
     transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
-    border: 1px solid hsla(var(--color-capuchino-white-hsl), 0.35);
     height: 44px;
+    text-decoration: underline;
   }
 
   .btn-primary-header:hover {
-    background-color: hsl(var(--color-capuchino-white-hsl));
-    color: hsl(var(--color-chocolate-alto-hsl));
-    border-color: hsl(var(--color-capuchino-white-hsl));
+    background-color: hsl(var(--color-brand-secondary));
+    color: hsl(var(--color-brand-primary));
+    border-color: hsl(var(--color-brand-secondary));
   }
 
   .btn-primary-header:focus-visible {
@@ -178,7 +172,7 @@ const navLinks: NavLink[] = [
     justify-content: center;
     background: transparent;
     border: none;
-    color: hsl(var(--color-capuchino-white-hsl));
+    color: hsl(var(--color-brand-secondary));
     cursor: pointer;
     width: 48px;
     height: 48px; /* A11y Minimum Touch Target */
@@ -218,7 +212,16 @@ const navLinks: NavLink[] = [
   }
 
   /* Responsive Breakpoints */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
+    .site-header {
+      grid-template-columns: 1fr auto;
+      padding-block: var(--space-6);
+    }
+
+    .logo-image {
+      max-width: 150px;
+    }
+
     .mobile-toggle {
       display: flex;
     }
@@ -233,8 +236,8 @@ const navLinks: NavLink[] = [
       top: 100%;
       left: 0;
       right: 0;
-      background-color: hsl(var(--color-chocolate-alto-hsl));
-      border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.1);
+      background-color: hsl(var(--color-brand-primary));
+      border-bottom: 1px solid hsla(var(--color-brand-secondary), 0.1);
       padding: var(--space-6) var(--space-8);
       animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
@@ -253,7 +256,7 @@ const navLinks: NavLink[] = [
       display: block;
       padding: var(--space-3) 0;
       font-size: var(--text-base);
-      border-bottom: 1px solid hsla(var(--color-capuchino-white-hsl), 0.05);
+      border-bottom: 1px solid hsla(var(--color-brand-secondary), 0.05);
     }
 
     .nav-link::after {
@@ -272,17 +275,17 @@ const navLinks: NavLink[] = [
       justify-content: center;
       padding: var(--space-3);
       font-size: var(--text-base);
-      background-color: hsl(var(--color-capuchino-white-hsl));
-      color: hsl(var(--color-chocolate-alto-hsl));
+      background-color: hsl(var(--color-brand-secondary));
+      color: hsl(var(--color-brand-primary));
       border-radius: var(--radius-brand);
-      font-weight: 600;
+      font-weight: var(--font-weight-bold);
       text-align: center;
       transition: background-color var(--ease-smooth), color var(--ease-smooth);
     }
 
     .cta-link-mobile:hover {
       background-color: #ffffff;
-      color: hsl(var(--color-chocolate-alto-hsl));
+      color: hsl(var(--color-brand-primary));
     }
   }
 

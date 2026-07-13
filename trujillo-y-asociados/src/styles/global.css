@@ -25,6 +25,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-brand-secondary) var(--color-brand-primary);
   background-color: var(--color-bg-primary);
   overflow-x: hidden;
   @media (prefers-reduced-motion: reduce) {
@@ -70,13 +72,7 @@ a {
    outline: var(--focus-ring);
    outline-offset: 3px;
  }
- 
-.layout-container {
-  width: 100%;
-  max-width: var(--max-width-landing);
-  margin-inline: auto;
-  padding-inline: var(--space-6);
-}
+
 
 .btn-primary {
   display: inline-flex;
