@@ -15,6 +15,7 @@
   --color-text-title: hsl(var(--color-terracota-legal-hsl));
   --color-text-body: hsl(var(--color-chocolate-alto-hsl));
   --color-text-muted: hsl(var(--color-espresso-leve-hsl));
+  --color-text-layout: hsl(var(--color-capuchino-white-hsl));
   
   --color-accent: hsl(var(--color-terracota-legal-hsl));
   --color-border: hsl(var(--color-espresso-leve-hsl));
@@ -29,7 +30,7 @@
   --text-xl: clamp(1.25rem, 1.17rem + 0.43vw, 1.5rem);
   --text-2xl: clamp(1.30rem, 1.20rem + 0.62vw, 1.75rem); 
   --text-3xl: clamp(1.5rem, 1.34rem + 0.8vw, 2rem);     
-  --text-4xl: clamp(1.75rem, 1.51rem + 1.2vw, 2.5rem);   
+  --text-4xl: clamp(1.55rem, 1.51rem + 1.0vw, 2.5rem);   
 
   --text-subtitle: clamp(1.75rem, 1.36rem + 1.95vw, 3rem);
   --text-title: clamp(2rem, 1.5rem + 2.5vw, 5rem);

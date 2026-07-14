@@ -72,3 +72,7 @@
 ## Context: Static SVG Cluttering vs Vite Raw Imports
 - **Mistake/Anti-Pattern:** Hardcoding raw SVG XML paths directly inside component templates (e.g., inside conditional loops). This bloats the template, reduces maintainability, and bypasses the project's static assets hierarchy.
 - **Corrected Behavior:** Save SVG assets inside the assets folder (e.g., `@landing/assets/icons/`) and import them into the component frontmatter using Vite's `?raw` loader suffix (e.g., `import brainSvg from '@landing/assets/icons/brain.svg?raw';`). Render them in the template using `<Fragment set:html={svgString} />` and scope their styling using scoped `:global(svg)` selectors.
+
+## Context: Footer Component Specification
+- **Mistake/Anti-Pattern:** Attempting to wrap layout landmarks (like `<aside>`) in wrapper `<div>` tags, using absolute pathing imports (`/src/features/...`), and writing Tailwind utility classes inside component specifications instead of custom scoped Vanilla CSS.
+- **Corrected Behavior:** Strictly enforce semantic HTML layouts with zero `div` wrappers, import local layout assets (like `logo.webp`) using relative pathing imports (e.g., `../assets/...`), and define all styles strictly via pure Vanilla CSS rules inside a scoped `<style>` block.

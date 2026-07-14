@@ -1,0 +1,231 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@layout/assets/images/logo-icon.png';
+
+interface FooterNav {
+  href: string;
+  label: string;
+};
+
+const footerNavLinks: FooterNav[] = [
+  { href: '#asesoria', label: 'Asesoría Jurídica a Empresas' },
+  { href: '#firma', label: 'Nuestra Firma' },
+  { href: '#contacto', label: 'Contacto' }
+];
+---
+
+<footer class="site-footer">
+  <section class="footer-brand" aria-label="Descripción de la Firma y Asesoría Legal">
+    <a href="/" aria-label="Trujillo & Asociados Inicio">
+      <Image 
+        src={logo} 
+        alt="Trujillo & Asociados Logo" 
+        widths={[64, 128, 192]} 
+        sizes="(max-width: 768px) 64px, (max-width: 1024px) 128px, 192px"
+        loading="lazy"
+        class="footer-logo"
+      />
+    </a>
+    <p class="footer-tagline">
+      Asesoramiento legal experto para la compleja y exigente normativa <strong class="footer-highlight">Ley Federal del Trabajo</strong>
+    </p>
+  </section>
+
+  <aside class="footer-nav-section" aria-label="Información y Enlaces">
+    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+      {footerNavLinks.map((link) => (
+        <a href={link.href} class="footer-link">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <section class="footer-contact-section" aria-label="Contacto">
+      <address class="footer-address">
+        <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
+          C. Guaymas 8–Interior 401, Roma Nte.<br/>
+          Cuauhtémoc, 06700 Ciudad de México, CDMX
+        </a>
+      </address>
+      <a href="mailto:despachotrujilloyasociados@gmail.com" class="footer-email">
+        despachotrujilloyasociados@gmail.com
+      </a>
+    </section>
+    <nav class="footer-social-nav" aria-label="Redes sociales">
+      <a href="#linkedin" class="footer-social-link">LinkedIn</a>
+      <a href="#facebook" class="footer-social-link">Facebook</a>
+    </nav>
+  </aside>
+
+  <small class="footer-copyright">© 2026 Trujillo & Asociados. Todos los derechos reservados.</small>
+  
+</footer>
+
+<style>
+  .site-footer {
+    background-color: hsl(var(--color-brand-primary));
+    color: hsl(var(--color-brand-secondary));
+    border-top: 1px solid hsla(var(--color-brand-secondary), 0.1);
+    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-block: var(--space-16) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    gap: var(--space-12);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .footer-logo {
+    display: block;
+    height: auto;
+    width: 64px;
+  }
+
+  .footer-highlight {
+    display: block;
+    margin-top: var(--space-1);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .footer-tagline {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    line-height: 1.4;
+  }
+
+   .footer-nav-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: var(--space-12);
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .footer-link {
+    font-size: var(--text-sm);
+    color: hsla(var(--color-brand-secondary), 0.8);
+    text-decoration: none;
+    transition: color var(--ease-smooth);
+    padding-block: var(--space-2);
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    color: var(--color-text-layout);
+    text-decoration: underline;
+  }
+
+  .footer-contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+
+  .footer-address {
+    font-style: normal;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .footer-email {
+    display: block;
+    font-size: var(--text-sm);
+    color: hsla(var(--color-brand-secondary), 0.9);
+    text-decoration: none;
+    margin-bottom: var(--space-3);
+    transition: color var(--ease-smooth);
+    padding-block: var(--space-2);
+  }
+
+  .footer-email:hover {
+    color: var(--color-text-layout);
+    text-decoration: underline;
+  }
+
+  .footer-social-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: right;
+  }
+
+  .footer-social-link {
+    font-size: var(--text-sm);
+    color: hsla(var(--color-brand-secondary), 0.8);
+    text-decoration: none;
+    transition: color var(--ease-smooth);
+    padding-block: var(--space-2);
+    display: inline-block;
+  }
+
+  .footer-social-link:hover {
+    color: var(--color-text-layout);
+    text-decoration: underline;
+  }
+
+  .footer-map-link {
+    color: hsla(var(--color-brand-secondary), 0.9);
+    text-decoration: none;
+    transition: color var(--ease-smooth);
+    padding-block: var(--space-2);
+    display: inline-block;
+  }
+
+  .footer-map-link:hover {
+    color: var(--color-text-layout);
+    text-decoration: underline;
+  }
+
+  .footer-copyright {
+    font-size: var(--text-xs);
+    text-align: center;
+    opacity: 0.6;
+    margin-bottom: var(--space-6);
+  }
+
+  @media (width <= 768px) {
+    .site-footer {
+      gap: var(--space-4);
+    }
+
+    .footer-contact-section {
+      gap: var(--space-4);
+    }
+
+    .footer-nav-section {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .footer-brand {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-nav-section {
+      text-align: center;
+    }
+
+    .footer-social-nav {
+      text-align: center;
+    }
+  }
+
+</style>
