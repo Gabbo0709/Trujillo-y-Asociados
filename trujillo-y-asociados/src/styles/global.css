@@ -12,21 +12,21 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-brand-primary);
+    background: var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-brand-secondary);
+    background: var(--color-bg-secondary);
     border-radius: 5px;
     &:hover {
-        background: var(--color-brand-highlight);
+        background: var(--color-bg-surface);
     }
 }
 
 html {
   scroll-behavior: smooth;
   scrollbar-width: auto;
-  scrollbar-color: var(--color-brand-secondary) var(--color-brand-primary);
+  scrollbar-color: var(--color-bg-primary) var(--color-bg-secondary);
   background-color: var(--color-bg-secondary);
   overflow-x: hidden;
   @media (prefers-reduced-motion: reduce) {
@@ -91,4 +91,21 @@ a {
   background-color: transparent;
   color: var(--color-text-title);
   border-color: var(--color-text-title);
+}
+
+.icon-holder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  color: var(--color-bg-primary);
+  transition: background-color var(--ease-smooth), color var(--ease-smooth);
+}
+
+.icon-holder :global(svg) {
+    width: 32px;
+    height: 32px;
+    fill: var(--color-bg-primary);
+    stroke: var(--color-bg-primary);
 }
