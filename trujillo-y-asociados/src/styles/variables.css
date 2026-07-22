@@ -1,7 +1,7 @@
 :root {
   --color-terracota-legal-hsl: 5, 66%, 15%;    /* #3F120C */
   --color-espresso-leve-hsl: 42, 21%, 64%;     /* #B6AB91 */
-  --color-chocolate-alto-hsl: 8, 54%, 16%;     /* #3F1F13 */
+  --color-chocolate-alto-hsl: 16, 54%, 16%;     /* #3F1F13 */
   --color-capuchino-white-hsl: 46, 38%, 86%;   /* #EAE2CC */
 
   --color-brand-primary: var(--color-terracota-legal-hsl);
@@ -12,7 +12,7 @@
   --color-bg-secondary: hsl(var(--color-terracota-legal-hsl));
   --color-bg-surface: hsl(0, 0%, 100%);
   
-  --color-text-title: hsl(var(--color-terracota-legal-hsl));
+  --color-text-title: hsl(var(--color-espresso-leve-hsl));
   --color-text-body: hsl(var(--color-chocolate-alto-hsl));
   --color-text-muted: hsl(var(--color-espresso-leve-hsl));
   --color-text-layout: hsl(var(--color-capuchino-white-hsl));
@@ -34,6 +34,7 @@
 
   --text-subtitle: clamp(1.75rem, 1.36rem + 1.95vw, 3rem);
   --text-title: clamp(2rem, 1.5rem + 2.5vw, 5rem);
+  --text-heading: clamp(2.5rem, 1.8rem + 3.4vw, 7rem);
   
   --font-weight-medium: 400;
   --font-weight-bold: 700;
@@ -54,7 +55,7 @@
 
   --max-width-landing: 90rem;
   --z-base: 1;
-  --z-nav:: 100;
+  --z-nav: 100;
   --z-modal: 1000;
 
   --focus-ring: 3px solid hsla(var(--color-terracota-legal-hsl), 0.5);

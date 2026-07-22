@@ -1,0 +1,141 @@
+---
+interface StatMetric {
+  value: string;
+  label: string;
+  description: string;
+}
+
+interface Props {
+  metrics?: StatMetric[];
+}
+
+const defaultMetrics: StatMetric[] = [
+  {
+    value: "30+",
+    label: "Años de experiencia",
+    description: "Con los años, la firma evolucionó hasta ser un pilar del derecho laboral mexicano, reconocida por su asesoría preventiva, alta capacidad de litigio y trato humano con el cliente."
+  },
+  {
+    value: "100%",
+    label: "Dedicados en materia",
+    description: "Nos dedicamos exclusivamente al derecho laboral. Nuestra total especialización nos permite ofrecer soluciones precisas, estratégicas y profundamente actualizadas en el entorno laboral mexicano."
+  },
+  {
+    value: "3000+",
+    label: "Casos atendidos",
+    description: "La diversidad de casos atendidos en materia laboral avala nuestro dominio de la ley, consolidándonos como una de las firmas más activas del país."
+  }
+];
+
+const { metrics = defaultMetrics } = Astro.props;
+---
+
+<section class="stats-section" aria-labelledby="stats-heading" aria-label="Métricas de la firma Trujillo & Asociados">
+  <!-- Slogan Column -->
+  <header class="stats-header" aria-label="Slogan de la firma Trujillo & Asociados">
+    <h2 class="stats-title" id="stats-heading">
+      Defensa digna, labor de herencia.
+    </h2>
+  </header>
+
+  <!-- Metrics Grid -->
+  <section class="stats-metrics-list" aria-label="Métricas de éxito de la firma">
+    {metrics.map((metric) => (
+      <article class="stat-card">
+        <h3 class="stat-value">{metric.value}</h3>
+        <h4 class="stat-label">{metric.label}</h4>
+        <p class="stat-description">{metric.description}</p>
+      </article>
+    ))}
+  </section>
+</section>
+
+<style>
+  .stats-section {
+    background-color: hsl(var(--color-brand-primary));
+    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-block: var(--space-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  /* Title Column */
+  .stats-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-12);
+  }
+
+  .stats-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-heading);
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* Metrics List Grid */
+  .stats-metrics-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-16);
+  }
+
+  /* Card Styles */
+  .stat-card {
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-body);
+    padding-block: var(--space-8);
+    padding-inline: var(--space-8);
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    gap: var(--space-4);
+    min-height: 500px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .stat-card-header {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .stat-value {
+    font-family: var(--font-sans);
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-extrabold);
+    color: hsl(var(--color-brand-primary));
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-medium);
+    color: hsl(var(--color-brand-primary));
+    line-height: 1;
+    max-width: 10ch;
+    margin: 0;
+  }
+
+  .stat-description {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text-body);
+    margin: 0;
+  }
+
+  @media (width < 768px) {
+
+    .stat-card {
+      min-height: 300px;
+      grid-template-rows: 1fr 1fr auto;
+      gap: var(--space-4);
+    }
+
+    .stat-label {
+      max-width: 100%;
+    }
+  }
+</style>

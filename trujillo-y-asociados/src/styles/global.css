@@ -27,7 +27,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: auto;
   scrollbar-color: var(--color-brand-secondary) var(--color-brand-primary);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-secondary);
   overflow-x: hidden;
   @media (prefers-reduced-motion: reduce) {
         html {
@@ -47,14 +47,13 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   color: var(--color-text-title);
   font-weight: var(--font-weight-bold);
   line-height: 1.15;
 }
 
 h1 { font-size: var(--text-3xl); }
-h2 { font-size: var(--text-2xl); }
 h3 { font-size: var(--text-xl); }
 
 p {
@@ -82,7 +81,7 @@ a {
   background-color: var(--color-text-title);
   color: var(--color-bg-primary);
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   border-radius: var(--radius-brand);
   transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
   border: 1px solid transparent;
