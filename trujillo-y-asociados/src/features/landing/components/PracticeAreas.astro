@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import emblemSeal from '../assets/images/emblem-seal.png';
-
 export interface AreaItem {
   title: string;
   description: string;
@@ -40,37 +37,23 @@ const {
 ---
 
 <section id="asesoria" class="practice-areas-section" aria-labelledby="practice-areas-heading">
-  <div class="practice-areas-grid">
-    <header class="header-column">
-      <figure class="emblem-container">
-        <Image 
-          src={emblemSeal} 
-          alt="Sello Institucional Trujillo & Asociados" 
-          widths={[96, 192, 288]}
-          sizes="96px"
-          loading="lazy"
-          decoding="async"
-          class="emblem-img"
-        />
-      </figure>
-      <h2 id="practice-areas-heading" class="section-title">
-        {title}
-      </h2>
-      <p class="section-subtitle">{subtitle}</p>
-    </header>
+  <header class="header-column">
+    <h2 id="practice-areas-heading" class="section-title">
+      {title}
+    </h2>
+    <p class="section-subtitle">{subtitle}</p>
+  </header>
 
-    <div class="items-column">
-      {items.map((item) => (
+  <ul class="items-list" role="list">
+    {items.map((item) => (
+      <li class="area-item">
         <article class="area-card">
-          <div class="area-title-wrapper">
-            <span class="area-indicator" aria-hidden="true"></span>
-            <h3 class="area-title">{item.title}</h3>
-          </div>
+          <h3 class="area-title">{item.title}</h3>
           <p class="area-description">{item.description}</p>
         </article>
-      ))}
-    </div>
-  </div>
+      </li>
+    ))}
+  </ul>
 </section>
 
 <style>
@@ -80,9 +63,6 @@ const {
     padding-block: var(--space-16);
     padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
     width: 100%;
-  }
-
-  .practice-areas-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -92,19 +72,7 @@ const {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-  }
-
-  .emblem-container {
-    margin: 0;
-    width: 96px;
-    height: 96px;
-  }
-
-  .emblem-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+    align-self: center;
   }
 
   .section-title {
@@ -124,35 +92,27 @@ const {
     margin: 0;
   }
 
-  .items-column {
+  .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
   }
 
-  .area-card {
+  .area-item {
     padding-block: var(--space-6);
     border-top: 1px solid hsla(var(--color-chocolate-alto-hsl), 0.25);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
   }
 
-  .area-card:last-child {
+  .area-item:last-child {
     border-bottom: 1px solid hsla(var(--color-chocolate-alto-hsl), 0.25);
   }
 
-  .area-title-wrapper {
-    display: flex;
-    align-items: center;
+  .area-card {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-3);
-  }
-
-  .area-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: hsl(var(--color-terracota-legal-hsl));
-    display: inline-block;
-    flex-shrink: 0;
   }
 
   .area-title {
@@ -162,6 +122,18 @@ const {
     color: hsl(var(--color-terracota-legal-hsl));
     line-height: 1.3;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .area-title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: hsl(var(--color-terracota-legal-hsl));
+    display: inline-block;
+    flex-shrink: 0;
   }
 
   .area-description {
@@ -173,7 +145,7 @@ const {
   }
 
   @media (min-width: 768px) {
-    .practice-areas-grid {
+    .practice-areas-section {
       grid-template-columns: 1fr 2fr;
       gap: var(--space-12);
     }
@@ -185,3 +157,4 @@ const {
     }
   }
 </style>
+
