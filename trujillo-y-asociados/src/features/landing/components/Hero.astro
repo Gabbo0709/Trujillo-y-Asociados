@@ -98,11 +98,11 @@ import heroBg from '../assets/images/bg-library.webp';
   }
 
   .hero-title {
-    font-weight: var(--font-weight-extrabold);
-    font-size: clamp(2.5rem, 1.25rem + 5.25dvw, 8rem);
+    font-weight: var(--font-weight-bold);
+    font-size: clamp(2.5rem, 1.75rem + 5.75dvw, 12rem);
     margin: 0;
     line-height: 1.15;
-    padding-left: var(--space-8);
+    padding-left: var(--space-12);
   }
 
   .hero-title-group {
@@ -116,13 +116,20 @@ import heroBg from '../assets/images/bg-library.webp';
     background-color: var(--color-bg-surface);
     color: var(--color-text-body);
     font-size: clamp(0.9rem, 0.35em, 2.3rem);
-    font-weight: bold;
+    font-weight: var(--font-weight-black);
     padding: 0.5em 1em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     display: inline-block;
-    vertical-align: middle;
+    align-self: center;
+    margin-top: 1rem;
     line-height: 1;
+  }
+
+  @media (width < 768px) {
+    .hero-badge {
+      margin-top: 0.5rem;
+    }
   }
 
   .hero-cta-section {

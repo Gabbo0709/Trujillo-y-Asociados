@@ -71,15 +71,14 @@ const navLinks: NavLink[] = [
     grid-template-columns: 1fr 2fr auto;
     align-items: center;
     justify-content: space-between;
-    padding-right: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
-    padding-left: var(--space-12);
+    padding-inline: var(--layout-padding-inline);
     padding-block: var(--space-6);
   }
 
   /* Brand Logo & Styles */
   .logo-link {
     display: flex;
-    align-items: center;
+    self-align: left;
   }
 
   .logo-image {

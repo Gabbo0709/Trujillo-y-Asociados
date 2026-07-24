@@ -1,0 +1,245 @@
+---
+import { Image } from 'astro:assets';
+import IconArrow from '@landing/assets/icons/arrow-up-right.svg?raw';
+import type { ImageMetadata } from 'astro';
+import processDiagnostico from '@landing/assets/images/process-diagnostico.jpg';
+import processEstrategia from '@landing/assets/images/process-estrategia.jpg';
+import processResolucion from '@landing/assets/images/process-resolucion.jpg';
+
+interface ProcessStep {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+interface Props {
+  steps?: ProcessStep[];
+}
+
+const defaultSteps: ProcessStep[] = [
+  {
+    title: "Diagnóstico",
+    subtitle: "Situación inicial",
+    description: "Revisamos su situación y documentación relevante para identificar riesgos y oportunidades con precisión.",
+    image: processDiagnostico,
+    imageAlt: "Manos de un consultor revisando contratos y documentos legales sobre un escritorio de madera."
+  },
+  {
+    title: "Estrategia",
+    subtitle: "Plan de acción",
+    description: "Diseñamos una estrategia legal personalizada y preventiva adaptada a los objetivos específicos de su empresa o caso.",
+    image: processEstrategia,
+    imageAlt: "Equipo de abogados analizando y planificando la estrategia legal en una mesa de juntas."
+  },
+  {
+    title: "Resolución",
+    subtitle: "Defensa y ejecución",
+    description: "Implementamos la defensa o negociación con firmeza y profesionalismo, asegurando la protección de su patrimonio y derechos.",
+    image: processResolucion,
+    imageAlt: "Cierre exitoso mediante apretón de manos profesional dentro de un despacho legal."
+  }
+];
+
+const { steps = defaultSteps } = Astro.props;
+---
+
+<section class="work-process" aria-labelledby="work-process-title">
+  <header class="process-header">
+    <div class="process-text-group">
+      <h2 class="process-title" id="work-process-title">Nuestro proceso de trabajo</h2>
+      <p class="process-subtitle">Método simple y claro.</p>
+    </div>
+    <a href="#nosotros" class="process-cta-link">
+      <span class="cta-text">Sobre Nosotros</span>
+      <span class="icon-holder" aria-hidden="true">
+        <Fragment set:html={IconArrow} />
+      </span>
+    </a>
+  </header>
+
+  <ol class="process-steps">
+    {steps.map((step) => (
+      <li class="process-step-item">
+        <article class="process-card">
+          <figure class="process-card-image-wrapper">
+            <Image
+              src={step.image}
+              alt={step.imageAlt}
+              width={512}
+              height={256}
+              widths={[360, 512, 720]}
+              sizes="(max-width: 768px) 100vw, 25vw"
+              loading="lazy"
+              class="process-card-image"
+            />
+          </figure>
+          <header class="process-card-header">
+            <h3 class="process-card-title">{step.title}</h3>
+            <p class="process-card-subtitle">{step.subtitle}</p>
+          </header>
+          <p class="process-card-description">{step.description}</p>
+        </article>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .work-process {
+    background-color: var(--color-bg-primary);
+    padding-inline: var(--layout-padding-inline);
+    padding-block: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .process-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .process-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .process-title {
+    font-size: var(--text-heading);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-body);
+    margin: 0;
+    line-height: 1;
+  }
+
+  .process-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--text-subtitle);
+    margin: 0;
+  }
+
+  .process-cta-link {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-title);
+    padding: var(--space-4) var(--space-8);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-xl);
+    transition: background-color var(--ease-smooth), color var(--ease-smooth);
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .cta-text{
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .process-cta-link:hover .cta-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .process-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: 0;
+    margin: 0;
+  }
+
+  .process-step-item {
+    padding: 0;
+    margin: 0;
+  }
+
+  .process-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    transition: transform var(--ease-smooth), box-shadow var(--ease-smooth);
+  }
+
+  .process-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .process-card-image-wrapper {
+    height: 128px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .process-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .process-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .process-card-title {
+    font-size: var(--text-subtitle);
+    font-weight: var(--font-weight-bold);
+    color: hsl(var(--color-chocolate-alto-hsl));
+    margin: 0;
+    line-height: 1;
+  }
+
+  .process-card-subtitle {
+    font-size: var(--text-xl);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .process-card-description {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    color: hsl(var(--color-chocolate-alto-hsl));
+    margin: 0;
+    max-width: 65ch;
+  }
+
+  @media (width >= 768px) {
+    .process-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .process-cta-link {
+      align-self: auto;
+    }
+
+    .process-card {
+      grid-template-columns: auto 2fr 1fr;
+      gap: var(--space-12);
+      padding: var(--space-6);
+    }
+
+    .process-card-image-wrapper {
+      height: 140px;
+    }
+  }
+</style>

@@ -10,7 +10,7 @@
 
   --color-bg-primary: hsl(var(--color-espresso-leve-hsl));
   --color-bg-secondary: hsl(var(--color-terracota-legal-hsl));
-  --color-bg-surface: hsl(0, 0%, 100%);
+  --color-bg-surface: hsl(35, 100%, 98%);
   
   --color-text-title: hsl(var(--color-espresso-leve-hsl));
   --color-text-body: hsl(var(--color-chocolate-alto-hsl));
@@ -51,13 +51,13 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  --radius-brand: 12px; /* TODO(TA-01): Actualizar acorde al borde que comparta Max */
-
-  --max-width-landing: 90rem;
+  --max-width-landing:120rem;
   --z-base: 1;
   --z-nav: 100;
   --z-modal: 1000;
 
   --focus-ring: 3px solid hsla(var(--color-terracota-legal-hsl), 0.5);
   --ease-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --layout-padding-inline: max(var(--space-12), calc((100% - var(--max-width-landing)) / 2 + var(--space-12)));
 }
