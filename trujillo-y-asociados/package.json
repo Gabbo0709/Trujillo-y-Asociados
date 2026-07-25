@@ -11,8 +11,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "astro check",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:html": "html-validate \"dist/**/*.html\"",
+    "test:links": "linkinator ./dist --recurse --skip \"^https?://(www\\.)?(linkedin|facebook|twitter)\\.com\"",
+    "ci:validate": "pnpm run check && pnpm run test && pnpm run build && pnpm run test:html && pnpm run test:links"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -21,7 +25,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@astrojs/ts-plugin": "^1.10.10",
+    "happy-dom": "^20.11.1",
+    "html-validate": "^11.5.6",
+    "linkinator": "^8.0.2",
     "typescript": "^6.0.3",
-    "vitest": "^3.0.0"
+    "vitest": "^3.2.7"
   }
 }

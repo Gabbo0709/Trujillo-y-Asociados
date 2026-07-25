@@ -10,9 +10,10 @@
       "@corporate-advisory/*": ["./src/features/corporate-advisory/*"],
       "@shared/*": ["./src/features/shared/*"],
       "@contact/*": ["./src/features/contact/*"],
+      "@seo/*": ["./src/features/seo/*"],
     },
     "strict": true
   },
-  "include": [".astro/types.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", "**/*", "env.d.ts"],
   "exclude": ["dist"]
 }

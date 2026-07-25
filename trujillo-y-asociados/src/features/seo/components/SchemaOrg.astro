@@ -1,0 +1,31 @@
+---
+import type { SchemaData, LegalServiceSchema } from '@seo/types/seo.types';
+
+interface Props {
+  schema?: SchemaData;
+  description: string;
+  canonicalUrl: URL;
+}
+
+const { schema, description, canonicalUrl } = Astro.props;
+
+const defaultSchema: LegalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Trujillo & Asociados Abogados',
+  url: Astro.site?.toString() ?? canonicalUrl.toString(),
+  logo: new URL('/seo/og-image.png', Astro.site ?? canonicalUrl).toString(),
+  description: description,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ciudad de México',
+    addressRegion: 'CDMX',
+    addressCountry: 'MX'
+  }
+};
+
+const jsonLdData = schema ?? defaultSchema;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdData)} is:inline />
