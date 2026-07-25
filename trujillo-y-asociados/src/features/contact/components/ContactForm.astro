@@ -52,15 +52,16 @@ const { whatsappNumber = "525573408674" } = Astro.props;
           <label for="phone" class="field-label">Teléfono <span aria-hidden="true">*</span></label>
           <span class="phone-input-container">
             <input 
-              type="tel" 
-              id="phone" 
-              name="phone" 
-              required 
-              aria-required="true" 
-              autocomplete="tel" 
-              pattern="[0-9\s\+\-]{8,15}" 
-              class="underline-input phone-field" 
-            />
+<input 
+  type="tel" 
+  id="phone" 
+  name="phone" 
+  required 
+  aria-required="true" 
+  autocomplete="tel" 
+  pattern="[0-9\s+\-()\.]{8,20}" 
+  class="underline-input phone-field" 
+/>
           </span>
         </div>
 
