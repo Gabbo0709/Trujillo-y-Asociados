@@ -91,7 +91,7 @@
 
 ## Context: Contact Form WhatsApp Submission Mechanism
 - **Mistake/Anti-Pattern:** Relying on default HTTP POST backend endpoints for forms intended to dispatch instant messaging consultations via WhatsApp.
-- **Corrected Behavior:** Intercept form submit via a custom Web Component (`<contact-form>`), validate fields with native HTML5 validation, sanitize and structure inputs with strong TypeScript interfaces (`ContactFormData`), format the message body, and dispatch to `https://wa.me/<PHONE_NUMBER>?text=...` with proper URL encoding. Maintain a configurable placeholder constant for the target phone number.
+- **Corrected Behavior:** Intercept form submit via a custom Web Component (`<contact-form>`), validate fields with native HTML5 validation, sanitize and structure inputs with strong TypeScript interfaces (`ContactFormData`), format the message body, and dispatch to `https://api.whatsapp.com/send?phone=<PHONE_NUMBER>&text=...` with proper URL encoding. Maintain a configurable placeholder constant for the target phone number.
 
 ## Context: Form Accessibility, ARIA & Input Autocomplete (a11y)
 - **Mistake/Anti-Pattern:** Omitting `aria-required="true"` on required fields, leaving visual asterisks (`*`) un-hidden from screen readers, disabling `:focus` outlines without providing a visible focus indicator, or omitting HTML `autocomplete` attributes.
