@@ -1,13 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import plecaPatternRaw from '@landing/assets/images/bg-pattern.png';
-
-export interface TestimonialItem {
-  quote: string;
-  author: string;
-  role: string;
-  rating?: number;
-}
+import type { TestimonialItem } from '@landing/types/testimonials.ts';
 
 export interface Props {
   titleLine1?: string;
@@ -17,19 +11,22 @@ export interface Props {
 
 const defaultTestimonials: TestimonialItem[] = [
   {
-    quote: "Resolvieron mi caso, obtuve el pago que ahora sí me correspondía por mi despido. Fue más rápido de lo esperado, <strong>sentí la formalidad del abogado, aún sin saber nada de esto me guiaron en todo el proceso.</strong>",
+    quote: "Resolvieron mi caso, obtuve el pago que ahora si me correspondía por mi despido. Fue más rápido de lo esperado, sentí la formalidad del abogado, aun sin saber nada de esto me guiaron en todo el proceso.",
+    highlightedText: "sentí la formalidad del abogado, aun sin saber nada de esto me guiaron en todo el proceso.",
     author: "Eric Duval",
     role: "Asistente Mecánico",
     rating: 5
   },
   {
-    quote: "Nos realizaron una auditoria de los documentos de los empleados según la normativa laboral, <strong>su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa.</strong> Excelente equipo de abogados.",
+    quote: "Nos realizaron una auditoria de los documentos de los empleados según la normativa laboral, su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa. Excelente equipo de abogados.",
+    highlightedText: "su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa.",
     author: "Verónica Ponce",
     role: "RR. HH. y Admón",
-    rating: 5
+    rating: 4
   },
   {
-    quote: "Conseguir el arreglo con un trabajador se volvió un problema para nuestro negocio, tener el respaldo legal de los abogados fue un alivio. <strong>El acuerdo nos evitó un juicio largo y conflictos de operaciones.</strong> Gran trabajo y apoyo.",
+    quote: "Conseguir el arreglo con un trabajador se volvió un problema para nuestro negocio, tener el respaldo legal de los abogados fue un alivio. El acuerdo nos evitó un juicio largo y conflictos de operaciones.Gran trabajo y apoyo.",
+    highlightedText: "El acuerdo nos evitó un juicio largo y conflictos de operaciones.",
     author: "Jacobo Ramírez",
     role: "Director de Operaciones (COO)",
     rating: 5
@@ -61,11 +58,11 @@ const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
       <li class="testimonial-item">
         <article class="testimonial-card">
           <blockquote class="testimonial-quote">
-            "<Fragment set:html={item.quote} />"
+            "<Fragment set:html={item.quote.replace(item.highlightedText || '', `<strong>${item.highlightedText}</strong>`)} />"
           </blockquote>
           <footer class="testimonial-footer">
-            <span class="rating-stars" aria-hidden="true">◆ ◆ ◆ ◆ ◆</span>
-            <span class="sr-only">5 estrellas de calificación</span>
+            <span class="rating-stars" aria-hidden="true">{Array.from({ length: item.rating }, () => '◆').join('')}</span>
+            <span class="sr-only">{item.rating} estrellas de calificación</span>
             <cite class="testimonial-author">
               {item.author} <span class="testimonial-role">/ {item.role}</span>
             </cite>
