@@ -6,7 +6,8 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@layout/*": ["./src/features/layout/*"],
-      "@landing/*": ["./src/features/landing/*"]
+      "@landing/*": ["./src/features/landing/*"],
+      "@firm/*": ["./src/features/firm/*"]
     },
     "strict": true
   },

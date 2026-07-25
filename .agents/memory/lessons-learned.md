@@ -104,5 +104,11 @@
 - **Mistake/Anti-Pattern:** Calculating layout padding inline (e.g., `padding-inline: max(...)`) in individual components.
 - **Corrected Behavior:** Use the global `--layout-padding-inline` CSS variable defined in `variables.css` for all primary landing page sections and header/footer layout landmarks to maintain a Single Source of Truth (SSOT).
 
+## Context: Semantic Functional Color Token Usage
+- **Mistake/Anti-Pattern:** Referencing base color names directly (e.g. `--color-chocolate-alto-hsl`, `--color-capuchino-white-hsl`, `--color-espresso-leve-hsl`, `--color-terracota-legal-hsl`) inside component `<style>` blocks instead of higher-level functional semantic tokens.
+- **Corrected Behavior:** Strictly use functional semantically named CSS color tokens (such as `var(--color-bg-primary)`, `var(--color-bg-surface)`, `var(--color-brand-primary)`, `var(--color-brand-secondary)`, `var(--color-brand-muted)`, `var(--color-text-body)`, `var(--color-accent)`, `var(--color-border)`) for all component styles.
+
+
+
 
 

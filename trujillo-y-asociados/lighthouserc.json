@@ -3,7 +3,8 @@
     "collect": {
       "staticDistDir": "./trujillo-y-asociados/dist",
       "url": [
-        "/"
+        "/",
+        "/firm"
       ]
     },
     "assert": {
