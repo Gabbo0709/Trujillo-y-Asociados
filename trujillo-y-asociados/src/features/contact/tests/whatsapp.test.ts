@@ -17,7 +17,7 @@ describe("WhatsApp Utilities", () => {
 
     const result = formatWhatsAppMessage(formData, "TEST FIRM");
     
-    expect(result).toContain("📌 *NUEVA CONSULTA LEGAL - TEST FIRM*");
+    expect(result).toContain("📍 *NUEVA CONSULTA LEGAL - TEST FIRM*");
     expect(result).toContain("👤 *Nombre:* Juan Pérez");
     expect(result).toContain("📧 *Correo:* juan@example.com");
     expect(result).toContain("📞 *Teléfono:* 5512345678");
@@ -30,6 +30,6 @@ describe("WhatsApp Utilities", () => {
       { fullName: "Ana", email: "a@b.com", phone: "123" },
       { phone: "+52 555-000" }
     );
-    expect(url).startsWith("https://api.whatsapp.com/send?phone=52555000&text=");
+    expect(url.startsWith("https://api.whatsapp.com/send?phone=52555000&text=")).toBe(true);
   });
 });
