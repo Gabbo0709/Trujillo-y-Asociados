@@ -6,7 +6,9 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@layout/*": ["./src/features/layout/*"],
-      "@landing/*": ["./src/features/landing/*"]
+      "@landing/*": ["./src/features/landing/*"],
+      "@corporate-advisory/*": ["./src/features/corporate-advisory/*"],
+      "@shared/*": ["./src/features/shared/*"],
     },
     "strict": true
   },

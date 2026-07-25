@@ -12,7 +12,7 @@
   --color-bg-secondary: hsl(var(--color-terracota-legal-hsl));
   --color-bg-surface: hsl(35, 100%, 98%);
   
-  --color-text-title: hsl(var(--color-espresso-leve-hsl));
+  --color-text-title: hsl(var(--color-terracota-legal-hsl));
   --color-text-body: hsl(var(--color-chocolate-alto-hsl));
   --color-text-muted: hsl(var(--color-espresso-leve-hsl));
   --color-text-layout: hsl(var(--color-capuchino-white-hsl));
@@ -34,7 +34,7 @@
 
   --text-subtitle: clamp(1.75rem, 1.36rem + 1.95vw, 3rem);
   --text-title: clamp(2rem, 1.5rem + 2.5vw, 5rem);
-  --text-heading: clamp(2.5rem, 1.8rem + 3.4vw, 7rem);
+  --text-heading: clamp(2.5rem, 1.75rem + 7dvw, 12rem);
   
   --font-weight-medium: 400;
   --font-weight-bold: 700;

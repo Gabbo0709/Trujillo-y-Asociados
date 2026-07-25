@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroCorporate from "@corporate-advisory/components/HeroCorporate.astro";
+import ServiceDescription from "@shared/components/ServiceDescription.astro";
+import type { Service } from "@shared/types/service.type";
+
+const services: Service[] = [
+    {
+        title: "Elaboración de Contratos de Trabajo",
+        description: "Elaboración, revisión y actualización de los contratos de trabajo a la medida de sus necesidades (por obra o tiempo determinado, por temporada o por tiempo indefinido, sujeto a prueba o capacitación inicial)."
+    },
+    {
+        title: "Auditoría Legal Laboral",
+        description: "Auditoría legal interna para verificar el cumplimiento de las obligaciones patronales previstas en la Ley Federal del Trabajo, con la finalidad de prevenir conflictos o sanciones por parte de las autoridades."
+    },
+    {
+        title: "Gestión de Documentación Laboral",
+        description: "Implementación de los documentos relativos a las condiciones generales de trabajo y comprobantes de pago de prestaciones, tales como recibos de nómina, de vacaciones, de aguinaldo, así como de los controles de horario y asistencia obligatorios."
+    },
+    {
+        title: "Reglamento Interior de Trabajo",
+        description: "Elaboración y registro del Reglamento Interior de Trabajo ante el Centro Federal de Conciliación y Registro Laboral."
+    },
+    {
+        title: "Consultoría en Asuntos Laborales",
+        description: "Atención de consultas sobre cualquier asunto laboral tales como subcontratación, sustitución patronal, teletrabajo, ley silla, trabajos especiales, condiciones de trabajo y pago de prestaciones."
+    },
+    {
+        title: "Gestión de Terminación de Relaciones Laborales",
+        description: "Gestión de terminación de las relaciones de trabajo. Llevamos a cabo negociaciones con trabajadores para dar por terminado el vínculo laboral por mutuo acuerdo, o bien para rescindir el contrato de trabajo por causas imputables al trabajador."
+    },
+    {
+        title: "Cálculo de Finiquitos y Liquidaciones",
+        description: "Cálculo de finiquito o liquidación por la terminación de las relaciones de trabajo, elaboración de convenios ya sea privados o ante el Centro de Conciliación Laboral, redacción de cartas de renuncia, recibos de finiquito."
+    },
+    {
+        title: "Representación Legal en Conflictos Laborales",
+        description: "Representación en conflictos y defensa de nuestros clientes ante el Centro de Conciliación Laboral, Tribunales Laborales o Juntas de Conciliación y Arbitraje ya sean Locales o Federales."
+    },
+    {
+        title: "Litigio Laboral",
+        description: "Elaboración y presentación de escritos de contestación de demanda, ofrecimiento de pruebas y objeción de pruebas de la contraparte, de contrarréplica, así como la comparecencia y desahogo de audiencias preliminar y de juicio ante los Tribunales Laborales. Defendemos los intereses de nuestros clientes en todas las instancias incluyendo el juicio de amparo."
+    }
+];
+---
+
+<BaseLayout title="Asesoría a Empresas" description="Nuestros servicios están enfocados a reducir conflictos con la empresa y mejorar su estructura operativa.">
+    <HeroCorporate />
+    <ServiceDescription services={services} />
+</BaseLayout>
