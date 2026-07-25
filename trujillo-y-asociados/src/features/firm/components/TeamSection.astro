@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import marcoGonzalesImg from '@firm/assets/marco_a_trujillo_gonzalez.webp';
+import marcoArguelloImg from '@firm/assets/marco_a_trujillo_arguello.webp';
+import rafaelGonzalesImg from '@firm/assets/rafael_trujillo_gonzalez.webp';
+
+export interface TeamMember {
+  name: string;
+  photoSrc: ImageMetadata;
+  biography: string;
+}
+
+export interface Props {
+  title?: string;
+  members?: TeamMember[];
+}
+
+const defaultMembers: TeamMember[] = [
+  {
+    name: "Marco A. Trujillo González",
+    photoSrc: marcoGonzalesImg,
+    biography: "Como auxiliar administrativo ofrece una experiencia inigualable en el seguimiento de asuntos y agilización en nuestra línea de servicios."
+  },
+  {
+    name: "Marco Antonio Trujillo Arguello",
+    photoSrc: marcoArguelloImg,
+    biography: "Se especializa en la resolución de disputas complejas en materia civil y mercantil con la asesoría para empresas, dirigido a personas con responsabilidad operativa y resguardo de trabajadores familiares."
+  },
+  {
+    name: "Rafael Trujillo González",
+    photoSrc: rafaelGonzalesImg,
+    biography: "Se centra en una estrategia laboral meticulosa para despidos injustificados y liquidaciones, garantizando una preservación patrimonial intergeneracional impecable y el cumplimiento de la normativa."
+  }
+];
+
+const {
+  title = "Nuestro Equipo",
+  members = defaultMembers
+} = Astro.props;
+---
+
+<section id="equipo" class="team-section" aria-labelledby="team-heading">
+  <header class="section-header">
+    <h2 id="team-heading" class="section-title">{title}</h2>
+  </header>
+
+  <ul class="team-grid" role="list">
+    {members.map((member) => (
+      <li class="member-item">
+        <article class="member-card">
+          <header class="card-header">
+            <figure class="avatar-box">
+              <Image 
+                src={member.photoSrc} 
+                alt={member.name} 
+                widths={[240, 360]} 
+                sizes="120px" 
+                loading="lazy" 
+                decoding="async" 
+                class="avatar-img" 
+              />
+            </figure>
+            <h3 class="member-name">{member.name}</h3>
+          </header>
+          <p class="member-bio">{member.biography}</p>
+        </article>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .team-section {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-body);
+    padding-block: var(--space-16);
+    padding-inline: var(--layout-padding-inline);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    color: var(--color-text-body);
+    margin: 0;
+  }
+
+  .team-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .member-item {
+    display: flex;
+  }
+
+  .member-card {
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-body);
+    padding: var(--space-6);
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .avatar-box {
+    margin: 0;
+    width: 120px;
+    height: 140px;
+    flex-shrink: 0;
+    background-color: var(--color-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .member-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-body);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .member-bio {
+    font-family: var(--font-sans);
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    color: var(--color-text-body);
+    line-height: 1.55;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  @media (width >= 768px) {
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+  }
+</style>
