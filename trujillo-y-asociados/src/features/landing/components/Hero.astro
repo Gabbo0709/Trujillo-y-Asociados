@@ -35,9 +35,11 @@ import { ROUTES } from '@shared/constants/navigation';
       alt="Biblioteca Trujillo y Asociados" 
       loading="eager" 
       fetchpriority="high"
+      decoding="sync"
+      format="avif"
+      widths={[360, 640, 768, 1024, 1280, 1536, 1920]}
+      sizes="100vw"
       class="hero-bg-image"
-      widths={[360, 720, 1080, 1440, 1927]}
-      sizes="100dvw"
     />
 
   </figure>
@@ -57,6 +59,8 @@ import { ROUTES } from '@shared/constants/navigation';
     width: 100%;
     place-items: end center;
     margin: 0;
+    height: 50dvh;
+    overflow: hidden;
   }
 
   .hero-bg-image {
@@ -64,7 +68,8 @@ import { ROUTES } from '@shared/constants/navigation';
     inset: 0;
     width: 100%;
     max-height: 50dvh;
-    object-fit: fill;
+    object-fit: cover;
+    object-position: center;
     display: block;
     z-index: -1;
   }
