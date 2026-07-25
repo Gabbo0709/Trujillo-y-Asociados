@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import heroBg from '../assets/images/bg-library.webp';
+import heroBg from '@landing/assets/images/bg-library.webp';
+import { ROUTES } from '@shared/constants/navigation';
 ---
 
 <section class="hero-module" aria-labelledby="hero-heading">
@@ -14,7 +15,7 @@ import heroBg from '../assets/images/bg-library.webp';
     
     <aside class="hero-cta-section">
       <a 
-        href="#consulta" 
+        href={ROUTES.CONTACT_FORM}
         class="hero-cta-link"
         aria-label="Agendar una consulta para evaluación gratuita"
       >

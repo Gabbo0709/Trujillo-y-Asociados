@@ -1,22 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '@layout/assets/images/logo-icon.png';
-
-interface FooterNav {
-  href: string;
-  label: string;
-};
-
-const footerNavLinks: FooterNav[] = [
-  { href: '#asesoria', label: 'Asesoría Jurídica a Empresas' },
-  { href: '#firma', label: 'Nuestra Firma' },
-  { href: '#contacto', label: 'Contacto' }
-];
+import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
 ---
 
 <footer class="site-footer">
   <section class="footer-brand" aria-label="Descripción de la Firma y Asesoría Legal">
-    <a href="/" aria-label="Trujillo & Asociados Inicio">
+    <a href={ROUTES.HOME} aria-label="Trujillo & Asociados Inicio">
       <Image 
         src={logo} 
         alt="Trujillo & Asociados Logo" 
@@ -33,7 +23,7 @@ const footerNavLinks: FooterNav[] = [
 
   <aside class="footer-nav-section" aria-label="Información y Enlaces">
     <nav class="footer-nav" aria-label="Enlaces del pie de página">
-      {footerNavLinks.map((link) => (
+      {MAIN_NAV_ITEMS.map((link) => (
         <a href={link.href} class="footer-link">
           {link.label}
         </a>

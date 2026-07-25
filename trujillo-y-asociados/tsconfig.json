@@ -9,6 +9,7 @@
       "@landing/*": ["./src/features/landing/*"],
       "@corporate-advisory/*": ["./src/features/corporate-advisory/*"],
       "@shared/*": ["./src/features/shared/*"],
+      "@contact/*": ["./src/features/contact/*"],
     },
     "strict": true
   },

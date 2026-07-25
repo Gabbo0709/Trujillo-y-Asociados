@@ -1,0 +1,320 @@
+---
+interface Props {
+  whatsappNumber?: string;
+}
+
+const { whatsappNumber = "525573408674" } = Astro.props;
+---
+
+<contact-form data-phone={whatsappNumber}>
+  <section class="contact-form-section" id="formulario-contacto" aria-labelledby="contact-form-title">
+    
+    <!-- Encabezado Contextual de la Sección -->
+    <header class="brand-column">
+      <h2 id="contact-form-title" class="form-main-heading">Contacto</h2>
+      <p class="response-notice">Nuestro equipo responderá dentro de un día hábil.</p>
+    </header>
+
+    <!-- Formulario Interactivo Semántico -->
+    <form class="interactive-form-element" id="whatsapp-contact-form" novalidate>
+      
+      <!-- Agrupación de Campos Semántica -->
+      <fieldset class="form-grid">
+        <legend class="sr-only">Formulario de consulta jurídica por WhatsApp</legend>
+        
+        <div class="input-group">
+          <label for="fullName" class="field-label">Nombre completo <span aria-hidden="true">*</span></label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            required 
+            aria-required="true" 
+            autocomplete="name" 
+            class="underline-input" 
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="email" class="field-label">Correo electrónico <span aria-hidden="true">*</span></label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            aria-required="true" 
+            autocomplete="email" 
+            class="underline-input" 
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="phone" class="field-label">Teléfono <span aria-hidden="true">*</span></label>
+          <span class="phone-input-container">
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required 
+              aria-required="true" 
+              autocomplete="tel" 
+              pattern="[0-9\s\+\-]{8,15}" 
+              class="underline-input phone-field" 
+            />
+          </span>
+        </div>
+
+        <div class="input-group">
+          <label for="subject" class="field-label">Asunto</label>
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject" 
+            autocomplete="off" 
+            class="underline-input" 
+          />
+        </div>
+
+        <div class="input-group full-width">
+          <label for="message" class="field-label">Mensaje</label>
+          <textarea id="message" name="message" rows="4" class="underline-textarea"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Contenedor de Botón de Envío -->
+      <div class="button-row">
+        <button type="submit" class="submit-action-btn">Enviar consulta por WhatsApp</button>
+      </div>
+
+    </form>
+
+  </section>
+</contact-form>
+
+<script>
+  import { buildWhatsAppUrl } from "@contact/utils/whatsapp";
+  import type { ContactFormData } from "@contact/types/contact";
+
+  class ContactFormElement extends HTMLElement {
+    private form: HTMLFormElement | null = null;
+
+    connectedCallback(): void {
+      if (this.dataset.initialized === "true") return;
+      this.dataset.initialized = "true";
+
+      this.form = this.querySelector<HTMLFormElement>("#whatsapp-contact-form");
+      this.form?.addEventListener("submit", this.handleSubmit);
+    }
+
+    disconnectedCallback(): void {
+      this.form?.removeEventListener("submit", this.handleSubmit);
+    }
+
+    private handleSubmit = (e: SubmitEvent): void => {
+      e.preventDefault();
+      if (!this.form) return;
+
+      if (!this.form.checkValidity()) {
+        this.form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(this.form);
+      const payload: ContactFormData = {
+        fullName: String(formData.get("fullName") || ""),
+        email: String(formData.get("email") || ""),
+        phone: String(formData.get("phone") || ""),
+        subject: String(formData.get("subject") || ""),
+        message: String(formData.get("message") || ""),
+      };
+
+      const targetPhone = this.dataset.phone || "";
+      const whatsappUrl = buildWhatsAppUrl(payload, { phone: targetPhone });
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    };
+  }
+
+  if (!customElements.get("contact-form")) {
+    customElements.define("contact-form", ContactFormElement);
+  }
+</script>
+
+<style>
+  .contact-form-section {
+    scroll-margin-top: var(--space-32);
+    background-color: var(--color-text-layout);
+    padding-block: var(--space-16);
+    padding-inline: var(--layout-padding-inline);
+    width: 100%;
+    color: var(--color-text-body);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .brand-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .form-main-heading {
+    font-size: var(--text-title);
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-title);
+  }
+
+  .response-notice {
+    font-size: var(--text-base);
+    line-height: 1.2;
+    max-width: 30ch;
+    padding-block: var(--space-4);
+    color: var(--color-text-body);
+  }
+
+  .interactive-form-element {
+    width: 100%;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    width: 100%;
+    border: none;
+    padding-block: 0;
+    padding-inline: 0;
+    margin: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding-block: 0;
+    padding-inline: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    margin: 0;
+  }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-body);
+  }
+
+  .underline-input,
+  .underline-textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-text-body);
+    border-radius: 0;
+    color: var(--color-text-body);
+    padding-block: var(--space-2);
+    padding-inline: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color var(--ease-smooth, 0.2s ease), box-shadow var(--ease-smooth, 0.2s ease);
+  }
+
+  .underline-textarea {
+    resize: none;
+  }
+
+  .underline-input:focus-visible,
+  .underline-textarea:focus-visible {
+    border-bottom-color: var(--color-text-title);
+    box-shadow: 0 1px 0 0 var(--color-text-title);
+    outline: none;
+  }
+
+  .phone-input-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--color-text-body);
+    width: 100%;
+  }
+
+  .phone-input-container .underline-input {
+    border-bottom: none;
+  }
+
+  .globe-icon {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .button-row {
+    margin-top: var(--space-12);
+    width: 100%;
+  }
+
+  .submit-action-btn {
+    width: 100%;
+    background-color: var(--color-text-title);
+    color: var(--color-text-layout);
+    border: 1px solid var(--color-text-title);
+    border-radius: 0;
+    padding-block: var(--space-4);
+    padding-inline: var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    min-height: 48px;
+    transition: background-color var(--ease-smooth), color var(--ease-smooth);
+  }
+
+  .submit-action-btn:hover,
+  .submit-action-btn:focus-visible {
+    background-color: var(--color-text-layout);
+    color: var(--color-text-title);
+    border: 1px solid var(--color-text-title);
+  }
+
+  /* Desktop Fluid Realignment Specifications */
+  @media (width >= 768px) {
+    .contact-form-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-12) var(--space-8);
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .submit-action-btn {
+      width: 100%;
+      min-width: 250px;
+    }
+    
+  }
+</style>
