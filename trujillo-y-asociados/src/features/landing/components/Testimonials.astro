@@ -54,22 +54,29 @@ const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
   </header>
 
   <ul class="testimonials-list" role="list">
-    {testimonials.map((item) => (
-      <li class="testimonial-item">
-        <article class="testimonial-card">
-          <blockquote class="testimonial-quote">
-            "<Fragment set:html={item.quote.replace(item.highlightedText || '', `<strong>${item.highlightedText}</strong>`)} />"
-          </blockquote>
-          <footer class="testimonial-footer">
-            <span class="rating-stars" aria-hidden="true">{Array.from({ length: item.rating }, () => '◆').join('')}</span>
-            <span class="sr-only">{item.rating} estrellas de calificación</span>
-            <cite class="testimonial-author">
-              {item.author} <span class="testimonial-role">/ {item.role}</span>
-            </cite>
-          </footer>
-        </article>
-      </li>
-    ))}
+    {testimonials.map((item) => {
+      const parts = item.highlightedText 
+        ? item.quote.split(item.highlightedText) 
+        : [item.quote];
+      return (
+        <li class="testimonial-item">
+          <article class="testimonial-card">
+            <blockquote class="testimonial-quote">
+              "{parts[0]}"
+              {item.highlightedText && <strong>{item.highlightedText}</strong>}
+              {parts[1] ? parts[1] : ''}
+            </blockquote>
+            <footer class="testimonial-footer">
+              <span class="rating-stars" aria-hidden="true">{Array.from({ length: item.rating }, () => '◆').join('')}</span>
+              <span class="sr-only">{item.rating} estrellas de calificación</span>
+              <cite class="testimonial-author">
+                {item.author} <span class="testimonial-role">/ {item.role}</span>
+              </cite>
+            </footer>
+          </article>
+        </li>
+      );
+    })}
   </ul>
 </section>
 
