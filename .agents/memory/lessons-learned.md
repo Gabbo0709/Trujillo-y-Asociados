@@ -92,4 +92,17 @@
 ## Context: Subagent Tool Capabilities Configuration
 - **Mistake/Anti-Pattern:** Invoking browser subagents with full write/exec tools enabled when the user requested a read-only browser test.
 - **Corrected Behavior:** Explicitly define and invoke subagents with `enable_write_tools: false` when read-only inspection is requested, ensuring subagents cannot execute terminal commands or mutate code.
+## Context: Media Query Range Syntax (CSS Level 4)
+- **Mistake/Anti-Pattern:** Using legacy `min-width` or `max-width` syntax in CSS media queries.
+- **Corrected Behavior:** Use the modern CSS Media Queries Level 4 range syntax (e.g., `width >= 768px`, `width <= 768px`, `width < 1024px`) for all `@media` conditions.
+
+## Context: Card Layout & Border Radius
+- **Mistake/Anti-Pattern:** Applying a border-radius or rounded corners to cards (containers/articles) on the landing page.
+- **Corrected Behavior:** Ensure all cards on the landing page have straight corners (no `border-radius` / `border-radius: 0;`).
+
+## Context: Layout Padding & Single Source of Truth
+- **Mistake/Anti-Pattern:** Calculating layout padding inline (e.g., `padding-inline: max(...)`) in individual components.
+- **Corrected Behavior:** Use the global `--layout-padding-inline` CSS variable defined in `variables.css` for all primary landing page sections and header/footer layout landmarks to maintain a Single Source of Truth (SSOT).
+
+
 
