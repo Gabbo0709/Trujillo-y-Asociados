@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import sealEmblem from '@landing/assets/images/sello-negro.png';
+import sealEmblem from '@landing/assets/images/black-seal.png';
 
 export interface AreaItem {
   title: string;
@@ -44,7 +44,16 @@ const {
 <section id="asesoria" class="practice-areas-section" aria-labelledby="practice-areas-heading">
   <header class="section-header">
     <figure class="seal-container">
-
+      <Image 
+        src={sealEmblem} 
+        alt="Emblema Sello Trujillo & Asociados" 
+        width={130}
+        height={130}
+        sizes="(max-width: 768px) 100vw, 25vw"
+        loading="lazy"
+        decoding="async"
+        class="seal-image"
+      />
     </figure>
     <hgroup class="header-content">
       <h2 id="practice-areas-heading" class="section-title">
@@ -205,16 +214,13 @@ const {
     }
 
     .header-content {
-      align-items: flex-end; /* Keep the block on the right */
+      align-items: center;
       text-align: center;
       margin-right: 2em;
     }
 
     .section-title {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center the title lines relative to each other */
     }
 
     .title-line {
@@ -224,7 +230,6 @@ const {
 
     .section-subtitle {
       text-align: center;
-      margin-top: var(--space-2);
     }
 
     .area-card {
