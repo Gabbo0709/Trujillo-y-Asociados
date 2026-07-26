@@ -1,0 +1,226 @@
+---
+import { getImage } from 'astro:assets';
+import plecaPatternRaw from '@landing/assets/images/bg-pattern.png';
+import type { TestimonialItem } from '@landing/types/testimonials.ts';
+
+export interface Props {
+  titleLine1?: string;
+  titleLine2?: string;
+  testimonials?: TestimonialItem[];
+}
+
+const defaultTestimonials: TestimonialItem[] = [
+  {
+    quote: "Resolvieron mi caso, obtuve el pago que ahora si me correspondía por mi despido. Fue más rápido de lo esperado, sentí la formalidad del abogado, aun sin saber nada de esto me guiaron en todo el proceso.",
+    highlightedText: "sentí la formalidad del abogado, aun sin saber nada de esto me guiaron en todo el proceso.",
+    author: "Eric Duval",
+    role: "Asistente Mecánico",
+    rating: 5
+  },
+  {
+    quote: "Nos realizaron una auditoria de los documentos de los empleados según la normativa laboral, su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa. Excelente equipo de abogados.",
+    highlightedText: "su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa.",
+    author: "Verónica Ponce",
+    role: "RR. HH. y Admón",
+    rating: 4
+  },
+  {
+    quote: "Conseguir el arreglo con un trabajador se volvió un problema para nuestro negocio, tener el respaldo legal de los abogados fue un alivio. El acuerdo nos evitó un juicio largo y conflictos de operaciones.Gran trabajo y apoyo.",
+    highlightedText: "El acuerdo nos evitó un juicio largo y conflictos de operaciones.",
+    author: "Jacobo Ramírez",
+    role: "Director de Operaciones (COO)",
+    rating: 5
+  }
+];
+
+const {
+  titleLine1 = "Valoraciones de",
+  titleLine2 = "nuestros clientes",
+  testimonials = defaultTestimonials
+} = Astro.props;
+
+// Process the raw PNG local asset through Astro's image optimizer pipeline to generate a lightweight WebP version
+const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
+---
+
+<section id="testimonios" class="testimonials-section" aria-labelledby="testimonials-heading">
+  <header class="testimonials-header" style={`--pleca-bg: url('${optimizedPleca.src}');`}>
+    <hgroup class="header-content">
+      <h2 id="testimonials-heading" class="section-title">
+        <span class="title-line">{titleLine1}</span>
+        <span class="title-line-bold">{titleLine2}</span>
+      </h2>
+    </hgroup>
+  </header>
+
+  <ul class="testimonials-list" role="list">
+    {testimonials.map((item) => {
+      const parts = item.highlightedText 
+        ? item.quote.split(item.highlightedText) 
+        : [item.quote];
+      return (
+        <li class="testimonial-item">
+          <article class="testimonial-card">
+            <blockquote class="testimonial-quote">
+              "{parts[0]}
+              {item.highlightedText && <strong>{item.highlightedText}</strong>}
+              {parts[1] ? parts[1] : ''}"
+            </blockquote>
+            <footer class="testimonial-footer">
+              <span class="rating-stars" aria-hidden="true">{Array.from({ length: item.rating }, () => '◆').join('')}</span>
+              <span class="sr-only">{item.rating} estrellas de calificación</span>
+              <cite class="testimonial-author">
+                {item.author} <span class="testimonial-role">/ {item.role}</span>
+              </cite>
+            </footer>
+          </article>
+        </li>
+      );
+    })}
+  </ul>
+</section>
+
+<style>
+  .testimonials-section {
+    background-color: var(--color-bg-surface);
+    color: hsl(var(--color-text-body));
+    width: 100%;
+  }
+
+  .testimonials-header {
+    position: relative;
+    background-color: var(--color-bg-primary);
+    padding-block: var(--space-12);
+    padding-inline: var(--layout-padding-inline);
+    overflow: hidden;
+  }
+
+  .testimonials-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--pleca-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: hsl(var(--color-text-body));
+    line-height: 1.05;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title-line {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    display: block;
+  }
+
+  .title-line-bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .testimonials-list {
+    list-style: none;
+    margin: 0;
+    padding-block: var(--space-16);
+    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .testimonial-item {
+    display: flex;
+  }
+
+  .testimonial-card {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    gap: var(--space-6);
+  }
+
+  .testimonial-quote {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    font-style: italic;
+    color: hsl(var(--color-text-body));
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .testimonial-quote :global(strong) {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .testimonial-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: auto;
+  }
+
+  .rating-stars {
+    color: hsl(var(--color-accent));
+    font-size: var(--text-sm);
+    letter-spacing: 0.5em;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .testimonial-author {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-style: normal;
+    font-weight: var(--font-weight-medium);
+    color: hsl(var(--color-text-body));
+    display: block;
+  }
+
+  .testimonial-role {
+    font-weight: var(--font-weight-medium);
+    color: hsl(var(--color-text-body));
+  }
+
+  @media (width >= 768px) {
+    .testimonials-header {
+      padding-block: var(--space-16);
+    }
+
+    .testimonials-list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+  }
+</style>
+
+
