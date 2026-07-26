@@ -2,19 +2,26 @@
 import type { Service } from "@shared/types/service.type";
 
 interface Props {
+    heading: string;
     services: Service[];
 };
 
-const { services } = Astro.props as Props;
+const { heading, services } = Astro.props as Props;
 
 ---
-<section class="services-container" aria-labelledby="services">
-    {services.map((service) => (
-        <article class="service-card" aria-labelledby={service.title}>
-            <header class="service-header" id={service.title}>{service.title}</header>
-            <p class="service-description">{service.description}</p>
-        </article>
-    ))}
+<section class="services-container" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="sr-only">{heading}</h2>
+    {services.map((service, index) => {
+    const cardTitleId = `service-title-${index}`;
+    return (
+      <article class="service-card" aria-labelledby={cardTitleId}>
+        <h3 class="service-header" id={cardTitleId}>
+          {service.title}
+        </h3>
+        <p class="service-description">{service.description}</p>
+      </article>
+    );
+  })}
 </section>
 
 <style>

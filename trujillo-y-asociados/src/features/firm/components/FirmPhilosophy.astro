@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import teamImage from '@firm/assets/philosophy.webp';
+
+export interface Props {
+  title?: string;
+  imageAlt?: string;
+}
+
+const {
+  title = "Defensa digna, labor de herencia.",
+  imageAlt = "Socios fundadores de Trujillo & Asociados"
+} = Astro.props;
+---
+
+<section id="filosofia" class="philosophy-section" aria-labelledby="philosophy-heading">
+  <figure class="portrait-figure">
+    <Image 
+      src={teamImage} 
+      alt={imageAlt} 
+      widths={[360, 720, 1080, 1440]}
+      sizes="(width >= 992px) 55vw, 100vw"
+      loading="lazy"
+      decoding="async"
+      class="portrait-img"
+    />
+  </figure>
+
+  <article class="philosophy-article">
+    <h2 id="philosophy-heading" class="section-title">{title}</h2>
+    
+    <p class="philosophy-text">
+      <strong>Nuestra filosofía</strong> es que el derecho laboral no solo trata del "empleo" actual, sino que protege la labor de una vida, que es la herencia económica y la dignidad que un trabajador crea para sí mismo y su familia. Creamos defensa de ese legado. <strong>No defendemos lo que se ha perdido sino lo que hasta ahora ha construido.</strong> Nuestro trato es humano y no solo transaccional, buscamos entender desde el minuto 1 la situación que transitan los interesados a nuestros servicios.
+    </p>
+  </article>
+</section>
+
+<style>
+  .philosophy-section {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-body);
+    padding-block: var(--space-16);
+    padding-inline: var(--layout-padding-inline);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .portrait-figure {
+    margin: 0;
+    width: 100%;
+    border: 8px solid var(--color-border);
+    border-radius: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .philosophy-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+    color: var(--color-text-body);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    margin: 0;
+    color: var(--color-text-body);
+    max-width: 15ch;
+  }
+
+  .philosophy-text {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    line-height: 1.6;
+    margin: 0;
+    color: var(--color-text-body);
+  }
+
+  .philosophy-text strong {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-body);
+  }
+
+  @media (width >= 992px) {
+    .philosophy-section {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: var(--space-12);
+      align-items: stretch;
+    }
+
+    .philosophy-article {
+      padding-block: var(--space-2);
+    }
+  }
+</style>

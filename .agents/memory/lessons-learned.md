@@ -77,6 +77,21 @@
 - **Mistake/Anti-Pattern:** Attempting to wrap layout landmarks (like `<aside>`) in wrapper `<div>` tags, using absolute pathing imports (`/src/features/...`), and writing Tailwind utility classes inside component specifications instead of custom scoped Vanilla CSS.
 - **Corrected Behavior:** Strictly enforce semantic HTML layouts with zero `div` wrappers, import local layout assets (like `logo.webp`) using relative pathing imports (e.g., `../assets/...`), and define all styles strictly via pure Vanilla CSS rules inside a scoped `<style>` block.
 
+## Context: Terminal Command Execution Protocol
+- **Mistake/Anti-Pattern:** Attempting to run terminal process commands (`run_command`) after the user explicitly requested not to run terminal processes automatically.
+- **Corrected Behavior:** Respect user execution restrictions immediately. When asked not to run terminal commands, provide clear, copy-pasteable terminal command snippets for the user to execute manually in their terminal.
+
+## Context: Pure Zero-Div Semantic HTML Architecture
+- **Mistake/Anti-Pattern:** Using unsemantic `<div>` container wrappers (e.g. `.practice-areas-grid`, `.items-column`, `.area-title-wrapper`) for layout positioning hooks or grouping repeating cards.
+- **Corrected Behavior:** Eliminate structural `<div>` tags completely. Apply CSS grid layout rules directly onto semantic landmark elements (`<section>`), group repeating card items into semantic list structures (`<ul role="list">` and `<li>`), and create visual indicators using CSS pseudo-elements (`::before`) instead of DOM elements.
+
+## Context: Macro Layout Alignment & Geometry Preservation
+- **Mistake/Anti-Pattern:** Adding unrequested macro layout alignment mutations (such as vertical centering `justify-content: center` / `align-items: center` on header columns) without explicit user instruction.
+- **Corrected Behavior:** Maintain natural top-aligned grid/flex flows by default. Never introduce vertical layout centering unless explicitly requested by the user.
+
+## Context: Subagent Tool Capabilities Configuration
+- **Mistake/Anti-Pattern:** Invoking browser subagents with full write/exec tools enabled when the user requested a read-only browser test.
+- **Corrected Behavior:** Explicitly define and invoke subagents with `enable_write_tools: false` when read-only inspection is requested, ensuring subagents cannot execute terminal commands or mutate code.
 ## Context: Media Query Range Syntax (CSS Level 4)
 - **Mistake/Anti-Pattern:** Using legacy `min-width` or `max-width` syntax in CSS media queries.
 - **Corrected Behavior:** Use the modern CSS Media Queries Level 4 range syntax (e.g., `width >= 768px`, `width <= 768px`, `width < 1024px`) for all `@media` conditions.
@@ -88,6 +103,10 @@
 ## Context: Layout Padding & Single Source of Truth
 - **Mistake/Anti-Pattern:** Calculating layout padding inline (e.g., `padding-inline: max(...)`) in individual components.
 - **Corrected Behavior:** Use the global `--layout-padding-inline` CSS variable defined in `variables.css` for all primary landing page sections and header/footer layout landmarks to maintain a Single Source of Truth (SSOT).
+
+## Context: Semantic Functional Color Token Usage
+- **Mistake/Anti-Pattern:** Referencing base color names directly (e.g. `--color-chocolate-alto-hsl`, `--color-capuchino-white-hsl`, `--color-espresso-leve-hsl`, `--color-terracota-legal-hsl`) inside component `<style>` blocks instead of higher-level functional semantic tokens.
+- **Corrected Behavior:** Strictly use functional semantically named CSS color tokens (such as `var(--color-bg-primary)`, `var(--color-bg-surface)`, `var(--color-brand-primary)`, `var(--color-brand-secondary)`, `var(--color-brand-muted)`, `var(--color-text-body)`, `var(--color-accent)`, `var(--color-border)`) for all component styles.
 
 ## Context: Contact Form WhatsApp Submission Mechanism
 - **Mistake/Anti-Pattern:** Relying on default HTTP POST backend endpoints for forms intended to dispatch instant messaging consultations via WhatsApp.
