@@ -104,6 +104,10 @@
 - **Mistake/Anti-Pattern:** Calculating layout padding inline (e.g., `padding-inline: max(...)`) in individual components.
 - **Corrected Behavior:** Use the global `--layout-padding-inline` CSS variable defined in `variables.css` for all primary landing page sections and header/footer layout landmarks to maintain a Single Source of Truth (SSOT).
 
+## Context: Semantic Functional Color Token Usage
+- **Mistake/Anti-Pattern:** Referencing base color names directly (e.g. `--color-chocolate-alto-hsl`, `--color-capuchino-white-hsl`, `--color-espresso-leve-hsl`, `--color-terracota-legal-hsl`) inside component `<style>` blocks instead of higher-level functional semantic tokens.
+- **Corrected Behavior:** Strictly use functional semantically named CSS color tokens (such as `var(--color-bg-primary)`, `var(--color-bg-surface)`, `var(--color-brand-primary)`, `var(--color-brand-secondary)`, `var(--color-brand-muted)`, `var(--color-text-body)`, `var(--color-accent)`, `var(--color-border)`) for all component styles.
+
 ## Context: Contact Form WhatsApp Submission Mechanism
 - **Mistake/Anti-Pattern:** Relying on default HTTP POST backend endpoints for forms intended to dispatch instant messaging consultations via WhatsApp.
 - **Corrected Behavior:** Intercept form submit via a custom Web Component (`<contact-form>`), validate fields with native HTML5 validation, sanitize and structure inputs with strong TypeScript interfaces (`ContactFormData`), format the message body, and dispatch to `https://api.whatsapp.com/send?phone=<PHONE_NUMBER>&text=...` with proper URL encoding. Maintain a configurable placeholder constant for the target phone number.
