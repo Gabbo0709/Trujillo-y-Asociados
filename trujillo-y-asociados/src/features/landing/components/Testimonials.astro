@@ -91,7 +91,7 @@ const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
     position: relative;
     background-color: var(--color-bg-primary);
     padding-block: var(--space-12);
-    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-inline: var(--layout-padding-inline);
     overflow: hidden;
   }
 
@@ -201,13 +201,13 @@ const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
     font-family: var(--font-sans);
     font-size: var(--text-sm);
     font-style: normal;
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-medium);
     color: hsl(var(--color-text-body));
     display: block;
   }
 
   .testimonial-role {
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-medium);
     color: hsl(var(--color-text-body));
   }
 
