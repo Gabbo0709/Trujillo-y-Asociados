@@ -7,7 +7,9 @@
       "@layouts/*": ["./src/layouts/*"],
       "@layout/*": ["./src/features/layout/*"],
       "@landing/*": ["./src/features/landing/*"],
-      "@firm/*": ["./src/features/firm/*"]
+      "@firm/*": ["./src/features/firm/*"],
+      "@corporate-advisory/*": ["./src/features/corporate-advisory/*"],
+      "@shared/*": ["./src/features/shared/*"],
     },
     "strict": true
   },
