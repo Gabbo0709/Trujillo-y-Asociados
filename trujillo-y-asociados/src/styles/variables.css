@@ -10,6 +10,7 @@
 
   --color-bg-primary: hsl(var(--color-espresso-leve-hsl));
   --color-bg-secondary: hsl(var(--color-terracota-legal-hsl));
+  --color-bg-tertiary: hsl(var(--color-capuchino-white-hsl));
   --color-bg-surface: hsl(35, 100%, 98%);
   
   --color-text-title: hsl(var(--color-terracota-legal-hsl));
