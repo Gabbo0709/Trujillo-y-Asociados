@@ -75,8 +75,9 @@ import { ROUTES } from '@shared/constants/navigation';
   }
 
   @media (width < 768px) {
+    .hero-media,
     .hero-bg-image {
-      max-height: 30dvh;
+      max-height: 40dvh;
     }
   }
 
@@ -135,6 +136,11 @@ import { ROUTES } from '@shared/constants/navigation';
   @media (width < 768px) {
     .hero-badge {
       margin-top: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: var(--text-subheading);
+      padding-inline: var(--layout-padding-inline);
     }
   }
 
