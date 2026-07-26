@@ -40,7 +40,7 @@ jobs:
         run: pnpm run check
 
       - name: Run Unit Tests
-        run: pnpm test
+        run: pnpm run test
 
       - name: Build project
         run: pnpm run build
