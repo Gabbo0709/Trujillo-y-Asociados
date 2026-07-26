@@ -108,6 +108,49 @@
 - **Mistake/Anti-Pattern:** Referencing base color names directly (e.g. `--color-chocolate-alto-hsl`, `--color-capuchino-white-hsl`, `--color-espresso-leve-hsl`, `--color-terracota-legal-hsl`) inside component `<style>` blocks instead of higher-level functional semantic tokens.
 - **Corrected Behavior:** Strictly use functional semantically named CSS color tokens (such as `var(--color-bg-primary)`, `var(--color-bg-surface)`, `var(--color-brand-primary)`, `var(--color-brand-secondary)`, `var(--color-brand-muted)`, `var(--color-text-body)`, `var(--color-accent)`, `var(--color-border)`) for all component styles.
 
+## Context: Contact Form WhatsApp Submission Mechanism
+- **Mistake/Anti-Pattern:** Relying on default HTTP POST backend endpoints for forms intended to dispatch instant messaging consultations via WhatsApp.
+- **Corrected Behavior:** Intercept form submit via a custom Web Component (`<contact-form>`), validate fields with native HTML5 validation, sanitize and structure inputs with strong TypeScript interfaces (`ContactFormData`), format the message body, and dispatch to `https://api.whatsapp.com/send?phone=<PHONE_NUMBER>&text=...` with proper URL encoding. Maintain a configurable placeholder constant for the target phone number.
+
+## Context: Form Accessibility, ARIA & Input Autocomplete (a11y)
+- **Mistake/Anti-Pattern:** Omitting `aria-required="true"` on required fields, leaving visual asterisks (`*`) un-hidden from screen readers, disabling `:focus` outlines without providing a visible focus indicator, or omitting HTML `autocomplete` attributes.
+- **Corrected Behavior:** Always set `aria-required="true"` alongside `required` on mandatory form fields, wrap visual indicator asterisks in `<span aria-hidden="true">*</span>`, enforce WCAG 2.4.7 focus visibility via `:focus-visible`, and provide standard `autocomplete` attributes (`name`, `email`, `tel`) to enable seamless mobile autofill.
+
+## Context: Form Control Containers & Landmark Semantics
+- **Mistake/Anti-Pattern:** Wrapping individual form input controls in `<p>` tags (which represent textual prose) or nesting `<footer>` tags inside `<form>` elements (which litters screen reader landmark trees).
+- **Corrected Behavior:** Use `<div>` elements for input control groups (`.input-group`) and form submission button rows (`.button-row`). Reserve `<fieldset>` and `<legend>` for logical field grouping, and keep `<footer>` reserved for page/section level landmark footers.
+
+## Context: Feature-Driven Architecture & Domain Logic Isolation (SRP)
+- **Mistake/Anti-Pattern:** Embedding pure data formatting, URL building, string sanitization, or DTO types inside client-side Astro Web Component `<script>` tags. This violates the Single Responsibility Principle (SRP) and prevents isolated unit testing.
+- **Corrected Behavior:** Co-locate domain types in `src/features/<feature>/types/`, pure utility functions (e.g. `buildWhatsAppUrl`, `sanitizePhoneNumber`) in `src/features/<feature>/utils/`, and co-located unit tests in `src/features/<feature>/tests/`. Import utilities into the Astro Web Component script block to keep client bundles lightweight (Vite tree-shaking).
+
+## Context: Web Component Event Listener Lifecycle & Memory Safety
+- **Mistake/Anti-Pattern:** Attaching event listeners in `connectedCallback` using inline anonymous functions without cleaning them up in `disconnectedCallback`, leading to memory leaks during Astro View Transitions (Client Router) page swaps.
+- **Corrected Behavior:** Bind event handler methods to class properties (e.g., `private handleSubmit = (e: SubmitEvent) => ...`) and detach them explicitly in `disconnectedCallback` using `removeEventListener`.
+
+## Context: Emoji Unicode Escaping & Messaging URL Encoding
+- **Mistake/Anti-Pattern:** Hardcoding literal UTF-8 emoji glyphs directly in string literals or calling `encodeURIComponent` inside the formatting function instead of at the URL construction boundary.
+- **Corrected Behavior:** Define emojis using Unicode code point escape sequences (`\u{1F4CD}`, `\u{1F464}`, etc.) stored in a frozen dictionary constant (`const EMOJI = { ... } as const;`). Keep message formatting functions (`formatWhatsAppMessage`) returning clean raw multi-line strings, and apply `encodeURIComponent` strictly at the URL builder boundary (`buildWhatsAppUrl`) targeting `https://api.whatsapp.com/send?phone=...`.
+
+## Context: Centralized Route & Anchor Constants (SSOT)
+- **Mistake/Anti-Pattern:** Hardcoding repetitive URL routes and anchor hashes (e.g. `/contacto#formulario-contacto`) directly across template JSX/HTML elements.
+- **Corrected Behavior:** Define centralized TypeScript constants in the component frontmatter (e.g., `const CONTACT_FORM_URL = '/contacto#formulario-contacto';`) and reference them in template attributes (`href={CONTACT_FORM_URL}`). This ensures Single Source of Truth (SSOT) and easy maintenance across multiple CTA triggers.
+
+## Context: Sticky Header Anchor Scroll Offset (Native CSS)
+- **Mistake/Anti-Pattern:** Modifying visual layout paddings or adding JavaScript scroll listeners to prevent sticky/fixed headers from obscuring section headings on anchor link navigation (`#hash`).
+- **Corrected Behavior:** Apply native CSS `scroll-margin-top: var(--space-16);` (or calculated header offset) directly to the target landmark section. This informs the browser's native scroll engine to stop scrolling with exact offset clearance above the element.
+
+## Context: Centralized Navigation Matrix (Routes + Copy Labels)
+- **Mistake/Anti-Pattern:** Defining navigation link labels and hrefs independently inside Header and Footer components, causing copy drifts or route mismatches over time.
+- **Corrected Behavior:** Export both a `ROUTES` constant dictionary and a `MAIN_NAV_ITEMS` array (containing `{ href, label }`) from `src/features/shared/constants/navigation.ts`. Consume `MAIN_NAV_ITEMS` across Header, Footer, and navigation drawers to guarantee 100% copy and route synchronization.
+
+
+
+
+
+
+
+
 
 
 

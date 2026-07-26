@@ -1,26 +1,7 @@
-@import "./variables.css";
-@import "./font-face.css";
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--color-bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-bg-secondary);
-    border-radius: 5px;
-    &:hover {
-        background: var(--color-bg-surface);
-    }
 }
 
 html {
@@ -29,11 +10,12 @@ html {
   scrollbar-color: var(--color-bg-primary) var(--color-bg-secondary);
   background-color: var(--color-bg-secondary);
   overflow-x: hidden;
-  @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
-    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -46,6 +28,7 @@ body {
   max-width: 100dvw;
 }
 
+/* Tipografía Base y Accesibilidad */
 h1, h2, h3 {
   font-family: var(--font-sans);
   color: var(--color-text-muted);
@@ -66,12 +49,10 @@ a {
   transition: color var(--ease-smooth);
 }
 
- a:focus-visible,
- .btn-primary:focus-visible {
-   outline: var(--focus-ring);
-   outline-offset: 3px;
- }
-
+a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
 
 .btn-primary {
   display: inline-flex;
@@ -109,6 +90,14 @@ a {
     fill: var(--color-bg-primary);
     stroke: var(--color-bg-primary);
 }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-secondary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-bg-surface); }
 
 .sr-only {
   position: absolute;

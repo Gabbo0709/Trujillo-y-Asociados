@@ -1,23 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import logoImage from './assets/images/logo.png';
-
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-// Content Matrix for clean template rendering and SEO semantic routing
-const navLinks: NavLink[] = [
-  { href: '/firm', label: 'Nuestra Firma' },
-  { href: '/corporate-advisory', label: 'Asesoría a Empresas' },
-  { href: '#contacto', label: 'Contacto' }
-];
+import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
 ---
 
 <header class="site-header">
   <!-- Brand Logo -->
-  <a href="/" class="logo-link" aria-label="Trujillo & Asociados Inicio">
+  <a href={ROUTES.HOME} class="logo-link" aria-label="Trujillo & Asociados Inicio">
     <Image 
       src={logoImage} 
       alt="Trujillo & Asociados" 
@@ -41,20 +30,20 @@ const navLinks: NavLink[] = [
   <!-- Main Navigation List -->
   <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
     <ul class="nav-list">
-      {navLinks.map((link) => (
+      {MAIN_NAV_ITEMS.map((link) => (
         <li class="nav-item">
           <a href={link.href} class="nav-link">{link.label}</a>
         </li>
       ))}
       <!-- Inline Mobile CTA to avoid layout shifts and keep spacing clean -->
       <li class="nav-item mobile-only-cta">
-        <a href="#agendar" class="cta-link-mobile btn-primary">Agendar Consulta</a>
+        <a href={ROUTES.CONTACT_FORM} class="cta-link-mobile btn-primary">Agendar Consulta</a>
       </li>
     </ul>
   </nav>
 
   <!-- Desktop CTA Button -->
-  <a href="#agendar" class="cta-link-desktop btn-primary-header">
+  <a href={ROUTES.CONTACT_FORM} class="cta-link-desktop btn-primary-header">
     Agendar Consulta
   </a>
 </header>
