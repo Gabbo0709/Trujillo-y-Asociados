@@ -3,17 +3,16 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://trujilloasociados.com',
+  site: 'https://trujillo-demo.netlify.app',
   output: 'static',
-  trailingSlash: 'never',
   integrations: [
     sitemap({
       changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
+      priority: 0.7
     }),
   ],
   build: {
+    format: 'directory',
     inlineStylesheets: 'auto',
   },
   vite: {
