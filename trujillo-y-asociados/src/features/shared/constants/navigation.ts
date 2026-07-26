@@ -9,6 +9,7 @@ export interface NavItem {
 export const ROUTES = {
   HOME: '/',
   FIRM: '/firm',
+  WORKERS_ADVISORY: '/workers-advisory',
   CORPORATE_ADVISORY: '/corporate-advisory',
   CONTACT: '/contacto',
   CONTACT_FORM: '/contacto#formulario-contacto',
@@ -19,6 +20,7 @@ export const ROUTES = {
  */
 export const MAIN_NAV_ITEMS: readonly NavItem[] = [
   { href: ROUTES.FIRM, label: 'Nuestra Firma' },
+  { href: ROUTES.WORKERS_ADVISORY, label: 'Asesoría a Trabajadores' },
   { href: ROUTES.CORPORATE_ADVISORY, label: 'Asesoría a Empresas' },
   { href: ROUTES.CONTACT_FORM, label: 'Contacto' },
 ] as const;

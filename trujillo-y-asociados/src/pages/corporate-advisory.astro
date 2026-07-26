@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import HeroCorporate from "@corporate-advisory/components/HeroCorporate.astro";
-import ServiceDescription from "@shared/components/ServiceDescription.astro";
+import ServiceDetail from "@shared/components/ServiceDetail.astro";
 import type { Service } from "@shared/types/service.type";
 
 const services: Service[] = [
@@ -45,6 +44,9 @@ const services: Service[] = [
 ---
 
 <BaseLayout title="Asesoría a Empresas" description="Nuestros servicios están enfocados a reducir conflictos con la empresa y mejorar su estructura operativa.">
-    <HeroCorporate />
-    <ServiceDescription heading="Asesoria a Empresas" services={services} />
+    <ServiceDetail 
+        title="Asesoría a Empresas" 
+        description="Nuestros servicios están enfocados a reducir conflictos con la empresa y mejorar su estructura operativa." 
+        services={services} 
+    />
 </BaseLayout>
