@@ -5,7 +5,6 @@ import '@styles/reset.css';
 
 import Header from '@layout/Header.astro';
 import Footer from '@layout/Footer.astro';
-import { ClientRouter } from 'astro:transitions';
 
 export interface SchemaData {
     '@context': 'https://schema.org';
@@ -92,7 +91,6 @@ const jsonLdData = schema || defaultSchema;
     <link rel="manifest" href="/site.webmanifest" />
     
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)} is:inline />
-    <ClientRouter fallback="swap" />
   </head>
   <body>
     <Header />
