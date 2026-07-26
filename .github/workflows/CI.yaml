@@ -39,6 +39,9 @@ jobs:
       - name: Check Typescript & Astro Syntax
         run: pnpm astro check && pnpm tsc --noEmit
 
+      - name: Run Unit Tests
+        run: pnpm test
+
       - name: Build project
         run: pnpm run build
 
