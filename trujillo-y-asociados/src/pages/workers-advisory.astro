@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ServiceDetail from "@shared/components/ServiceDetail.astro";
+import type { Service } from "@shared/types/service.type";
+
+const services: Service[] = [
+    {
+        title: "Despido Injustificado",
+        description: "Brindamos asesoría en caso de tener algún conflicto con la empresa ya sea por despido injustificado o por incumplimiento en sus obligaciones del patrón tales como retraso o falta de pago de salario, reducción de salario, modificación unilateral de las condiciones de trabajo, falta de pago de prestaciones de ley (aguinaldo, vacaciones, prima vacacional, comisiones, bonos, reparto de utilidades, ahorro)."
+    },
+    {
+        title: "Disputas y Litigios Fiscales",
+        description: "Nuestra firma ofrece una representación firme en controversias fiscales federales de gran envergadura. Desde la defensa en auditorías hasta litigios de apelación complejos, salvaguardamos los activos de nuestros clientes mediante una estrategia legal meticulosa y rigor intelectual."
+    },
+    {
+        title: "Asesoría Fiscal Internacional",
+        description: "Navegamos por el multifacético panorama jurisdiccional de las transacciones transfronterizas y la protección de activos globales para personas con un alto patrimonio neto y empresas multinacionales que buscan claridad experta en jurisdicciones complejas."
+    },
+    {
+        title: "Estrategia Fiscal de Sucesiones y Fideicomisos",
+        description: "Implementamos marcos legales sofisticados diseñados para mitigar la exposición fiscal a través de las generaciones. Nos especializamos en la preservación del capital a través de una arquitectura de fideicomisos y un gobierno patrimonial intelectualmente rigurosos."
+    }
+];
+---
+
+<BaseLayout title="Asesoría a Trabajadores" description="Brindamos representación y asesoría legal especializada a trabajadores para salvaguardar sus derechos y prestaciones de ley.">
+    <ServiceDetail 
+        title="Asesoría a Trabajadores" 
+        description="Brindamos representación y asesoría legal especializada a trabajadores para salvaguardar sus derechos y prestaciones de ley." 
+        services={services} 
+    />
+</BaseLayout>

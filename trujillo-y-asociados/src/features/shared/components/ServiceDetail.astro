@@ -1,0 +1,115 @@
+---
+import type { Service } from "@shared/types/service.type";
+
+export interface Props {
+    title: string;
+    description: string;
+    services: Service[];
+}
+
+const { title, description, services } = Astro.props as Props;
+---
+
+<article class="hero-corporate" aria-labelledby="hero-corporate">
+    <header class="corporate-header">
+        <h1 class="corporate-title" id="hero-corporate">{title}</h1>
+        <p class="corporate-description">{description}</p>
+    </header>
+</article>
+
+<section class="services-container" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="sr-only">{title}</h2>
+    {services.map((service, index) => {
+        const cardTitleId = `service-title-${index}`;
+        return (
+            <article class="service-card" aria-labelledby={cardTitleId}>
+                <h3 class="service-header" id={cardTitleId}>
+                    {service.title}
+                </h3>
+                <p class="service-description">{service.description}</p>
+            </article>
+        );
+    })}
+</section>
+
+<style>
+    .hero-corporate {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-block: var(--space-12);
+        padding-inline: var(--layout-padding-inline);
+        background-color: var(--color-bg-primary);
+    }
+
+    .corporate-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        max-width: 85ch;
+    }
+    
+    .corporate-title {
+        font-family: var(--font-sans);
+        font-size: var(--text-heading);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text-title);
+        padding-block: var(--space-4);
+    }
+
+    .corporate-description {
+        font-size: var(--text-xl);
+        color: var(--color-text-body);
+        font-weight: var(--font-weight-medium);
+        max-width: 55ch;
+        line-height: 1.2;
+    }
+
+    .services-container {
+        display: flex;
+        background-color: var(--color-bg-primary);
+        flex-direction: column;
+        padding-inline: var(--layout-padding-inline);
+        padding-block: var(--space-8);
+        gap: var(--space-8);
+        align-items: center;
+        width: 100%;
+    }
+    
+    .service-card {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 0.5fr 1fr;
+        align-content: center;
+        gap: var(--space-16);
+        padding-block: var(--space-6);
+        border-top: 1px solid var(--color-bg-surface);
+    }
+
+    .service-header {
+        font-size: var(--text-4xl);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-text-body);
+        width: 20ch;
+        line-height: 1.1;
+    }
+
+    .service-description {
+        font-size: var(--text-xl);
+        color: var(--color-text-body);
+        line-height: 1.2;
+        max-width: 90ch;
+        text-wrap: pretty;
+    }
+
+    @media (width <= 768px) {
+        .service-card {
+            grid-template-columns: 1fr;
+        }
+
+        .service-header {
+            width: 100%;
+        }
+    }
+</style>
