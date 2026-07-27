@@ -41,7 +41,7 @@ const { heading, services } = Astro.props as Props;
         width: 100%;
         grid-template-columns: auto 1fr;
         align-content: center;
-        gap: var(--space-4);
+        gap: var(--space-16);
         padding-block: var(--space-6);
         border-top: 1px solid var(--color-bg-surface);
     }
@@ -50,15 +50,15 @@ const { heading, services } = Astro.props as Props;
         font-size: var(--text-4xl);
         font-weight: var(--font-weight-medium);
         color: var(--color-text-body);
-        width: 35ch;
-        line-height: 1.6;
+        width: 20ch;
+        line-height: 1.1;
     }
 
     .service-description {
-        font-size: var(--text-lg);
+        font-size: var(--text-xl);
         color: var(--color-text-body);
-        line-height: 1.5;
-        max-width: 70ch;
+        line-height: 1.2;
+        max-width: 95ch;
     }
 
     @media (width <= 768px) {
