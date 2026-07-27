@@ -5,6 +5,7 @@ import type { ImageMetadata } from 'astro';
 import processDiagnostico from '@landing/assets/images/process-diagnostico.jpg';
 import processEstrategia from '@landing/assets/images/process-estrategia.jpg';
 import processResolucion from '@landing/assets/images/process-resolucion.jpg';
+import { ROUTES } from '@shared/constants/navigation';
 
 interface ProcessStep {
   title: string;
@@ -51,7 +52,7 @@ const { steps = defaultSteps } = Astro.props;
       <h2 class="process-title" id="work-process-title">Nuestro proceso de trabajo</h2>
       <p class="process-subtitle">Método simple y claro.</p>
     </div>
-    <a href="#nosotros" class="process-cta-link">
+    <a href={ROUTES.FIRM} class="process-cta-link">
       <span class="cta-text">Sobre Nosotros</span>
       <span class="icon-holder" aria-hidden="true">
         <Fragment set:html={IconArrow} />
