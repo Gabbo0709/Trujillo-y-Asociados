@@ -37,13 +37,19 @@ jobs:
         run: pnpm install --frozen-lockfile
     
       - name: Check Typescript & Astro Syntax
-        run: pnpm astro check && pnpm tsc --noEmit
+        run: pnpm run check
 
       - name: Run Unit Tests
-        run: pnpm test
+        run: pnpm run test
 
       - name: Build project
         run: pnpm run build
+
+      # - name: Validate HTML Semantics & Accessibility
+      #   run: pnpm run test:html
+
+      # - name: Validate Internal Links & Crawler Paths
+      #   run: pnpm run test:links
 
       # Deferred E2E and Lighthouse tests to when we have a stable build and actual user flows to test against.
       # - name: Install Playwright Browsers

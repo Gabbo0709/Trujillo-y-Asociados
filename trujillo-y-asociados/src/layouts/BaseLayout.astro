@@ -5,42 +5,22 @@ import '@styles/reset.css';
 
 import Header from '@layout/Header.astro';
 import Footer from '@layout/Footer.astro';
-
-export interface SchemaData {
-    '@context': 'https://schema.org';
-    '@type': string;
-    [key: string]: unknown;
-}
+import OpenGraph from '@seo/components/OpenGraph.astro';
+import Favicons from '@seo/components/Favicons.astro';
+import SchemaOrg from '@seo/components/SchemaOrg.astro';
+import type { SchemaData } from '@seo/types/seo.types';
 
 interface Props {
-    title: string;
-    description: string;
-    ogImage?: string;
-    noIndex?: boolean;
-    schema?: SchemaData;
+  title: string;
+  description: string;
+  ogImage?: string;
+  noIndex?: boolean;
+  schema?: SchemaData;
 }
 
-const { 
-    title,
-    description,
-    ogImage = '/images/og-default.jpg',
-    noIndex = false,
-    schema
-} = Astro.props;
-
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const absoluteOgImageUrl = new URL(ogImage, Astro.site);
 
-const defaultSchema: SchemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Trujillo & Asociados Abogados',
-    url: Astro.site?.toString() ?? canonicalUrl.toString(),
-    'logo': new URL('/seo/og-image.png', Astro.site).toString(),
-    'description': description
-};
-
-const jsonLdData = schema || defaultSchema;
+const { title, description, ogImage, noIndex, schema } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -62,37 +42,14 @@ const jsonLdData = schema || defaultSchema;
     <link rel="canonical" href={canonicalUrl} />
     {noIndex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
     
-    <!-- Open Graph (Facebook / Twitter) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={`${title} | Trujillo & Asociados`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={absoluteOgImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`Imagen descriptiva de ${title}`} />
-    <meta property="og:site_name" content="Trujillo & Asociados Abogados" />
-    <meta property="og:locale" content="es_MX" />
-    
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalUrl} />
-    <meta name="twitter:title" content={`${title} | Trujillo & Asociados`} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={absoluteOgImageUrl} />
-    
-    <meta name="theme-color" content="#3F1F13" media="(prefers-color-scheme: light)"/>
-    <meta name="theme-color" content="#EAE2CC" media="(prefers-color-scheme: dark)"/>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="manifest" href="/site.webmanifest" />
-    
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)} is:inline />
+    <OpenGraph {title} {description} {canonicalUrl} {ogImage} />
+    <Favicons />
+    <SchemaOrg {schema} {description} {canonicalUrl} />
   </head>
   <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only">
+      Saltar al contenido principal
+    </a>
     <Header />
 
     <main id="main-content" tabindex="-1">
