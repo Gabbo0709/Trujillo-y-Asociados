@@ -28,6 +28,9 @@ cd trujillo-y-asociados && pnpm run extract-seo-payload
 
 The script outputs a compact JSON array directly to `stdout`. Do not read raw files in `./dist/*.html` manually; treat the script output as the single source of truth for rendered DOM state.
 
+> [!WARNING]
+> If the `extract-seo-payload.ts` script crashes (e.g. throws a TypeScript error, malformed HTML error, or returns a non-zero exit code), you MUST catch the crash and report it back to the parent agent as a schema parse failure. Do not halt silently or hallucinate results.
+
 ### Step 3: Verified Output Contract
 
 The returned JSON payload conforms to the following schema per route (`/`, `/contacto`, `/corporate-advisory`, `/workers-advisory`, `/firm`):

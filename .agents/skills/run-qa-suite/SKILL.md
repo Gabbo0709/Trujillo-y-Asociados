@@ -33,7 +33,7 @@ cd trujillo-y-asociados && pnpm run check && pnpm run test
 Compile static production artifacts into `./dist`:
 
 ```bash
-cd trujillo-y-asociados && pnpm run build
+cd trujillo-y-asociados && rm -rf dist && pnpm run build
 
 ```
 
@@ -54,6 +54,7 @@ When evaluating tool execution logs, categorize findings according to this decis
 * `@astrojs/check`: Any TypeScript syntax or type error in `.astro` files.
 * `html-validate`: Missing or multiple `<h1>` elements, unclosed HTML tags, duplicate IDs.
 * `linkinator`: Any `404` status on internal links (`/contacto`, `/corporate-advisory`, etc.) or local assets.
+* **Environment Errors**: Command not found (`pnpm`), syntax errors in scripts, or execution timeouts.
 
 
 * **Warnings (Non-blocking, Report to User):**

@@ -19,6 +19,7 @@ Before invoking subagents, verify local project status.
 
 1. Ensure the current working directory is or includes `trujillo-y-asociados/`.
 2. Verify that `package.json` contains scripts for `check`, `test`, `build`, `test:html`, `test:links`, and `extract-seo-payload`.
+3. Check for the existence of `node_modules/`. If missing, execute `pnpm install` before proceeding.
 
 ---
 
@@ -29,6 +30,7 @@ Delegate static verification to the dedicated `static-qa-agent` to avoid context
 2. Request execution of the full QA suite (`skills/run-qa-suite`).
 3. **Decision Gate:**
    - Wait for `static-qa-agent` to finish.
+   - **If Agent Crashes/Times Out:** Stop workflow execution immediately and report the system failure to the user.
    - **If Status === FAILED:** Stop workflow execution immediately. Output the critical errors (TypeScript errors, broken links, unclosed HTML tags, missing `<h1>`) to the user. Ask if they want to apply automated Astro component patches before proceeding.
    - **If Status === PASSED:** Proceed to Step 3.
 
@@ -86,5 +88,5 @@ Combine findings from `static-qa-agent` and `semantic-seo-agent` into a unified 
 ---
 
 ## 5. Remediation Plan & Astro Code Patches
-[If issues are detected, generate exact Astro code diffs for components in `src/features/seo/` or pages in `src/pages/`]
+[If issues are detected, present the proposed Astro code diffs as an implementation plan and **halt execution to explicitly prompt the user for validation** before applying any patches, enforcing the Planning Gate rule.]
 ```
