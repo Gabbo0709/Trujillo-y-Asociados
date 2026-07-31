@@ -1,0 +1,377 @@
+---
+import pinIcon from '@shared/assets/icons/map-pin.svg?raw';
+import phoneIcon from '@shared/assets/icons/phone.svg?raw';
+import clockIcon from '@shared/assets/icons/clock.svg?raw';
+import { Image } from 'astro:assets';
+import mapLocationImg from '@shared/assets/images/maps-location.png';
+import { ROUTES } from '@shared/constants/navigation';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
+
+export interface Props {
+  description?: string;
+  schedule?: string;
+  mapsUrl?: string;
+}
+
+const {
+  description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral.",
+  schedule = "Lunes a Viernes: 9:00 AM - 6:00 PM",
+  mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
+} = Astro.props;
+
+const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CONFIG.address.postalCode} ${COMPANY_CONFIG.address.addressLocality}, ${COMPANY_CONFIG.address.addressRegion}`;
+
+---
+
+<section class="sede-details-section" aria-labelledby="details-title">
+  <article class="details-info-column">
+    <header class="details-header">
+      <h2 id="details-title" class="details-heading">
+        <span class="brand-text">Sede principal</span>
+        Ciudad de México
+      </h2>
+    </header>
+    
+    <p class="details-lead">
+      {description}  
+    </p>
+
+    <address class="address-details-list">
+      <p class="address-item">
+        <span class="address-icon-holder" aria-hidden="true">
+          <Fragment set:html={pinIcon} />
+        </span>
+        <span class="address-text-block">
+          <strong>Ubicación</strong>
+          <a 
+            href={mapsUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="address-link"
+            aria-label="Abrir ubicación del despacho Trujillo y Asociados en Google Maps"
+          >   
+            {formattedAddress}
+          </a>
+        </span>
+      </p>
+      
+      <p class="address-item">
+        <span class="address-icon-holder" aria-hidden="true">
+          <Fragment set:html={phoneIcon} />
+        </span>
+        <span class="address-text-block">
+          <strong>Teléfono fijo</strong>
+          <a 
+            href={`tel:${COMPANY_CONFIG.contact.phoneLandline}`}
+            class="address-link"
+          >
+            {COMPANY_CONFIG.contact.phoneLandline}  
+          </a>
+        </span>
+      </p>
+
+      <p class="address-item">
+        <span class="address-icon-holder" aria-hidden="true">
+          <Fragment set:html={clockIcon} />
+        </span>
+        <span class="address-text-block">
+          <strong>Horario de Atención</strong>
+          <span>{schedule}</span>
+        </span>
+      </p>
+    </address>
+
+    <a 
+      href={ROUTES.CONTACT_FORM}
+      class="btn-details-cta"
+      aria-label="Ir al formulario para agendar una cita de consulta legal"
+    >
+      AGENDAR CITA
+    </a>
+  </article>
+
+  <article class="details-map-column">
+    <figure class="map-card">
+      <picture class="map-image-container">
+        <Image 
+          src={mapLocationImg} 
+          alt={`Instalaciones y ubicación de ${COMPANY_CONFIG.name} en ${COMPANY_CONFIG.address.addressLocality}`} 
+          loading="lazy"
+          decoding="async"
+          widths={[360, 480, 580, 720, 960, 1200, 1440, 1920]}
+          sizes="(width >= 992px) 580px, 100vw"
+          class="map-image"
+        />
+      </picture>
+      <figcaption class="map-card-footer">
+        <h3 class="map-card-title">{COMPANY_CONFIG.name}</h3>
+        <p class="map-card-text">Sur de Ciudad de México (CDMX)</p>
+        <a 
+          href={mapsUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-details-cta"
+          aria-label="Ver la ubicación exacta del despacho en Google Maps"
+        >
+          VER EN MAPS
+        </a>
+      </figcaption>
+    </figure>
+  </article>
+</section>
+
+<style>
+  .sede-details-section {
+    background-color: var(--color-bg-tertiary);
+    padding-block: var(--space-16);
+    padding-inline: var(--layout-padding-inline);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .details-info-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: var(--space-12);
+    text-align: left;
+  }
+
+  .details-header {
+    width: 100%;
+  }
+
+  .details-heading {
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-black);
+    color: var(--color-text-title);
+    line-height: 1.3;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 0;
+  }
+
+  .brand-text {
+    color: var(--color-brand-primary);
+    display: block;
+  }
+
+  .details-lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--color-text-body);
+    line-height: 1.6;
+    padding-block: var(--space-8);
+    max-width: 80ch;
+  }
+
+  .address-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    font-style: normal;
+    text-align: left;
+    width: 100%;
+    margin-block: var(--space-6) var(--space-8);
+  }
+
+  .address-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin: 0;
+  }
+
+  .address-icon-holder {
+    background-color: var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .address-icon-holder :global(svg) {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+
+  .address-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    color: var(--color-text-body);
+  }
+
+  .address-text-block strong {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-title);
+  }
+
+  .address-text-block span,
+  .address-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-body);
+    line-height: 1.4;
+  }
+
+  .address-link {
+    text-decoration: none;
+    transition: color var(--ease-smooth);
+  }
+
+  .address-link:hover {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+  }
+
+  .btn-details-cta {
+    margin-top: var(--space-8);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding-inline: var(--space-12);
+    background-color: var(--color-text-title);
+    color: var(--color-text-layout);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-black);
+    border-radius: 0;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 220px;
+    border: 1px solid var(--color-text-title);
+    text-decoration: none;
+    transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
+  }
+
+  .btn-details-cta:hover {
+    background-color: transparent;
+    color: var(--color-text-title);
+    border-color: var(--color-text-title);
+  }
+
+  .btn-details-cta:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  @media (width >= 992px) {
+    .sede-details-section {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      justify-items: space-between;
+    }
+  }
+
+  .details-map-column {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .map-card {
+    background-color: var(--color-bg-tertiary);
+    border-radius: 0;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    width: 100%;
+    max-width: 580px;
+    margin: 0;
+  }
+
+  .map-image-container {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .map-card-footer {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (width >= 480px) {
+    .map-card-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      align-items: center;
+    }
+  }
+
+  .map-card-title {
+    color: var(--color-text-title);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .map-card-text {
+    font-family: var(--font-sans);
+    color: var(--color-text-body);
+    font-size: var(--text-sm);
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .btn-map-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding-inline: var(--space-6);
+    background-color: var(--color-brand-primary);
+    color: var(--color-text-layout);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-black);
+    border-radius: 0;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 140px;
+    border: 1px solid var(--color-brand-primary);
+    text-decoration: none;
+    transition: background-color var(--ease-smooth), color var(--ease-smooth), border-color var(--ease-smooth);
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin-top: var(--space-4);
+  }
+
+  @media (width >= 480px) {
+    .btn-map-link {
+      margin-top: 0;
+    }
+  }
+
+  .btn-map-link:hover {
+    background-color: transparent;
+    color: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+  }
+
+  .btn-map-link:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 3px;
+  }
+</style>
