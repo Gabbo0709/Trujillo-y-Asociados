@@ -24,7 +24,7 @@ const defaultMembers: TeamMember[] = [
   {
     name: "Marco Antonio Trujillo Arguello",
     photoSrc: marcoArguelloImg,
-    biography: "Se especializa en la resolución de disputas complejas en materia civil y mercantil con la asesoría para empresas, dirigido a personas con responsabilidad operativa y resguardo de trabajadores familiares."
+    biography: "Se especializa en la resolución de disputas complejas en materia laboral con la asesoría para empresas, dirigido a personas con responsabilidad operativa"
   },
   {
     name: "Rafael Trujillo González",
@@ -125,8 +125,8 @@ const {
 
   .avatar-box {
     margin: 0;
-    width: 280px;
-    height: 400px;
+    width: 120px;
+    height: 200px;
     flex-shrink: 0;
     background-color: var(--color-border);
     overflow: hidden;
@@ -164,6 +164,11 @@ const {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: var(--space-6);
+    }
+
+    .avatar-box {
+      width: 280px;
+      height: 400px;
     }
   }
 </style>
