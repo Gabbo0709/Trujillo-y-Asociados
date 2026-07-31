@@ -3,13 +3,19 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import FirmPhilosophy from '@firm/components/FirmPhilosophy.astro';
 import TeamSection from '@firm/components/TeamSection.astro';
 import LocationDetails from '@shared/components/LocationDetails.astro';
+import AdviceSection from '@firm/components/AdviceSection.astro';
 ---
 
 <BaseLayout
     title="Firma" 
-    description="Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal."
+    description="Trujillo y Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal."
 >
-<FirmPhilosophy />
-<TeamSection />
-<LocationDetails />
+    <FirmPhilosophy />
+    <TeamSection />
+    <LocationDetails 
+      headingLevel="h3"
+      title="Nuestra firma"
+      subtitle="Oficinas Centrales"
+    />
+    <AdviceSection />
 </BaseLayout>

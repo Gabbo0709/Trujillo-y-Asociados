@@ -8,34 +8,40 @@ import { ROUTES } from '@shared/constants/navigation';
 import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
 export interface Props {
+  headingLevel?: 'h2' | 'h3' | 'h4';
+  title?: string;
+  subtitle?: string;
   description?: string;
   schedule?: string;
   mapsUrl?: string;
 }
 
 const {
+  headingLevel = 'h2',
+  title = "Sede principal",
+  subtitle = "Ciudad de México",
   description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral.",
   schedule = "Lunes a Viernes: 9:00 AM - 6:00 PM",
   mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
 } = Astro.props;
 
 const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CONFIG.address.postalCode} ${COMPANY_CONFIG.address.addressLocality}, ${COMPANY_CONFIG.address.addressRegion}`;
-
+const Heading = headingLevel;
 ---
 
 <section class="sede-details-section" aria-labelledby="details-title">
   <article class="details-info-column">
     <header class="details-header">
-      <h2 id="details-title" class="details-heading">
-        <span class="brand-text">Sede principal</span>
-        Ciudad de México
-      </h2>
+      <Heading id="details-title" class="details-heading">
+        <span class="brand-text">{title}</span>
+        {subtitle}
+      </Heading>
     </header>
     
     <p class="details-lead">
       {description}  
     </p>
-
+    
     <address class="address-details-list">
       <p class="address-item">
         <span class="address-icon-holder" aria-hidden="true">
@@ -48,7 +54,7 @@ const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CON
             target="_blank" 
             rel="noopener noreferrer" 
             class="address-link"
-            aria-label="Abrir ubicación del despacho Trujillo y Asociados en Google Maps"
+            aria-label={`Abrir ubicación de ${COMPANY_CONFIG.name} en Google Maps`}
           >   
             {formattedAddress}
           </a>
@@ -64,6 +70,7 @@ const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CON
           <a 
             href={`tel:${COMPANY_CONFIG.contact.phoneLandline}`}
             class="address-link"
+            aria-label={`Llamar a ${COMPANY_CONFIG.contact.phoneLandline}`}
           >
             {COMPANY_CONFIG.contact.phoneLandline}  
           </a>
