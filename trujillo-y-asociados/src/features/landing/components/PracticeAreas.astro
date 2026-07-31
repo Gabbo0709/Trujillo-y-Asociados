@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import sealEmblem from '@landing/assets/images/black-seal.png';
+import sealEmblem from '@landing/assets/images/coin.png';
 
 export interface AreaItem {
   title: string;
@@ -16,29 +16,28 @@ export interface Props {
 
 const defaultItems: AreaItem[] = [
   {
-    title: "Demandas por despido injustificado",
-    description: "Asesoría para exigir la indemnización constitucional (3 meses de salario), prima de antigüedad y salarios vencidos."
-  },
-  {
-    title: "Revisión de finiquitos y liquidaciones",
-    description: "Verificación de que el cálculo al momento de terminar la relación laboral cumpla estrictamente con la Ley Federal del Trabajo (LFT)."
-  },
-  {
-    title: "Conclusión de relación laboral",
-    description: "Procedimientos para rescindir contratos por causas imputables al trabajador; actas administrativas y medidas disciplinarias conforme al reglamento interior del trabajo."
+    title: "Asesoría Preventiva",
+    description: "Nuestro equipo de abogados no solo resuelve conflictos, también aporta un asesoramiento para evitarlos antes de que sucedan y garantizar de este modo el cumplimiento normativo, para lograr un mejor entorno laboral."
   },
   {
     title: "Contratación",
-    description: "Elaboramos contratos de trabajo a la medida. Incluye cláusulas clave como no competencia, confidencialidad, teletrabajo, subcontratación de servicios especializados, comisión mercantil, entre otros."
+    description: "Elaboración, revisión y actualización de los contratos de trabajo a la medida de sus necesidades (por obra o tiempo determinado, por temporada o por tiempo indefinido, sujeto a prueba o capacitación inicial)."
+  },
+  {
+    title: "Revisión de finiquitos y liquidaciones",
+    description: "Verificación de que el cálculo al momento de terminar la relación laboral cumpla estrictamente con lo previsto en la Ley Federal del Trabajo, así como elaboración y ratificación de convenios de terminación de la relación de trabajo."
+  },
+  {
+    title: "Demandas por despido injustificado",
+    description: "Asesoría para exigir la indemnización constitucional (3 meses de salario) o reinstalación, prima de antigüedad y salarios vencidos, así como las prestaciones adeudadas."
   }
 ];
 
 const {
-  titleLine1 = "Areas de resolución y",
-  titleLine2 = "prevención de conflictos",
-  subtitle = "Soluciones prácticas para trabajadores y empleadores",
+  subtitle = "Ofrecemos una gama completa de servicios que abarcan todos los aspectos del derecho laboral. Nuestro enfoque se centra en brindar soluciones prácticas y efectivas tanto para trabajadores como para los patrones, lo que redunda en otorgar una asesoría integral más certera y eficaz a nuestros clientes.",
   items = defaultItems
 } = Astro.props;
+
 ---
 
 <section id="asesoria" class="practice-areas-section" aria-labelledby="practice-areas-heading">
@@ -57,8 +56,8 @@ const {
     </figure>
     <hgroup class="header-content">
       <h2 id="practice-areas-heading" class="section-title">
-        <span class="title-line">{titleLine1}</span>
-        <span class="title-line">{titleLine2}</span>
+        <span class="title-line">Áreas de resolución y</span>
+        <span class="title-line">prevención de conflictos</span>
       </h2>
       <p class="section-subtitle">{subtitle}</p>
     </hgroup>
@@ -81,7 +80,7 @@ const {
     background-color: var(--color-bg-primary);
     color: hsl(var(--color-accent));
     padding-block: var(--space-16);
-    padding-inline: max(var(--space-6), calc((100% - var(--max-width-landing)) / 2 + var(--space-6)));
+    padding-inline: var(--layout-padding-inline);
     width: 100%;
   }
 
@@ -120,9 +119,9 @@ const {
   }
 
   .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 5vw, 3.8rem);
-    font-weight: var(--font-weight-bold);
+    font-family: var(--font-sans);
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-medium);
     color: hsl(var(--color-accent));
     line-height: 1.15;
     margin: 0;
@@ -135,13 +134,12 @@ const {
   }
 
   .section-subtitle {
-    font-family: var(--font-sans);
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: var(--text-lg);
     color: #ffffff;
-    line-height: 1.4;
-    margin: 0;
-    font-weight: 500;
+    line-height: 1.6;
+    font-weight: var(--font-weight-medium);
     text-align: center;
+    text-wrap: pretty;
   }
 
   .items-list {
@@ -170,10 +168,10 @@ const {
 
   .area-title {
     font-family: var(--font-sans);
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-medium);
     color: hsl(var(--color-accent));
-    line-height: 1.3;
+    line-height: 1.6;
     margin: 0;
     display: flex;
     align-items: flex-start;
@@ -192,8 +190,7 @@ const {
 
   .area-description {
     font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    color: hsl(var(--color-accent));
+    font-size: var(--text-lg);
     line-height: 1.6;
     margin: 0;
     opacity: 0.95;
@@ -214,22 +211,19 @@ const {
     }
 
     .header-content {
-      align-items: center;
-      text-align: center;
-      margin-right: 2em;
+      align-items: flex-end;
+      text-align: right;
     }
 
-    .section-title {
-      text-align: center;
-    }
-
-    .title-line {
-      display: block;
-      text-align: center;
+    .section-title,
+    .title-line,
+    .section-subtitle {
+      text-align: right;
     }
 
     .section-subtitle {
-      text-align: center;
+      max-width: 85ch;
+      width: 100%;
     }
 
     .area-card {

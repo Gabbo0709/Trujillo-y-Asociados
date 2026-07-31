@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ServiceDetail from "@shared/components/ServiceDetail.astro";
+import type { Service } from "@shared/types/service.type";
+
+const services: Service[] = [
+    {
+        title: "Asesoría Legal",
+        description: "Brindamos asesoría en caso de tener algún conflicto con la empresa ya sea por despido injustificado o por incumplimiento en sus obligaciones del patrón tales como retraso o falta de pago de salario, reducción de salario, modificación unilateral de las condiciones de trabajo, falta de pago de prestaciones de ley."
+    },
+    {
+        title: "Instancia conciliatoria prejudicial",
+        description: "Llevamos a cabo la solicitud de conciliación ante el Centro de Conciliación Laboral en caso de despido injustificado o ante la falta de pago de prestaciones o salarios, asesoramos al trabajador durante todo el procedimiento para obtener el pago de su liquidación y prestaciones, antes de presentar una demanda ante los Tribunales Laborales."
+    },
+    {
+        title: "Despido injustificado",
+        description: "Elaboración y presentación de demandas ante el Tribunal Laboral por despido injustificado o por rescisión de la relación de trabajo por causas imputables al patrón, para exigir el pago de una indemnización o reinstalación en su empleo, así como el pago de salarios caídos, intereses, prima de antigüedad, aguinaldo, vacaciones, prima vacacional y cualquier otra prestación o salarios que no le hayan sido pagados, llevando a cabo el trámite del juicio en todas sus etapas hasta obtener una sentencia definitiva."
+    }
+];
+---
+
+<BaseLayout title="Asesoría a Trabajadores" description="Brindamos representación y asesoría legal especializada a trabajadores para salvaguardar sus derechos y prestaciones de ley.">
+    <ServiceDetail 
+        title="Asesoría a Trabajadores" 
+        description="Brindamos representación y asesoría legal especializada a trabajadores para salvaguardar sus derechos y prestaciones de ley." 
+        services={services} 
+    />
+</BaseLayout>

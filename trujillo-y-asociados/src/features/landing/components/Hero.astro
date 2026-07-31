@@ -51,6 +51,7 @@ import { ROUTES } from '@shared/constants/navigation';
     display: flex;
     flex-direction: column;
     flex-flow: column-reverse;
+    margin-bottom: var(--space-8);
   }
 
   .hero-media {
@@ -122,8 +123,8 @@ import { ROUTES } from '@shared/constants/navigation';
   .hero-badge {
     background-color: var(--color-bg-surface);
     color: var(--color-text-body);
-    font-size: clamp(0.9rem, 0.35em, 2.3rem);
-    font-weight: var(--font-weight-black);
+    font-size: clamp(2rem, 0.5em, 2.5rem);
+    font-weight: var(--font-weight-extrabold);
     padding: 0.5em 1em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -136,6 +137,12 @@ import { ROUTES } from '@shared/constants/navigation';
   @media (width < 768px) {
     .hero-badge {
       margin-top: 0.5rem;
+      font-size: clamp(0.9rem, 0.5em, 1.1rem);
+    }
+
+    .hero-title {
+      font-size: var(--text-subheading);
+      padding-inline: var(--layout-padding-inline);
     }
 
     .hero-title {

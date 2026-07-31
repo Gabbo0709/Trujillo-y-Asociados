@@ -24,7 +24,7 @@ const defaultMembers: TeamMember[] = [
   {
     name: "Marco Antonio Trujillo Arguello",
     photoSrc: marcoArguelloImg,
-    biography: "Se especializa en la resolución de disputas complejas en materia civil y mercantil con la asesoría para empresas, dirigido a personas con responsabilidad operativa y resguardo de trabajadores familiares."
+    biography: "Se especializa en la resolución de disputas complejas en materia laboral con la asesoría para empresas, dirigido a personas con responsabilidad operativa"
   },
   {
     name: "Rafael Trujillo González",
@@ -84,7 +84,6 @@ const {
   }
 
   .section-title {
-    font-family: var(--font-display);
     font-size: var(--text-title);
     font-weight: var(--font-weight-bold);
     line-height: 1.1;
@@ -127,7 +126,7 @@ const {
   .avatar-box {
     margin: 0;
     width: 120px;
-    height: 140px;
+    height: 200px;
     flex-shrink: 0;
     background-color: var(--color-border);
     overflow: hidden;
@@ -144,8 +143,7 @@ const {
   }
 
   .member-name {
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
+    font-size: var(--text-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-body);
     line-height: 1.2;
@@ -154,7 +152,7 @@ const {
 
   .member-bio {
     font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--color-text-body);
     line-height: 1.55;
     margin: 0;
@@ -166,6 +164,11 @@ const {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: var(--space-6);
+    }
+
+    .avatar-box {
+      width: 280px;
+      height: 400px;
     }
   }
 </style>
