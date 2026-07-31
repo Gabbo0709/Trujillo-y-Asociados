@@ -14,9 +14,9 @@ test('BaseLayout renderiza metadatos SEO esenciales y SkipToContent', async () =
   });
 
   // Validaciones del Head
-  expect(html).toContain('<title>Derecho Laboral | Trujillo & Asociados</title>');
-  expect(html).toContain('<meta name="description" content="Especialistas en la defensa de trabajadores y empresas."/>');
-  expect(html).toContain('<meta name="robots" content="index, follow"/>');
+  expect(html).toContain('<title>Derecho Laboral | Trujillo &amp; Asociados</title>');
+  expect(html).toContain('<meta name="description" content="Especialistas en la defensa de trabajadores y empresas.">');
+  expect(html).toContain('<meta name="robots" content="index, follow">');
   
   // Validacion de Accesibilidad A11y (Skip-link)
   expect(html).toContain('href="#main-content"');
@@ -34,5 +34,5 @@ test('BaseLayout aplica directiva noindex cuando noIndex prop es true', async ()
     },
   });
 
-  expect(html).toContain('<meta name="robots" content="noindex, nofollow"/>');
+  expect(html).toContain('<meta name="robots" content="noindex, nofollow">');
 });

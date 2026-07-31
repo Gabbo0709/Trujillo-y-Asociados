@@ -1,0 +1,353 @@
+
+[
+  {
+    "route": "/",
+    "filePath": "/Users/gabbo/Documents/Proyectos/Trujillo-y-Asociados/trujillo-y-asociados/dist/index.html",
+    "title": "Inicio | Trujillo & Asociados",
+    "description": "Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal.",
+    "canonical": "https://trujillo-demo.netlify.app/",
+    "headings": [
+      {
+        "level": "H1",
+        "text": "Asesoría en CDMX Derecho Laboral"
+      },
+      {
+        "level": "H2",
+        "text": "Áreas de resolución y prevención de conflictos"
+      },
+      {
+        "level": "H3",
+        "text": "Asesoría Preventiva"
+      },
+      {
+        "level": "H3",
+        "text": "Contratación"
+      },
+      {
+        "level": "H3",
+        "text": "Revisión de finiquitos y liquidaciones"
+      },
+      {
+        "level": "H3",
+        "text": "Demandas por despido injustificado"
+      },
+      {
+        "level": "H2",
+        "text": "Defensa digna, labor de herencia."
+      },
+      {
+        "level": "H3",
+        "text": "30+"
+      },
+      {
+        "level": "H4",
+        "text": "Años de experiencia"
+      },
+      {
+        "level": "H3",
+        "text": "100%"
+      },
+      {
+        "level": "H4",
+        "text": "Dedicados en materia"
+      },
+      {
+        "level": "H3",
+        "text": "3000+"
+      },
+      {
+        "level": "H4",
+        "text": "Casos atendidos"
+      },
+      {
+        "level": "H2",
+        "text": "Nuestro proceso de trabajo"
+      },
+      {
+        "level": "H3",
+        "text": "Diagnóstico"
+      },
+      {
+        "level": "H3",
+        "text": "Estrategia"
+      },
+      {
+        "level": "H3",
+        "text": "Resolución"
+      },
+      {
+        "level": "H2",
+        "text": "Valoraciones de nuestros clientes"
+      }
+    ],
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Trujillo & Asociados",
+        "url": "https://trujillo-demo.netlify.app/",
+        "logo": "https://trujillo-demo.netlify.app/seo/og-image.png",
+        "description": "Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal.",
+        "telephone": "+525573408674",
+        "priceRange": "$$$",
+        "areaServed": "Ciudad de México",
+        "knowsAbout": [
+          "Derecho Laboral",
+          "Asesoría Corporativa",
+          "Seguridad Social",
+          "Cumplimiento Normativo",
+          "Litigio Laboral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Guaymas 8–Interior 401, Roma Nte.",
+          "addressLocality": "Cuauhtémoc",
+          "addressRegion": "CDMX",
+          "postalCode": "06700",
+          "addressCountry": "MX"
+        }
+      }
+    ],
+    "cleanText": "Saltar al contenido principal Agendar Consulta Asesoría en CDMX Derecho Laboral Agendar una Consulta Evaluación gratuita a su caso. Áreas de resolución y prevención de conflictos Ofrecemos una gama completa de servicios que abarcan todos los aspectos del derecho laboral. Nuestro enfoque se centra en brindar soluciones prácticas y efectivas tanto para trabajadores como para los patrones, lo que redunda en otorgar una asesoría integral más certera y eficaz a nuestros clientes. Asesoría Preventiva Nuestro equipo de abogados no solo resuelve conflictos, también aporta un asesoramiento para evitarlos antes de que sucedan y garantizar de este modo el cumplimiento normativo, para lograr un mejor entorno laboral. Contratación Elaboración, revisión y actualización de los contratos de trabajo a la medida de sus necesidades (por obra o tiempo determinado, por temporada o por tiempo indefinido, sujeto a prueba o capacitación inicial). Revisión de finiquitos y liquidaciones Verificación de que el cálculo al momento de terminar la relación laboral cumpla estrictamente con lo previsto en la Ley Federal del Trabajo, así como elaboración y ratificación de convenios de terminación de la relación de trabajo. Demandas por despido injustificado Asesoría para exigir la indemnización constitucional (3 meses de salario) o reinstalación, prima de antigüedad y salarios vencidos, así como las prestaciones adeudadas. Defensa digna, labor de herencia. 30+ Años de experiencia Con los años, la firma evolucionó hasta ser un pilar del derecho laboral mexicano, reconocida por su asesoría preventiva, alta capacidad de litigio y trato humano con el cliente. 100% Dedicados en materia Nos dedicamos exclusivamente al derecho laboral. Nuestra total especialización nos permite ofrecer soluciones precisas, estratégicas y profundamente actualizadas en el entorno laboral mexicano. 3000+ Casos atendidos La diversidad de casos atendidos en materia laboral avala nuestro dominio de la ley, consolidándonos como una de las firmas más activas del país. Nuestro proceso de trabajo Método simple y claro. Sobre Nosotros Diagnóstico Situación inicial Revisamos su situación y documentación relevante para identificar riesgos y oportunidades con precisión. Estrategia Plan de acción Diseñamos una estrategia legal personalizada y preventiva adaptada a los objetivos específicos de su empresa o caso. Resolución Defensa y ejecución Implementamos la defensa o negociación con firmeza y profesionalismo, asegurando la protección de su patrimonio y derechos. Valoraciones de nuestros clientes \"Resolvieron mi caso, obtuve el pago que ahora si me correspondía por mi despido. Fue más rápido de lo esperado, sentí la formalidad del abogado, aun sin saber nada de esto me guiaron en todo el proceso. \" \"Nos realizaron una auditoria de los documentos de los empleados según la normativa laboral, su trabajo nos evitó sanciones económicas importantes y claridad en el manejo de la empresa. Excelente equipo de abogados.\" \"Conseg"
+  },
+  {
+    "route": "/contacto",
+    "filePath": "/Users/gabbo/Documents/Proyectos/Trujillo-y-Asociados/trujillo-y-asociados/dist/contacto/index.html",
+    "title": "Contacto | Trujillo & Asociados",
+    "description": "Póngase en contacto con Trujillo & Asociados. Envíe su consulta jurídica personalizada a nuestro equipo de abogados de confianza.",
+    "canonical": "https://trujillo-demo.netlify.app/contacto/",
+    "headings": [
+      {
+        "level": "H2",
+        "text": "Contacto"
+      }
+    ],
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Trujillo & Asociados",
+        "url": "https://trujillo-demo.netlify.app/",
+        "logo": "https://trujillo-demo.netlify.app/seo/og-image.png",
+        "description": "Póngase en contacto con Trujillo & Asociados. Envíe su consulta jurídica personalizada a nuestro equipo de abogados de confianza.",
+        "telephone": "+525573408674",
+        "priceRange": "$$$",
+        "areaServed": "Ciudad de México",
+        "knowsAbout": [
+          "Derecho Laboral",
+          "Asesoría Corporativa",
+          "Seguridad Social",
+          "Cumplimiento Normativo",
+          "Litigio Laboral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Guaymas 8–Interior 401, Roma Nte.",
+          "addressLocality": "Cuauhtémoc",
+          "addressRegion": "CDMX",
+          "postalCode": "06700",
+          "addressCountry": "MX"
+        }
+      }
+    ],
+    "cleanText": "Saltar al contenido principal Agendar Consulta Contacto Nuestro equipo responderá dentro de un día hábil. Formulario de consulta jurídica por WhatsApp Nombre completo * Correo electrónico * Teléfono * Asunto Mensaje Enviar consulta por WhatsApp"
+  },
+  {
+    "route": "/corporate-advisory",
+    "filePath": "/Users/gabbo/Documents/Proyectos/Trujillo-y-Asociados/trujillo-y-asociados/dist/corporate-advisory/index.html",
+    "title": "Asesoría Corporativa & Cumplimiento | Trujillo & Asociados",
+    "description": "Servicios integrales de Asesoría Corporativa, Cumplimiento Normativo, Gobierno Corporativo y Derecho Mercantil enfocados en reducir riesgos legales para la empresa.",
+    "canonical": "https://trujillo-demo.netlify.app/corporate-advisory/",
+    "headings": [
+      {
+        "level": "H1",
+        "text": "Asesoría Corporativa & Cumplimiento Normativo"
+      },
+      {
+        "level": "H2",
+        "text": "Asesoría Corporativa & Cumplimiento Normativo"
+      },
+      {
+        "level": "H3",
+        "text": "Elaboración de Contratos de Trabajo"
+      },
+      {
+        "level": "H3",
+        "text": "Auditoría Legal Laboral"
+      },
+      {
+        "level": "H3",
+        "text": "Gestión de Documentación Laboral"
+      },
+      {
+        "level": "H3",
+        "text": "Reglamento Interior de Trabajo"
+      },
+      {
+        "level": "H3",
+        "text": "Consultoría en Asuntos Laborales"
+      },
+      {
+        "level": "H3",
+        "text": "Gestión de Terminación de Relaciones Laborales"
+      },
+      {
+        "level": "H3",
+        "text": "Cálculo de Finiquitos y Liquidaciones"
+      },
+      {
+        "level": "H3",
+        "text": "Representación Legal en Conflictos Laborales"
+      },
+      {
+        "level": "H3",
+        "text": "Litigio Laboral"
+      }
+    ],
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Trujillo & Asociados",
+        "url": "https://trujillo-demo.netlify.app/",
+        "logo": "https://trujillo-demo.netlify.app/seo/og-image.png",
+        "description": "Servicios integrales de Asesoría Corporativa, Cumplimiento Normativo, Gobierno Corporativo y Derecho Mercantil enfocados en reducir riesgos legales para la empresa.",
+        "telephone": "+525573408674",
+        "priceRange": "$$$",
+        "areaServed": "Ciudad de México",
+        "knowsAbout": [
+          "Derecho Laboral",
+          "Asesoría Corporativa",
+          "Seguridad Social",
+          "Cumplimiento Normativo",
+          "Litigio Laboral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Guaymas 8–Interior 401, Roma Nte.",
+          "addressLocality": "Cuauhtémoc",
+          "addressRegion": "CDMX",
+          "postalCode": "06700",
+          "addressCountry": "MX"
+        }
+      }
+    ],
+    "cleanText": "Saltar al contenido principal Agendar Consulta Asesoría Corporativa & Cumplimiento Normativo Nuestros servicios de Asesoría Corporativa y Gobierno Corporativo están enfocados en el estricto cumplimiento normativo de la empresa y la prevención estratégica de litigios. Asesoría Corporativa & Cumplimiento Normativo Elaboración de Contratos de Trabajo Elaboración, revisión y actualización de los contratos de trabajo a la medida de sus necesidades (por obra o tiempo determinado, por temporada o por tiempo indefinido, sujeto a prueba o capacitación inicial). Auditoría Legal Laboral Auditoría legal interna para verificar el cumplimiento de las obligaciones patronales previstas en la Ley Federal del Trabajo, con la finalidad de prevenir conflictos o sanciones por parte de las autoridades. Gestión de Documentación Laboral Implementación de los documentos relativos a las condiciones generales de trabajo y comprobantes de pago de prestaciones, tales como recibos de nómina, de vacaciones, de aguinaldo, así como de los controles de horario y asistencia obligatorios. Reglamento Interior de Trabajo Elaboración y registro del Reglamento Interior de Trabajo ante el Centro Federal de Conciliación y Registro Laboral. Consultoría en Asuntos Laborales Atención de consultas sobre cualquier asunto laboral tales como subcontratación, sustitución patronal, teletrabajo, ley silla, trabajos especiales, condiciones de trabajo y pago de prestaciones. Gestión de Terminación de Relaciones Laborales Gestión de terminación de las relaciones de trabajo. Llevamos a cabo negociaciones con trabajadores para dar por terminado el vínculo laboral por mutuo acuerdo, o bien para rescindir el contrato de trabajo por causas imputables al trabajador. Cálculo de Finiquitos y Liquidaciones Cálculo de finiquito o liquidación por la terminación de las relaciones de trabajo, elaboración de convenios ya sea privados o ante el Centro de Conciliación Laboral, redacción de cartas de renuncia, recibos de finiquito. Representación Legal en Conflictos Laborales Representación en conflictos y defensa de nuestros clientes ante el Centro de Conciliación Laboral, Tribunales Laborales o Juntas de Conciliación y Arbitraje ya sean Locales o Federales. Litigio Laboral Elaboración y presentación de escritos de contestación de demanda, ofrecimiento de pruebas y objeción de pruebas de la contraparte, de contrarréplica, así como la comparecencia y desahogo de audiencias preliminar y de juicio ante los Tribunales Laborales. Defendemos los intereses de nuestros clientes en todas las instancias incluyendo el juicio de amparo."
+  },
+  {
+    "route": "/firm",
+    "filePath": "/Users/gabbo/Documents/Proyectos/Trujillo-y-Asociados/trujillo-y-asociados/dist/firm/index.html",
+    "title": "Firma | Trujillo & Asociados",
+    "description": "Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal.",
+    "canonical": "https://trujillo-demo.netlify.app/firm/",
+    "headings": [
+      {
+        "level": "H2",
+        "text": "Defensa digna, labor de herencia."
+      },
+      {
+        "level": "H2",
+        "text": "Nuestro Equipo"
+      },
+      {
+        "level": "H3",
+        "text": "Marco A. Trujillo González"
+      },
+      {
+        "level": "H3",
+        "text": "Marco Antonio Trujillo Arguello"
+      },
+      {
+        "level": "H3",
+        "text": "Rafael Trujillo González"
+      }
+    ],
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Trujillo & Asociados",
+        "url": "https://trujillo-demo.netlify.app/",
+        "logo": "https://trujillo-demo.netlify.app/seo/og-image.png",
+        "description": "Trujillo & Asociados - Defensa Digna, Labor de Herencia. Firma de abogados de prestigio y alto nivel comprometidos con su legado legal.",
+        "telephone": "+525573408674",
+        "priceRange": "$$$",
+        "areaServed": "Ciudad de México",
+        "knowsAbout": [
+          "Derecho Laboral",
+          "Asesoría Corporativa",
+          "Seguridad Social",
+          "Cumplimiento Normativo",
+          "Litigio Laboral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Guaymas 8–Interior 401, Roma Nte.",
+          "addressLocality": "Cuauhtémoc",
+          "addressRegion": "CDMX",
+          "postalCode": "06700",
+          "addressCountry": "MX"
+        }
+      }
+    ],
+    "cleanText": "Saltar al contenido principal Agendar Consulta Defensa digna, labor de herencia. Nuestra filosofía es que el derecho laboral no solo trata del \"empleo\" actual, sino que protege la labor de una vida, que es la herencia económica y la dignidad que un trabajador crea para sí mismo y su familia. Creamos defensa de ese legado. No defendemos lo que se ha perdido sino lo que hasta ahora ha construido. Nuestro trato es humano y no solo transaccional, buscamos entender desde el minuto 1 la situación que transitan los interesados a nuestros servicios. Nuestro Equipo Marco A. Trujillo González Como auxiliar administrativo ofrece una experiencia inigualable en el seguimiento de asuntos y agilización en nuestra línea de servicios. Marco Antonio Trujillo Arguello Se especializa en la resolución de disputas complejas en materia laboral con la asesoría para empresas, dirigido a personas con responsabilidad operativa Rafael Trujillo González Se centra en una estrategia laboral meticulosa para despidos injustificados y liquidaciones, garantizando una preservación patrimonial intergeneracional impecable y el cumplimiento de la normativa."
+  },
+  {
+    "route": "/workers-advisory",
+    "filePath": "/Users/gabbo/Documents/Proyectos/Trujillo-y-Asociados/trujillo-y-asociados/dist/workers-advisory/index.html",
+    "title": "Defensa & Derecho Laboral | Trujillo & Asociados",
+    "description": "Especialistas en Derecho Laboral, revisión de Contratos Individuales de Trabajo, Seguridad Social y defensa ante despido injustificado.",
+    "canonical": "https://trujillo-demo.netlify.app/workers-advisory/",
+    "headings": [
+      {
+        "level": "H1",
+        "text": "Defensa & Derecho Laboral para Trabajadores"
+      },
+      {
+        "level": "H2",
+        "text": "Defensa & Derecho Laboral para Trabajadores"
+      },
+      {
+        "level": "H3",
+        "text": "Asesoría Legal"
+      },
+      {
+        "level": "H3",
+        "text": "Instancia conciliatoria prejudicial"
+      },
+      {
+        "level": "H3",
+        "text": "Despido injustificado"
+      }
+    ],
+    "jsonLd": [
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Trujillo & Asociados",
+        "url": "https://trujillo-demo.netlify.app/",
+        "logo": "https://trujillo-demo.netlify.app/seo/og-image.png",
+        "description": "Especialistas en Derecho Laboral, revisión de Contratos Individuales de Trabajo, Seguridad Social y defensa ante despido injustificado.",
+        "telephone": "+525573408674",
+        "priceRange": "$$$",
+        "areaServed": "Ciudad de México",
+        "knowsAbout": [
+          "Derecho Laboral",
+          "Asesoría Corporativa",
+          "Seguridad Social",
+          "Cumplimiento Normativo",
+          "Litigio Laboral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Guaymas 8–Interior 401, Roma Nte.",
+          "addressLocality": "Cuauhtémoc",
+          "addressRegion": "CDMX",
+          "postalCode": "06700",
+          "addressCountry": "MX"
+        }
+      }
+    ],
+    "cleanText": "Saltar al contenido principal Agendar Consulta Defensa & Derecho Laboral para Trabajadores Brindamos representación jurídica integral en Derecho Laboral, salvaguardando sus derechos en Contratos Individuales de Trabajo, Seguridad Social y prestaciones ley. Defensa & Derecho Laboral para Trabajadores Asesoría Legal Brindamos asesoría en caso de tener algún conflicto con la empresa ya sea por despido injustificado o por incumplimiento en sus obligaciones del patrón tales como retraso o falta de pago de salario, reducción de salario, modificación unilateral de las condiciones de trabajo, falta de pago de prestaciones de ley. Instancia conciliatoria prejudicial Llevamos a cabo la solicitud de conciliación ante el Centro de Conciliación Laboral en caso de despido injustificado o ante la falta de pago de prestaciones o salarios, asesoramos al trabajador durante todo el procedimiento para obtener el pago de su liquidación y prestaciones, antes de presentar una demanda ante los Tribunales Laborales. Despido injustificado Elaboración y presentación de demandas ante el Tribunal Laboral por despido injustificado o por rescisión de la relación de trabajo por causas imputables al patrón, para exigir el pago de una indemnización o reinstalación en su empleo, así como el pago de salarios caídos, intereses, prima de antigüedad, aguinaldo, vacaciones, prima vacacional y cualquier otra prestación o salarios que no le hayan sido pagados, llevando a cabo el trámite del juicio en todas sus etapas hasta obtener una sentencia definitiva."
+  }
+]

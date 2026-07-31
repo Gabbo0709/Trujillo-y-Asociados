@@ -4,12 +4,12 @@ import logoImage from './assets/images/logo.png';
 import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
 ---
 
-<header class="site-header">
+<header class="site-header" aria-label="Encabezado principal">
   <!-- Brand Logo -->
-  <a href={ROUTES.HOME} class="logo-link" aria-label="Trujillo & Asociados Inicio">
+  <a href={ROUTES.HOME} class="logo-link" aria-label="Trujillo &amp; Asociados Inicio">
     <Image 
       src={logoImage} 
-      alt="Trujillo & Asociados" 
+      alt="Trujillo &amp; Asociados" 
       widths={[150, 300, 450, 600, 900, 1200]}
       sizes="(max-width: 768px) 150px, (max-width: 1024px) 200px, 250px"
       loading="eager" 

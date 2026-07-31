@@ -18,7 +18,8 @@ interface Props {
   schema?: SchemaData;
 }
 
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = Astro.site || new URL('https://trujillo-demo.netlify.app');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
 
 const { title, description, ogImage, noIndex, schema } = Astro.props;
 ---
@@ -37,7 +38,7 @@ const { title, description, ogImage, noIndex, schema } = Astro.props;
 
     
     <!-- SEO Esencial -->
-    <title>{title} | Trujillo & Asociados</title>
+    <title>{title} | Trujillo &amp; Asociados</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     {noIndex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
@@ -52,7 +53,7 @@ const { title, description, ogImage, noIndex, schema } = Astro.props;
     </a>
     <Header />
 
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" tabindex="-1" aria-label="Contenido Principal">
       <slot />
     </main>
 

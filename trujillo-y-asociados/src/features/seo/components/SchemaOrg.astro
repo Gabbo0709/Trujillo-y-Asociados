@@ -12,15 +12,20 @@ const { schema, description, canonicalUrl } = Astro.props;
 const defaultSchema: LegalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'LegalService',
-  name: 'Trujillo & Asociados Abogados',
+  name: 'Trujillo & Asociados',
   url: Astro.site?.toString() ?? canonicalUrl.toString(),
   logo: new URL('/seo/og-image.png', Astro.site ?? canonicalUrl).toString(),
   description: description,
-  priceRange: '$$',
+  telephone: '+525573408674',
+  priceRange: '$$$',
+  areaServed: 'Ciudad de México',
+  knowsAbout: ['Derecho Laboral', 'Asesoría Corporativa', 'Seguridad Social', 'Cumplimiento Normativo', 'Litigio Laboral'],
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Ciudad de México',
+    streetAddress: 'C. Guaymas 8–Interior 401, Roma Nte.',
+    addressLocality: 'Cuauhtémoc',
     addressRegion: 'CDMX',
+    postalCode: '06700',
     addressCountry: 'MX'
   }
 };

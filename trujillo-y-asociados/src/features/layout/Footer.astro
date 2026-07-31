@@ -4,12 +4,12 @@ import logo from '@layout/assets/images/logo-icon.png';
 import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
 ---
 
-<footer class="site-footer">
-  <section class="footer-brand" aria-label="Descripción de la Firma y Asesoría Legal">
-    <a href={ROUTES.HOME} aria-label="Trujillo & Asociados Inicio">
+<footer class="site-footer" aria-label="Pie de página">
+  <div class="footer-brand">
+    <a href={ROUTES.HOME} aria-label="Trujillo &amp; Asociados Inicio">
       <Image 
         src={logo} 
-        alt="Trujillo & Asociados Logo" 
+        alt="Trujillo &amp; Asociados Logo" 
         widths={[64, 128, 192]} 
         sizes="(max-width: 768px) 64px, (max-width: 1024px) 128px, 192px"
         loading="lazy"
@@ -19,9 +19,9 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
     <p class="footer-tagline">
       Asesoramiento legal experto para la compleja y exigente normativa <strong class="footer-highlight">Ley Federal del Trabajo</strong>
     </p>
-  </section>
+  </div>
 
-  <aside class="footer-nav-section" aria-label="Información y Enlaces">
+  <div class="footer-nav-section">
     <nav class="footer-nav" aria-label="Enlaces del pie de página">
       {MAIN_NAV_ITEMS.map((link) => (
         <a href={link.href} class="footer-link">
@@ -30,20 +30,23 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
       ))}
     </nav>
 
-    <section class="footer-contact-section" aria-label="Contacto">
+    <div class="footer-contact-section">
       <address class="footer-address">
         <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
           C. Guaymas 8–Interior 401, Roma Nte.<br/>
           Cuauhtémoc, 06700 Ciudad de México, CDMX
         </a>
       </address>
+      <a href="tel:+525573408674" class="footer-email">
+        +525573408674
+      </a>
       <a href="mailto:despachotrujilloyasociados@gmail.com" class="footer-email">
         despachotrujilloyasociados@gmail.com
       </a>
-    </section>
-  </aside>
+    </div>
+  </div>
 
-  <small class="footer-copyright">© 2026 Trujillo & Asociados. Todos los derechos reservados.</small>
+  <small class="footer-copyright">© 2026 Trujillo &amp; Asociados. Todos los derechos reservados.</small>
   
 </footer>
 

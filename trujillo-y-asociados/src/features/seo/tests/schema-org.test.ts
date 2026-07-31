@@ -21,7 +21,7 @@ test('SchemaOrg genera JSON-LD estructurado de LegalService por defecto', async 
     const jsonLd = JSON.parse(scriptMatch[1]);
     expect(jsonLd['@context']).toBe('https://schema.org');
     expect(jsonLd['@type']).toBe('LegalService');
-    expect(jsonLd.name).toBe('Trujillo & Asociados Abogados');
+    expect(jsonLd.name).toBe('Trujillo & Asociados');
     expect(jsonLd.address['@type']).toBe('PostalAddress');
     expect(jsonLd.address.addressCountry).toBe('MX');
   }
