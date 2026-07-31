@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import logo from '@layout/assets/images/logo-icon.png';
 import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
@@ -9,7 +12,7 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
     <a href={ROUTES.HOME} aria-label="Trujillo & Asociados Inicio">
       <Image 
         src={logo} 
-        alt="Trujillo & Asociados Logo" 
+        alt={`Logotipo oficial de ${COMPANY_CONFIG.name}`}
         widths={[64, 128, 192]} 
         sizes="(max-width: 768px) 64px, (max-width: 1024px) 128px, 192px"
         loading="lazy"
@@ -33,17 +36,20 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
     <section class="footer-contact-section" aria-label="Contacto">
       <address class="footer-address">
         <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
-          C. Guaymas 8–Interior 401, Roma Nte.<br/>
-          Cuauhtémoc, 06700 Ciudad de México, CDMX
+          {COMPANY_CONFIG.address.streetAddress}, Col. {COMPANY_CONFIG.address.neighborhood}<br/>
+          {COMPANY_CONFIG.address.addressLocality}, {COMPANY_CONFIG.address.postalCode} {COMPANY_CONFIG.address.addressRegion}
         </a>
       </address>
-      <a href="mailto:despachotrujilloyasociados@gmail.com" class="footer-email">
-        despachotrujilloyasociados@gmail.com
+      <a href={`mailto:${COMPANY_CONFIG.contact.email}`} class="footer-email">
+        {COMPANY_CONFIG.contact.email}
+      </a>
+      <a href={`tel:${COMPANY_CONFIG.contact.phoneLandline}`} class="footer-email">
+        Tel: {COMPANY_CONFIG.contact.phoneLandline}
       </a>
     </section>
   </aside>
 
-  <small class="footer-copyright">© 2026 Trujillo & Asociados. Todos los derechos reservados.</small>
+  <small class="footer-copyright">© {currentYear} {COMPANY_CONFIG.legalName} {COMPANY_CONFIG.capitalRegime}. Todos los derechos reservados.</small>
   
 </footer>
 

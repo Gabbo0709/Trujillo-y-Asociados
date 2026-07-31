@@ -3,7 +3,7 @@ interface Props {
   whatsappNumber?: string;
 }
 
-const { whatsappNumber = "525573408674" } = Astro.props;
+const { whatsappNumber = "525522723351" } = Astro.props;
 ---
 
 <contact-form data-phone={whatsappNumber}>
@@ -12,7 +12,7 @@ const { whatsappNumber = "525573408674" } = Astro.props;
     <!-- Encabezado Contextual de la Sección -->
     <header class="brand-column">
       <h2 id="contact-form-title" class="form-main-heading">Contacto</h2>
-      <p class="response-notice">Nuestro equipo responderá dentro de un día hábil.</p>
+      <p class="response-notice">Nuestro equipo responderá tan pronto como sea posible.</p>
     </header>
 
     <!-- Formulario Interactivo Semántico -->
@@ -51,17 +51,17 @@ const { whatsappNumber = "525573408674" } = Astro.props;
         <div class="input-group">
           <label for="phone" class="field-label">Teléfono <span aria-hidden="true">*</span></label>
           <span class="phone-input-container">
-            <input 
-<input 
-  type="tel" 
-  id="phone" 
-  name="phone" 
-  required 
-  aria-required="true" 
-  autocomplete="tel" 
-  pattern="[0-9\s+\-()\.]{8,20}" 
-  class="underline-input phone-field" 
-/>
+          
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            required 
+            aria-required="true" 
+            autocomplete="tel" 
+            pattern="[0-9\s+\-()\.]{8,20}" 
+            class="underline-input phone-field" 
+          />
           </span>
         </div>
 
@@ -164,7 +164,7 @@ const { whatsappNumber = "525573408674" } = Astro.props;
   .form-main-heading {
     font-size: var(--text-title);
     margin: 0;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-black);
     color: var(--color-text-title);
   }
 

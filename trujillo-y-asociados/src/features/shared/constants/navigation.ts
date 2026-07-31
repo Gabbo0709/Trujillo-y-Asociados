@@ -22,5 +22,5 @@ export const MAIN_NAV_ITEMS: readonly NavItem[] = [
   { href: ROUTES.FIRM, label: 'Nuestra Firma' },
   { href: ROUTES.WORKERS_ADVISORY, label: 'Asesoría a Trabajadores' },
   { href: ROUTES.CORPORATE_ADVISORY, label: 'Asesoría a Empresas' },
-  { href: ROUTES.CONTACT_FORM, label: 'Contacto' },
+  { href: ROUTES.CONTACT, label: 'Contacto' },
 ] as const;
