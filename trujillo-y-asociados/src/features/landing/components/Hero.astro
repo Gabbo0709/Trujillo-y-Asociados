@@ -21,7 +21,13 @@ const optimizedMobile = await getImage({
   <article class="hero-presentation">
     <header class="hero-header">
       <h1 id="hero-heading" class="hero-title">
-        <span class="hero-title-group">Asesoría en <strong class="hero-badge">CDMX</strong></span>
+        <span class="hero-title-group">
+          Asesoría en 
+          <strong class="hero-badge" aria-label="Ciudad de México y Estado de México">
+            <span class="hero-badge-row">CDMX &amp;</span>
+            <span class="hero-badge-row">EDOMEX</span>
+          </strong>
+        </span>
         Derecho Laboral
       </h1>
     </header>
@@ -142,22 +148,31 @@ const optimizedMobile = await getImage({
   .hero-badge {
     background-color: var(--color-bg-surface);
     color: var(--color-text-body);
-    font-size: clamp(2rem, 0.5em, 2.5rem);
+    font-size: clamp(1rem, 0.6em, 2rem);
     font-weight: var(--font-weight-extrabold);
-    padding: 0.5em 1em;
+    padding: 0.35em 0.65em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: inline-block;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     align-self: center;
     margin-top: 1rem;
-    line-height: 1;
+    line-height: 1.05;
+  }
+
+  .hero-badge-row {
+    display: block;
+    white-space: nowrap;
   }
 
 
   @media (width < 768px) {
     .hero-badge {
       margin-top: 0.5rem;
-      font-size: clamp(0.9rem, 0.5em, 1.1rem);
+      font-size: clamp(0.7rem, 0.4em, 0.85rem);
+      padding: 0.3em 0.5em;
     }
   }
 
@@ -232,7 +247,7 @@ const optimizedMobile = await getImage({
     }
 
     .hero-badge {
-      font-size: var(--text-2xl);
+      font-size: var(--text-sm);
     }
 
     .hero-cta-link {

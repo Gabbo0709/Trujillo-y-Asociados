@@ -39,6 +39,7 @@ const currentYear = new Date().getFullYear();
           {COMPANY_CONFIG.address.streetAddress}, Col. {COMPANY_CONFIG.address.neighborhood}<br/>
           {COMPANY_CONFIG.address.addressLocality}, {COMPANY_CONFIG.address.postalCode} {COMPANY_CONFIG.address.addressRegion}
         </a>
+        <p class="footer-coverage-text">Sede Roma Norte | Cobertura en CDMX y Estado de México</p>
       </address>
       <a href={`mailto:${COMPANY_CONFIG.contact.email}`} class="footer-email">
         {COMPANY_CONFIG.contact.email}
@@ -160,6 +161,13 @@ const currentYear = new Date().getFullYear();
   .footer-map-link:hover {
     color: var(--color-text-layout);
     text-decoration: underline;
+  }
+
+  .footer-coverage-text {
+    font-size: var(--text-xs);
+    color: hsla(var(--color-brand-secondary), 0.75);
+    margin: var(--space-2) 0 0 0;
+    line-height: 1.4;
   }
 
   .footer-copyright {

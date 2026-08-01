@@ -19,8 +19,8 @@ export interface Props {
 const {
   headingLevel = 'h2',
   title = "Sede principal",
-  subtitle = "Ciudad de México",
-  description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral.",
+  subtitle = "Ciudad de México & Estado de México",
+  description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral, ofreciendo representación jurídica integral en la CDMX y el Estado de México (Área Metropolitana).",
   schedule = "Lunes a Viernes: 9:00 AM - 6:00 PM",
   mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
 } = Astro.props;
@@ -48,7 +48,7 @@ const Heading = headingLevel;
           <Fragment set:html={pinIcon} />
         </span>
         <span class="address-text-block">
-          <strong>Ubicación</strong>
+          <strong>Ubicación y Cobertura</strong>
           <a 
             href={mapsUrl} 
             target="_blank" 
@@ -58,6 +58,7 @@ const Heading = headingLevel;
           >   
             {formattedAddress}
           </a>
+          <span class="coverage-note">Cobertura de representación jurídica en CDMX y Estado de México</span>
         </span>
       </p>
       
@@ -239,6 +240,14 @@ const Heading = headingLevel;
   .address-link:hover {
     color: var(--color-brand-primary);
     text-decoration: underline;
+  }
+
+  .coverage-note {
+    font-size: var(--text-xs);
+    color: var(--color-brand-primary);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--space-1);
+    display: block;
   }
 
   .btn-details-cta {
