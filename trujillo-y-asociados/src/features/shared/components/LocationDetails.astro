@@ -112,7 +112,7 @@ const Heading = headingLevel;
       </picture>
       <figcaption class="map-card-footer">
         <h3 class="map-card-title">{COMPANY_CONFIG.name}</h3>
-        <p class="map-card-text">Sur de Ciudad de México (CDMX)</p>
+        <p class="map-card-text">{COMPANY_CONFIG.address.addressLocality} ({COMPANY_CONFIG.address.addressRegion})</p>
         <a 
           href={mapsUrl} 
           target="_blank" 

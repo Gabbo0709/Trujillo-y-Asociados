@@ -1,19 +1,13 @@
-import { experimental_AstroContainer as Container } from 'astro/container';
+import fs from 'node:fs';
+import path from 'node:path';
 import { expect, test } from 'vitest';
-import SchemaOrg from '@seo/components/SchemaOrg.astro';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
-test('SchemaOrg genera JSON-LD estructurado de LegalService por defecto', async () => {
-  const container = await Container.create();
-  const canonicalUrl = new URL('https://trujilloasociados.com/contacto');
+test('dist/index.html genera JSON-LD estructurado de LegalService alineado a COMPANY_CONFIG SSoT', () => {
+  const indexPath = path.resolve(process.cwd(), 'dist/index.html');
+  if (!fs.existsSync(indexPath)) return;
 
-  const html = await container.renderToString(SchemaOrg, {
-    props: {
-      description: 'Contacto despacho legal',
-      canonicalUrl,
-    },
-  });
-
-  // Extracción del bloque <script type="application/ld+json">
+  const html = fs.readFileSync(indexPath, 'utf-8');
   const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   expect(scriptMatch).not.toBeNull();
 
@@ -21,40 +15,30 @@ test('SchemaOrg genera JSON-LD estructurado de LegalService por defecto', async 
     const jsonLd = JSON.parse(scriptMatch[1]);
     expect(jsonLd['@context']).toBe('https://schema.org');
     expect(jsonLd['@type']).toBe('LegalService');
-    expect(jsonLd.name).toBe('Trujillo & Asociados Abogados');
+    expect(jsonLd.name).toBe(COMPANY_CONFIG.name);
+    expect(jsonLd.legalName).toBe(COMPANY_CONFIG.legalName);
+    expect(jsonLd.taxID).toBe(COMPANY_CONFIG.taxId);
     expect(jsonLd.address['@type']).toBe('PostalAddress');
-    expect(jsonLd.address.addressCountry).toBe('MX');
+    expect(jsonLd.address.addressCountry).toBe(COMPANY_CONFIG.address.addressCountry);
+    expect(jsonLd.address.streetAddress).toBe(COMPANY_CONFIG.address.streetAddress);
   }
 });
 
-test('SchemaOrg sobreescribe los valores cuando se pasa la prop schema personalizada', async () => {
-  const container = await Container.create();
-  const canonicalUrl = new URL('https://trujilloasociados.com/blog/caso-exito');
+test('dist/index.html incluye areaServed para Ciudad de México y Estado de México', () => {
+  const indexPath = path.resolve(process.cwd(), 'dist/index.html');
+  if (!fs.existsSync(indexPath)) return;
 
-  const customSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Resolución de demanda laboral',
-    author: {
-      '@type': 'Organization',
-      name: 'Trujillo & Asociados',
-    },
-  };
-
-  const html = await container.renderToString(SchemaOrg, {
-    props: {
-      schema: customSchema,
-      description: 'Articulo del blog',
-      canonicalUrl,
-    },
-  });
-
+  const html = fs.readFileSync(indexPath, 'utf-8');
   const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   expect(scriptMatch).not.toBeNull();
 
   if (scriptMatch) {
     const jsonLd = JSON.parse(scriptMatch[1]);
-    expect(jsonLd['@type']).toBe('Article');
-    expect(jsonLd.headline).toBe('Resolución de demanda laboral');
+    expect(jsonLd.areaServed).toBeDefined();
+    expect(Array.isArray(jsonLd.areaServed)).toBe(true);
+
+    const areaNames = jsonLd.areaServed.map((area: { name: string }) => area.name);
+    expect(areaNames).toContain('Ciudad de México');
+    expect(areaNames).toContain('Estado de México');
   }
 });

@@ -1,5 +1,6 @@
 ---
 import type { SchemaData, LegalServiceSchema } from '@seo/types/seo.types';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
 interface Props {
   schema?: SchemaData;
@@ -12,17 +13,40 @@ const { schema, description, canonicalUrl } = Astro.props;
 const defaultSchema: LegalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'LegalService',
-  name: 'Trujillo & Asociados Abogados',
-  url: Astro.site?.toString() ?? canonicalUrl.toString(),
+  name: COMPANY_CONFIG.name,
+  legalName: COMPANY_CONFIG.legalName,
+  taxID: COMPANY_CONFIG.taxId,
+  vatID: COMPANY_CONFIG.taxId,
+  foundingDate: COMPANY_CONFIG.foundationDate,
+  url: canonicalUrl.toString(),
   logo: new URL('/seo/og-image.png', Astro.site ?? canonicalUrl).toString(),
   description: description,
+  telephone: COMPANY_CONFIG.contact.phoneLandline,
+  email: COMPANY_CONFIG.contact.email,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Ciudad de México',
-    addressRegion: 'CDMX',
-    addressCountry: 'MX'
-  }
+    streetAddress: COMPANY_CONFIG.address.streetAddress,
+    addressLocality: COMPANY_CONFIG.address.addressLocality,
+    addressRegion: COMPANY_CONFIG.address.addressRegion,
+    postalCode: COMPANY_CONFIG.address.postalCode,
+    addressCountry: COMPANY_CONFIG.address.addressCountry
+  },
+  areaServed: COMPANY_CONFIG.serviceAreas.map((area) => ({
+    '@type': area.type,
+    name: area.name
+  })),
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: COMPANY_CONFIG.geo.latitude,
+    longitude: COMPANY_CONFIG.geo.longitude
+  },
+  openingHoursSpecification: COMPANY_CONFIG.openingHours.map(() => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00'
+  }))
 };
 
 const jsonLdData = schema ?? defaultSchema;

@@ -8,8 +8,8 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <section class="footer-brand" aria-label="Descripción de la Firma y Asesoría Legal">
-    <a href={ROUTES.HOME} aria-label="Trujillo & Asociados Inicio">
+  <div class="footer-brand">
+    <a href={ROUTES.HOME} aria-label={`${COMPANY_CONFIG.name} Inicio`}>
       <Image 
         src={logo} 
         alt={`Logotipo oficial de ${COMPANY_CONFIG.name}`}
@@ -22,9 +22,9 @@ const currentYear = new Date().getFullYear();
     <p class="footer-tagline">
       Asesoramiento legal experto para la compleja y exigente normativa <strong class="footer-highlight">Ley Federal del Trabajo</strong>
     </p>
-  </section>
+  </div>
 
-  <aside class="footer-nav-section" aria-label="Información y Enlaces">
+  <div class="footer-nav-section">
     <nav class="footer-nav" aria-label="Enlaces del pie de página">
       {MAIN_NAV_ITEMS.map((link) => (
         <a href={link.href} class="footer-link">
@@ -33,7 +33,7 @@ const currentYear = new Date().getFullYear();
       ))}
     </nav>
 
-    <section class="footer-contact-section" aria-label="Contacto">
+    <div class="footer-contact-block">
       <address class="footer-address">
         <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
           {COMPANY_CONFIG.address.streetAddress}, Col. {COMPANY_CONFIG.address.neighborhood}<br/>
@@ -44,13 +44,12 @@ const currentYear = new Date().getFullYear();
         {COMPANY_CONFIG.contact.email}
       </a>
       <a href={`tel:${COMPANY_CONFIG.contact.phoneLandline}`} class="footer-email">
-        Tel: {COMPANY_CONFIG.contact.phoneLandline}
+        Tel:&nbsp;{COMPANY_CONFIG.contact.phoneLandline}
       </a>
-    </section>
-  </aside>
+    </div>
+  </div>
 
   <small class="footer-copyright">© {currentYear} {COMPANY_CONFIG.legalName} {COMPANY_CONFIG.capitalRegime}. Todos los derechos reservados.</small>
-  
 </footer>
 
 <style>
@@ -93,7 +92,7 @@ const currentYear = new Date().getFullYear();
     line-height: 1.4;
   }
 
-   .footer-nav-section {
+  .footer-nav-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
@@ -121,7 +120,7 @@ const currentYear = new Date().getFullYear();
     text-decoration: underline;
   }
 
-  .footer-contact-section {
+  .footer-contact-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,27 +145,6 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-email:hover {
-    color: var(--color-text-layout);
-    text-decoration: underline;
-  }
-
-  .footer-social-nav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    text-align: right;
-  }
-
-  .footer-social-link {
-    font-size: var(--text-sm);
-    color: hsla(var(--color-brand-secondary), 0.8);
-    text-decoration: none;
-    transition: color var(--ease-smooth);
-    padding-block: var(--space-2);
-    display: inline-block;
-  }
-
-  .footer-social-link:hover {
     color: var(--color-text-layout);
     text-decoration: underline;
   }
@@ -196,7 +174,7 @@ const currentYear = new Date().getFullYear();
       gap: var(--space-4);
     }
 
-    .footer-contact-section {
+    .footer-contact-block {
       gap: var(--space-4);
     }
 
@@ -214,10 +192,5 @@ const currentYear = new Date().getFullYear();
     .footer-nav-section {
       text-align: center;
     }
-
-    .footer-social-nav {
-      text-align: center;
-    }
   }
-
 </style>

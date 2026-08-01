@@ -44,7 +44,7 @@ const {
     <h2 id="team-heading" class="section-title">{title}</h2>
   </header>
 
-  <ul class="team-grid" role="list">
+  <ul class="team-grid">
     {members.map((member) => (
       <li class="member-item">
         <article class="member-card">
@@ -54,7 +54,7 @@ const {
                 src={member.photoSrc} 
                 alt={member.name} 
                 widths={[240, 360]} 
-                sizes="120px" 
+                sizes="(max-width: 1280px) 100vw, 240px" 
                 loading="lazy" 
                 decoding="async" 
                 class="avatar-img" 
@@ -95,9 +95,9 @@ const {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     gap: var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .member-item {
@@ -125,8 +125,9 @@ const {
 
   .avatar-box {
     margin: 0;
-    width: 120px;
-    height: 200px;
+    width: 240px;
+    height: 360px;
+    aspect-ratio: 2 / 3;
     flex-shrink: 0;
     background-color: var(--color-border);
     overflow: hidden;
@@ -143,7 +144,7 @@ const {
   }
 
   .member-name {
-    font-size: var(--text-3xl);
+    font-size: var(--text-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-body);
     line-height: 1.2;
@@ -159,16 +160,21 @@ const {
     opacity: 0.95;
   }
 
-  @media (width >= 768px) {
+  @media (width <= 1440px) {
+    .member-name {
+      font-size: var(--text-lg);
+    }
+  }
+
+  @media (width <= 1280px) {
+
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-6);
+      display: flex;
+      flex-direction: column;
     }
 
-    .avatar-box {
-      width: 280px;
-      height: 400px;
+    .member-name {
+      font-size: var(--text-2xl);
     }
   }
 </style>

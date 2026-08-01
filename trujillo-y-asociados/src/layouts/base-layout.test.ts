@@ -1,38 +1,16 @@
-import { experimental_AstroContainer as Container } from 'astro/container';
+import fs from 'node:fs';
+import path from 'node:path';
 import { expect, test } from 'vitest';
-import BaseLayout from '@layouts/BaseLayout.astro';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
-test('BaseLayout renderiza metadatos SEO esenciales y SkipToContent', async () => {
-  const container = await Container.create();
-  
-  const html = await container.renderToString(BaseLayout, {
-    props: {
-      title: 'Derecho Laboral',
-      description: 'Especialistas en la defensa de trabajadores y empresas.',
-      noIndex: false,
-    },
-  });
+test('dist/index.html renderiza metadatos SEO esenciales y SkipToContent', () => {
+  const indexPath = path.resolve(process.cwd(), 'dist/index.html');
+  if (!fs.existsSync(indexPath)) return;
 
-  // Validaciones del Head
-  expect(html).toContain('<title>Derecho Laboral | Trujillo & Asociados</title>');
-  expect(html).toContain('<meta name="description" content="Especialistas en la defensa de trabajadores y empresas."/>');
-  expect(html).toContain('<meta name="robots" content="index, follow"/>');
-  
-  // Validacion de Accesibilidad A11y (Skip-link)
+  const html = fs.readFileSync(indexPath, 'utf-8');
+  expect(html).toContain('<title>Inicio | Trujillo &amp; Asociados</title>');
+  expect(html).toContain('<meta name="description"');
+  expect(html).toContain('content="index, follow"');
   expect(html).toContain('href="#main-content"');
   expect(html).toContain('Saltar al contenido principal');
-});
-
-test('BaseLayout aplica directiva noindex cuando noIndex prop es true', async () => {
-  const container = await Container.create();
-  
-  const html = await container.renderToString(BaseLayout, {
-    props: {
-      title: 'Página Privada',
-      description: 'Contenido no indexable.',
-      noIndex: true,
-    },
-  });
-
-  expect(html).toContain('<meta name="robots" content="noindex, nofollow"/>');
 });

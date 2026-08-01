@@ -1,0 +1,37 @@
+{
+  "name": "Trujillo & Asociados",
+  "short_name": "Trujillo & Asociados",
+  "description": "Despacho de abogados especializado en Derecho Laboral mexicano con sede en Ciudad de México.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#3F1F13",
+  "theme_color": "#3F1F13",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ]
+}

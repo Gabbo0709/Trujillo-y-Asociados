@@ -10,26 +10,30 @@ export interface Props {
 const { title, description, services } = Astro.props as Props;
 ---
 
-<article class="hero-corporate" aria-labelledby="hero-corporate">
-    <header class="corporate-header">
-        <h1 class="corporate-title" id="hero-corporate">{title}</h1>
+<header class="hero-corporate" aria-labelledby="hero-corporate-heading">
+    <div class="corporate-header">
+        <h1 class="corporate-title" id="hero-corporate-heading">{title}</h1>
         <p class="corporate-description">{description}</p>
-    </header>
-</article>
+    </div>
+</header>
 
 <section class="services-container" aria-labelledby="services-heading">
     <h2 id="services-heading" class="sr-only">{title}</h2>
-    {services.map((service, index) => {
-        const cardTitleId = `service-title-${index}`;
-        return (
-            <article class="service-card" aria-labelledby={cardTitleId}>
-                <h3 class="service-header" id={cardTitleId}>
-                    {service.title}
-                </h3>
-                <p class="service-description">{service.description}</p>
-            </article>
-        );
-    })}
+    <ul class="services-list">
+        {services.map((service, index) => {
+            const cardTitleId = `service-title-${index}`;
+            return (
+                <li class="service-item">
+                    <article class="service-card" aria-labelledby={cardTitleId}>
+                        <h3 class="service-header" id={cardTitleId}>
+                            {service.title}
+                        </h3>
+                        <p class="service-description">{service.description}</p>
+                    </article>
+                </li>
+            );
+        })}
+    </ul>
 </section>
 
 <style>
@@ -74,6 +78,20 @@ const { title, description, services } = Astro.props as Props;
         padding-block: var(--space-8);
         gap: var(--space-8);
         align-items: center;
+        width: 100%;
+    }
+
+    .services-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .service-item {
         width: 100%;
     }
     

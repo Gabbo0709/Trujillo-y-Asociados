@@ -8,6 +8,11 @@ export interface CompanyAddress {
   readonly formatted: string;
 }
 
+export interface ServiceArea {
+  readonly type: 'AdministrativeArea';
+  readonly name: string;
+}
+
 export interface CompanyConfig {
   readonly name: string;
   readonly legalName: string;
@@ -15,6 +20,7 @@ export interface CompanyConfig {
   readonly taxId: string;
   readonly foundationDate?: string;
   readonly address: CompanyAddress;
+  readonly serviceAreas: readonly ServiceArea[];
   readonly geo: {
     readonly latitude: number;
     readonly longitude: number;
@@ -42,6 +48,10 @@ export const COMPANY_CONFIG: CompanyConfig = {
     addressCountry: "MX",
     formatted: "C. Guaymas 8, Interior 401, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX",
   },
+  serviceAreas: [
+    { type: 'AdministrativeArea', name: 'Ciudad de México' },
+    { type: 'AdministrativeArea', name: 'Estado de México' }
+  ],
   geo: {
     latitude: 19.424960371304817,
     longitude: -99.15489273900886,
