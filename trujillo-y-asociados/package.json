@@ -16,7 +16,7 @@
     "test:watch": "vitest",
     "test:html": "html-validate \"dist/**/*.html\"",
     "test:links": "linkinator ./dist --recurse --skip \"^https?://(www\\.)?(linkedin|facebook|twitter|trujillo-demo\\.netlify\\.app)\"",
-    "ci:validate": "pnpm run check && pnpm run test && pnpm run build && pnpm run test:html && pnpm run test:links",
+    "ci:validate": "pnpm run check && pnpm run build && pnpm run test && pnpm run test:html && pnpm run test:links",
     "extract-seo-payload": "NODE_PATH=./node_modules tsx ../.agents/scripts/extract-seo-payload.ts"
   },
   "dependencies": {
