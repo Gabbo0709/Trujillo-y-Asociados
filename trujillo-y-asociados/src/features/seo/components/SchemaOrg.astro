@@ -41,12 +41,7 @@ const defaultSchema: LegalServiceSchema = {
     latitude: COMPANY_CONFIG.geo.latitude,
     longitude: COMPANY_CONFIG.geo.longitude
   },
-  openingHoursSpecification: COMPANY_CONFIG.openingHours.map(() => ({
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00'
-  }))
+  openingHours: COMPANY_CONFIG.openingHours
 };
 
 const jsonLdData = schema ?? defaultSchema;

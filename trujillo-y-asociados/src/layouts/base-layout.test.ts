@@ -8,7 +8,8 @@ test('dist/index.html renderiza metadatos SEO esenciales y SkipToContent', () =>
   if (!fs.existsSync(indexPath)) return;
 
   const html = fs.readFileSync(indexPath, 'utf-8');
-  expect(html).toContain('<title>Inicio | Trujillo &amp; Asociados</title>');
+  const expectedCompanyName = COMPANY_CONFIG.name.replace(/&/g, '&amp;');
+  expect(html).toContain(`<title>Inicio | ${expectedCompanyName}</title>`);
   expect(html).toContain('<meta name="description"');
   expect(html).toContain('content="index, follow"');
   expect(html).toContain('href="#main-content"');

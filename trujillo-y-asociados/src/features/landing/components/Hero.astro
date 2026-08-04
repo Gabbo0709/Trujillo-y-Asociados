@@ -53,8 +53,6 @@ const optimizedMobile = await getImage({
       <source 
         media="(min-width: 1024px)" 
         srcset={optimizedDesktop.src} 
-        width={optimizedDesktop.attributes.width}
-        height={optimizedDesktop.attributes.height}
       />
       <!-- Fallback (Mobile) y controlador de LCP -->
       <img 
