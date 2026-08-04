@@ -1,47 +1,22 @@
 # Trujillo & Asociados
 
-> Despacho de abogados especializado en Derecho Laboral mexicano con sede en Ciudad de México y atención en la Zona Metropolitana (CDMX y Estado de México). Brindamos asesoría legal a empresas y trabajadores.
+> Despacho de abogados especializado en Derecho Laboral mexicano con sede en Ciudad de México (CDMX) y cobertura en la Zona Metropolitana (CDMX y Estado de México). Brindamos representación legal tanto a patrones (empresas) como a trabajadores.
 
-## Identidad del Despacho
+Información de la firma:
+- Razón Social: TRUJILLO Y ASOCIADOS (ASOCIACIÓN EN PARTICIPACIÓN)
+- Dirección: C. Guaymas 8, Interior 401, Roma Norte, Cuauhtémoc, 06700 Ciudad de México, CDMX
+- Teléfono: +525552087631
+- Correo: despachotrujilloyasociados@gmail.com
+- Áreas de servicio: Ciudad de México, Estado de México y República Mexicana
 
-Trujillo & Asociados es una firma de abogados enfocada en el ejercicio del Derecho Laboral mexicano. Brindamos asesoría legal integral tanto a patrones (empresas) para la prevención y resolución de conflictos como a trabajadores para salvaguardar sus derechos y prestaciones de ley, con sede física en la Ciudad de México y cobertura de servicio en toda la Zona Metropolitana (Ciudad de México y Estado de México).
+## Páginas Principales
 
-## Áreas de Práctica
+- [Página de Inicio](https://abogadostrujilloyasociados.com.mx/): Presentación de la firma, áreas de resolución laboral y propuesta de valor.
+- [Asesoría a Empresas](https://abogadostrujilloyasociados.com.mx/asesoria-empresas): Servicios de consultoría preventiva, auditoría laboral, contratos, rescisión patronal y litigio laboral en CDMX y Edomex.
+- [Asesoría a Trabajadores](https://abogadostrujilloyasociados.com.mx/asesoria-trabajadores): Representación legal por despido injustificado, conciliación prejudicial, salarios caídos y reclamo de indemnizaciones.
+- [Nuestra Firma](https://abogadostrujilloyasociados.com.mx/nuestra-firma): Trayectoria, identidad de la firma y especialización en Ley Federal del Trabajo.
+- [Contacto y Ubicación](https://abogadostrujilloyasociados.com.mx/contacto): Canales de atención presencial en Roma Norte y consulta legal remota.
 
-### Asesoría a Empresas (`/corporate-advisory`)
-Servicios de consultoría laboral preventiva, estructura operativa y representación legal para patrones en CDMX y Estado de México:
-- **Elaboración de Contratos de Trabajo:** Elaboración, revisión y actualización de contratos a la medida (tiempo determinado, tiempo indefinido, por obra, por temporada, sujeto a prueba o capacitación inicial).
-- **Auditoría Legal Laboral:** Verificación del cumplimiento de obligaciones patronales previstas en la Ley Federal del Trabajo para prevenir conflictos o sanciones.
-- **Gestión de Documentación Laboral:** Implementación de documentos sobre condiciones de trabajo y comprobantes de pago (recibos de nómina, vacaciones, aguinaldo, controles de asistencia).
-- **Reglamento Interior de Trabajo:** Elaboración y registro del Reglamento Interior de Trabajo ante el Centro Federal de Conciliación y Registro Laboral.
-- **Consultoría en Asuntos Laborales:** Atención de consultas sobre subcontratación, sustitución patronal, teletrabajo, ley silla, trabajos especiales y condiciones de trabajo.
-- **Gestión de Terminación de Relaciones Laborales:** Negociaciones para terminación por mutuo acuerdo o rescisión de contrato por causas imputables al trabajador.
-- **Cálculo de Finiquitos y Liquidaciones:** Cálculo de finiquito/liquidación, convenios privados o ante el Centro de Conciliación Laboral, cartas de renuncia y recibos de finiquito.
-- **Representación Legal en Conflictos Laborales:** Representación y defensa ante el Centro de Conciliación Laboral, Tribunales Laborales o Juntas de Conciliación y Arbitraje (Locales o Federales) en CDMX y Estado de México.
-- **Litigio Laboral:** Contestación de demanda, ofrecimiento y objeción de pruebas, comparecencia y desahogo de audiencias preliminares y de juicio, y juicio de amparo.
+## Optional
 
-### Asesoría a Trabajadores (`/workers-advisory`)
-Representación y defensa especializada de los derechos laborales del trabajador en la Zona Metropolitana:
-- **Asesoría Legal:** Asesoría en caso de conflicto con la empresa por despido injustificado o incumplimiento del patrón (falta o retraso en pago de salario, reducción de salario, modificación de condiciones, falta de pago de prestaciones).
-- **Instancia Conciliatoria Prejudicial:** Solicitud y representación en el procedimiento de conciliación ante el Centro de Conciliación Laboral para obtener liquidación y prestaciones antes de acudir a tribunales.
-- **Despido Injustificado:** Presentación de demandas ante el Tribunal Laboral por despido injustificado o rescisión imputable al patrón, exigiendo indemnización constitucional (3 meses de salario), reinstalación, salarios caídos, intereses, prima de antigüedad, aguinaldo, vacaciones y prima vacacional en todas las etapas del juicio.
-
-## Contacto (`/contacto`)
-
-- **Razón Social:** TRUJILLO Y ASOCIADOS (ASOCIACIÓN EN PARTICIPACIÓN)
-- **Dirección:** C. Guaymas 8, Interior 401, Roma Norte, Cuauhtémoc, 06700 Ciudad de México, CDMX
-- **Teléfono:** +525552087631
-- **Correo Electrónico:** despachotrujilloyasociados@gmail.com
-- **Área de Servicio:** Ciudad de México (CDMX), Estado de México (Edomex) y República Mexicana
-
-## Rutas del Sitio
-
-- `/` — Inicio (Firma y Áreas de Resolución)
-- `/corporate-advisory` — Asesoría a Empresas
-- `/workers-advisory` — Asesoría a Trabajadores
-- `/firm` — Nuestra Firma
-- `/contacto` — Contacto y Consulta
-
-## Entidades Legales y Palabras Clave
-
-Derecho Laboral, Asesoría a Empresas, Asesoría a Trabajadores, Litigio Laboral, Auditoría Legal Laboral, Ley Federal del Trabajo, Contratos de Trabajo, Reglamento Interior de Trabajo, Centro de Conciliación Laboral, Tribunales Laborales, Despido Injustificado, Finiquitos y Liquidaciones, Juicio de Amparo, Ciudad de México, Estado de México, Zona Metropolitana.
+- [Ubicación en Google Maps](https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5): Mapa interactivo de la sede principal en Roma Norte, Cuauhtémoc.

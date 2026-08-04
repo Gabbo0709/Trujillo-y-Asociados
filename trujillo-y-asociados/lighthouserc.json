@@ -4,10 +4,10 @@
       "staticDistDir": "./trujillo-y-asociados/dist",
       "url": [
         "/",
-        "/firm/",
+        "/nuestra-firma/",
         "/contacto/",
-        "/corporate-advisory/",
-        "/workers-advisory/"
+        "/asesoria-empresas/",
+        "/asesoria-trabajadores/"
       ]
     },
     "assert": {

@@ -8,9 +8,9 @@ export interface NavItem {
  */
 export const ROUTES = {
   HOME: '/',
-  FIRM: '/firm',
-  WORKERS_ADVISORY: '/workers-advisory',
-  CORPORATE_ADVISORY: '/corporate-advisory',
+  FIRM: '/nuestra-firma',
+  WORKERS_ADVISORY: '/asesoria-trabajadores',
+  CORPORATE_ADVISORY: '/asesoria-empresas',
   CONTACT: '/contacto',
   CONTACT_FORM: '/contacto#formulario-contacto',
 } as const;
