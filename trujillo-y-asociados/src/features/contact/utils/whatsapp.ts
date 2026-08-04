@@ -1,7 +1,8 @@
 import type { ContactFormData, WhatsAppPayloadOptions } from '@contact/types/contact';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
 const EMOJI = {
-  PIN: '\u{1F4CD}',       // 📌
+  PIN: '\u{1F4CD}',       // 📍
   USER: '\u{1F464}',      // 👤
   EMAIL: '\u{1F4E7}',     // 📧
   PHONE: '\u{1F4DE}',     // 📞
@@ -15,7 +16,7 @@ export function sanitizePhoneNumber(phone: string): string {
 
 export function formatWhatsAppMessage(
   data: ContactFormData,
-  companyName = 'TRUJILLO & ASOCIADOS'
+  companyName = COMPANY_CONFIG.name
 ): string {
   const header = `${EMOJI.PIN} *NUEVA CONSULTA LEGAL - ${companyName.toUpperCase()}*`;
 

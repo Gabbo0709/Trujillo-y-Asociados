@@ -46,7 +46,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
     addressRegion: "CDMX",
     postalCode: "06700",
     addressCountry: "MX",
-    formatted: "C. Guaymas 8, Interior 401, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX",
+    formatted: "C. Guaymas 8, Interior 401, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX", 
   },
   serviceAreas: [
     { type: 'AdministrativeArea', name: 'Ciudad de México' },
@@ -58,8 +58,8 @@ export const COMPANY_CONFIG: CompanyConfig = {
   },
   contact: {
     phoneLandline: "+525552087631",
-    phoneWhatsApp: "+525512345678",
-    email: "contacto@trujilloasociados.mx",
+    phoneWhatsApp: "+525522723351",
+    email: "despachotrujilloyasociados@gmail.com",
   },
   openingHours: ["Mo-Fr 09:00-18:00"],
 } as const;

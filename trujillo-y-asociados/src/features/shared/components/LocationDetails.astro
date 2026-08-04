@@ -25,7 +25,7 @@ const {
   mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
 } = Astro.props;
 
-const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CONFIG.address.postalCode} ${COMPANY_CONFIG.address.addressLocality}, ${COMPANY_CONFIG.address.addressRegion}`;
+const formattedAddress = COMPANY_CONFIG.address.formatted;
 const Heading = headingLevel;
 ---
 
@@ -235,6 +235,7 @@ const Heading = headingLevel;
   .address-link {
     text-decoration: none;
     transition: color var(--ease-smooth);
+    width: 50ch;
   }
 
   .address-link:hover {

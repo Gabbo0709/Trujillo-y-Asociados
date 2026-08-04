@@ -33,21 +33,19 @@ const currentYear = new Date().getFullYear();
       ))}
     </nav>
 
-    <div class="footer-contact-block">
-      <address class="footer-address">
-        <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
-          {COMPANY_CONFIG.address.streetAddress}, Col. {COMPANY_CONFIG.address.neighborhood}<br/>
-          {COMPANY_CONFIG.address.addressLocality}, {COMPANY_CONFIG.address.postalCode} {COMPANY_CONFIG.address.addressRegion}
-        </a>
-        <p class="footer-coverage-text">Sede Roma Norte | Cobertura en CDMX y Estado de México</p>
-      </address>
+    <address class="footer-contact-block">
+      <a href="https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5" target="_blank" rel="noopener noreferrer" class="footer-map-link">
+        {COMPANY_CONFIG.address.streetAddress}, Col. {COMPANY_CONFIG.address.neighborhood}<br/>
+        {COMPANY_CONFIG.address.addressLocality}, {COMPANY_CONFIG.address.postalCode} {COMPANY_CONFIG.address.addressRegion}
+      </a>
+      <p class="footer-coverage-text">Sede Roma Norte | Cobertura en CDMX y Estado de México</p>
       <a href={`mailto:${COMPANY_CONFIG.contact.email}`} class="footer-email">
         {COMPANY_CONFIG.contact.email}
       </a>
       <a href={`tel:${COMPANY_CONFIG.contact.phoneLandline}`} class="footer-email">
         Tel:&nbsp;{COMPANY_CONFIG.contact.phoneLandline}
       </a>
-    </div>
+    </address>
   </div>
 
   <small class="footer-copyright">© {currentYear} {COMPANY_CONFIG.legalName} {COMPANY_CONFIG.capitalRegime}. Todos los derechos reservados.</small>
@@ -127,9 +125,6 @@ const currentYear = new Date().getFullYear();
     justify-content: center;
     text-align: center;
     gap: var(--space-6);
-  }
-
-  .footer-address {
     font-style: normal;
     font-size: var(--text-sm);
     line-height: 1.6;
@@ -164,9 +159,8 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-coverage-text {
-    font-size: var(--text-xs);
     color: hsla(var(--color-brand-secondary), 0.75);
-    margin: var(--space-2) 0 0 0;
+    text-align: center;
     line-height: 1.4;
   }
 

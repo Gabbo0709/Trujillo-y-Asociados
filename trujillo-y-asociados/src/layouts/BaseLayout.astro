@@ -45,6 +45,14 @@ const { title, description, ogImage, noIndex, schema } = Astro.props;
     <OpenGraph {title} {description} {canonicalUrl} {ogImage} />
     <Favicons />
     <SchemaOrg {schema} {description} {canonicalUrl} />
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </head>
   <body>
     <a href="#main-content" class="sr-only focus:not-sr-only">

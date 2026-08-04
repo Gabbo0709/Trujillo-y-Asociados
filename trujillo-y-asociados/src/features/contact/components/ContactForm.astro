@@ -1,9 +1,11 @@
 ---
+import { COMPANY_CONFIG } from "@shared/constants/company.config";
+
 interface Props {
   whatsappNumber?: string;
 }
 
-const { whatsappNumber = "525522723351" } = Astro.props;
+const { whatsappNumber = COMPANY_CONFIG.contact.phoneWhatsApp.replace(/\D/g, "") } = Astro.props;
 ---
 
 <contact-form data-phone={whatsappNumber}>
@@ -30,6 +32,8 @@ const { whatsappNumber = "525522723351" } = Astro.props;
             name="fullName" 
             required 
             aria-required="true" 
+            minlength="2"
+            maxlength="100"
             autocomplete="name" 
             class="underline-input" 
           />
@@ -43,6 +47,7 @@ const { whatsappNumber = "525522723351" } = Astro.props;
             name="email" 
             required 
             aria-required="true" 
+            maxlength="100"
             autocomplete="email" 
             class="underline-input" 
           />
@@ -51,17 +56,18 @@ const { whatsappNumber = "525522723351" } = Astro.props;
         <div class="input-group">
           <label for="phone" class="field-label">Teléfono <span aria-hidden="true">*</span></label>
           <span class="phone-input-container">
-          
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
-            required 
-            aria-required="true" 
-            autocomplete="tel" 
-            pattern="[0-9\s+\-()\.]{8,20}" 
-            class="underline-input phone-field" 
-          />
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required 
+              aria-required="true" 
+              minlength="8"
+              maxlength="20"
+              autocomplete="tel" 
+              pattern="[0-9\s+\-()\.]{8,20}" 
+              class="underline-input phone-field" 
+            />
           </span>
         </div>
 
@@ -71,14 +77,25 @@ const { whatsappNumber = "525522723351" } = Astro.props;
             type="text" 
             id="subject" 
             name="subject" 
+            maxlength="120"
             autocomplete="off" 
             class="underline-input" 
           />
         </div>
 
         <div class="input-group full-width">
-          <label for="message" class="field-label">Mensaje</label>
-          <textarea id="message" name="message" rows="4" class="underline-textarea"></textarea>
+          <div class="label-row">
+            <label for="message" class="field-label">Mensaje</label>
+            <span id="message-counter" class="char-counter" aria-live="polite">0 / 1000</span>
+          </div>
+          <textarea 
+            id="message" 
+            name="message" 
+            rows="4" 
+            maxlength="1000"
+            aria-describedby="message-counter"
+            class="underline-textarea"
+          ></textarea>
         </div>
       </fieldset>
 
@@ -94,22 +111,37 @@ const { whatsappNumber = "525522723351" } = Astro.props;
 
 <script>
   import { buildWhatsAppUrl } from "@contact/utils/whatsapp";
+  import { validateContactForm } from "@contact/utils/validation";
   import type { ContactFormData } from "@contact/types/contact";
 
   class ContactFormElement extends HTMLElement {
     private form: HTMLFormElement | null = null;
+    private messageInput: HTMLTextAreaElement | null = null;
+    private charCounter: HTMLElement | null = null;
 
     connectedCallback(): void {
       if (this.dataset.initialized === "true") return;
       this.dataset.initialized = "true";
 
       this.form = this.querySelector<HTMLFormElement>("#whatsapp-contact-form");
+      this.messageInput = this.querySelector<HTMLTextAreaElement>("#message");
+      this.charCounter = this.querySelector<HTMLElement>("#message-counter");
+
       this.form?.addEventListener("submit", this.handleSubmit);
+      this.messageInput?.addEventListener("input", this.updateCharCounter);
+      this.updateCharCounter();
     }
 
     disconnectedCallback(): void {
       this.form?.removeEventListener("submit", this.handleSubmit);
+      this.messageInput?.removeEventListener("input", this.updateCharCounter);
     }
+
+    private updateCharCounter = (): void => {
+      if (!this.messageInput || !this.charCounter) return;
+      const count = this.messageInput.value.length;
+      this.charCounter.textContent = `${count} / 1000`;
+    };
 
     private handleSubmit = (e: SubmitEvent): void => {
       e.preventDefault();
@@ -128,6 +160,12 @@ const { whatsappNumber = "525522723351" } = Astro.props;
         subject: String(formData.get("subject") || ""),
         message: String(formData.get("message") || ""),
       };
+
+      const validation = validateContactForm(payload);
+      if (!validation.isValid) {
+        this.form.reportValidity();
+        return;
+      }
 
       const targetPhone = this.dataset.phone || "";
       const whatsappUrl = buildWhatsAppUrl(payload, { phone: targetPhone });
@@ -171,7 +209,7 @@ const { whatsappNumber = "525522723351" } = Astro.props;
   .response-notice {
     font-size: var(--text-base);
     line-height: 1.2;
-    max-width: 30ch;
+    max-width: 50ch;
     padding-block: var(--space-4);
     color: var(--color-text-body);
   }
@@ -212,11 +250,25 @@ const { whatsappNumber = "525522723351" } = Astro.props;
     margin: 0;
   }
 
+  .label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
   .field-label {
     font-family: var(--font-sans);
     font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-body);
+  }
+
+  .char-counter {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--color-text-body);
+    opacity: 0.75;
   }
 
   .underline-input,
@@ -316,6 +368,5 @@ const { whatsappNumber = "525522723351" } = Astro.props;
       width: 100%;
       min-width: 250px;
     }
-    
   }
 </style>
