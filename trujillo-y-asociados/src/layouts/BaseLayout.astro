@@ -9,6 +9,7 @@ import OpenGraph from '@seo/components/OpenGraph.astro';
 import Favicons from '@seo/components/Favicons.astro';
 import SchemaOrg from '@seo/components/SchemaOrg.astro';
 import type { SchemaData } from '@seo/types/seo.types';
+import { COMPANY_CONFIG } from '@shared/constants/company.config';
 
 interface Props {
   title: string;
@@ -31,13 +32,12 @@ const { title, description, ogImage, noIndex, schema } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-        <!-- Rendimiento (LCP): Pre-carga asíncrona de Web Fonts Críticas -->
+    <!-- Rendimiento (LCP): Pre-carga asíncrona de Web Fonts Críticas -->
     <link rel="preload" href="/fonts/Gambetta-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
-    
     <!-- SEO Esencial -->
-    <title>{title} | Trujillo & Asociados</title>
+    <title>{title} | {COMPANY_CONFIG.name}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     {noIndex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
@@ -45,6 +45,14 @@ const { title, description, ogImage, noIndex, schema } = Astro.props;
     <OpenGraph {title} {description} {canonicalUrl} {ogImage} />
     <Favicons />
     <SchemaOrg {schema} {description} {canonicalUrl} />
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </head>
   <body>
     <a href="#main-content" class="sr-only focus:not-sr-only">

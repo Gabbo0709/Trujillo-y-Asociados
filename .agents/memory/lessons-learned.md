@@ -144,6 +144,10 @@
 - **Mistake/Anti-Pattern:** Defining navigation link labels and hrefs independently inside Header and Footer components, causing copy drifts or route mismatches over time.
 - **Corrected Behavior:** Export both a `ROUTES` constant dictionary and a `MAIN_NAV_ITEMS` array (containing `{ href, label }`) from `src/features/shared/constants/navigation.ts`. Consume `MAIN_NAV_ITEMS` across Header, Footer, and navigation drawers to guarantee 100% copy and route synchronization.
 
+## Context: Hero Badge Multi-Region Responsive Layout
+- **Mistake/Anti-Pattern:** Forcing multi-region text (e.g. "CDMX . EDOMEX") onto a single inline text line inside the Hero badge. On narrow mobile viewports (< 768px), this stretches the badge width excessively and forces awkward horizontal scaling or text overflow.
+- **Corrected Behavior:** Use a stacked two-line flex layout (`display: inline-flex; flex-direction: column; align-items: center; justify-content: center;`) inside the badge element (`<strong class="hero-badge"><span class="badge-row">CDMX</span><span class="badge-row">EDOMEX</span></strong>`) to maintain a compact horizontal footprint and identical width alignment across both mobile and desktop viewports.
+
 
 
 

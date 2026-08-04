@@ -19,13 +19,13 @@ export interface Props {
 const {
   headingLevel = 'h2',
   title = "Sede principal",
-  subtitle = "Ciudad de México",
-  description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral.",
+  subtitle = "Ciudad de México y Estado de México",
+  description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral, ofreciendo representación jurídica integral en la CDMX y el Estado de México (Área Metropolitana).",
   schedule = "Lunes a Viernes: 9:00 AM - 6:00 PM",
   mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
 } = Astro.props;
 
-const formattedAddress = `${COMPANY_CONFIG.address.streetAddress}, ${COMPANY_CONFIG.address.postalCode} ${COMPANY_CONFIG.address.addressLocality}, ${COMPANY_CONFIG.address.addressRegion}`;
+const formattedAddress = COMPANY_CONFIG.address.formatted;
 const Heading = headingLevel;
 ---
 
@@ -48,7 +48,7 @@ const Heading = headingLevel;
           <Fragment set:html={pinIcon} />
         </span>
         <span class="address-text-block">
-          <strong>Ubicación</strong>
+          <strong>Ubicación y Cobertura</strong>
           <a 
             href={mapsUrl} 
             target="_blank" 
@@ -58,6 +58,7 @@ const Heading = headingLevel;
           >   
             {formattedAddress}
           </a>
+          <span class="coverage-note">Cobertura de representación jurídica en CDMX y Estado de México</span>
         </span>
       </p>
       
@@ -112,7 +113,7 @@ const Heading = headingLevel;
       </picture>
       <figcaption class="map-card-footer">
         <h3 class="map-card-title">{COMPANY_CONFIG.name}</h3>
-        <p class="map-card-text">Sur de Ciudad de México (CDMX)</p>
+        <p class="map-card-text">{COMPANY_CONFIG.address.addressLocality} ({COMPANY_CONFIG.address.addressRegion})</p>
         <a 
           href={mapsUrl} 
           target="_blank" 
@@ -183,7 +184,6 @@ const Heading = headingLevel;
     font-style: normal;
     text-align: left;
     width: 100%;
-    margin-block: var(--space-6) var(--space-8);
   }
 
   .address-item {
@@ -234,11 +234,21 @@ const Heading = headingLevel;
   .address-link {
     text-decoration: none;
     transition: color var(--ease-smooth);
+    width: 100%;
+    max-width: 50ch;
   }
 
   .address-link:hover {
     color: var(--color-brand-primary);
     text-decoration: underline;
+  }
+
+  .coverage-note {
+    font-size: var(--text-xs);
+    color: var(--color-brand-primary);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--space-1);
+    display: block;
   }
 
   .btn-details-cta {
@@ -380,5 +390,28 @@ const Heading = headingLevel;
   .btn-map-link:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 3px;
+  }
+
+  @media (width <= 768px) {
+    .map-image-container {
+      max-height: 220px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .map-image {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  @media (width <= 480px) {
+    .map-image-container {
+      max-height: 180px;
+    }
+
+    .btn-details-cta {
+      width: 100%;
+      min-width: 0;
+    }
   }
 </style>

@@ -2,9 +2,9 @@
 import { Image } from 'astro:assets';
 import IconArrow from '@landing/assets/icons/arrow-up-right.svg?raw';
 import type { ImageMetadata } from 'astro';
-import processDiagnostico from '@landing/assets/images/process-diagnostico.jpg';
-import processEstrategia from '@landing/assets/images/process-estrategia.jpg';
-import processResolucion from '@landing/assets/images/process-resolucion.jpg';
+import processDiagnostico from '@landing/assets/images/process-diagnostic.png';
+import processEstrategia from '@landing/assets/images/process-strategy.png';
+import processResolucion from '@landing/assets/images/process-resolution.png';
 import { ROUTES } from '@shared/constants/navigation';
 
 interface ProcessStep {
@@ -70,7 +70,7 @@ const { steps = defaultSteps } = Astro.props;
               alt={step.imageAlt}
               width={512}
               height={256}
-              widths={[360, 512, 720]}
+              widths={[360, 512, 720, 960, 1200, 1440, 1920]}
               sizes="(max-width: 768px) 100vw, 25vw"
               loading="lazy"
               class="process-card-image"
@@ -181,7 +181,7 @@ const { steps = defaultSteps } = Astro.props;
   }
 
   .process-card-image-wrapper {
-    height: 128px;
+    height: 260px;
     width: 100%;
     overflow: hidden;
     margin: 0;

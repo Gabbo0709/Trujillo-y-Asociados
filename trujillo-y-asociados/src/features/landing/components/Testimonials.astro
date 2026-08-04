@@ -53,7 +53,7 @@ const optimizedPleca = await getImage({ src: plecaPatternRaw, format: 'webp' });
     </hgroup>
   </header>
 
-  <ul class="testimonials-list" role="list">
+  <ul class="testimonials-list">
     {testimonials.map((item) => {
       const parts = item.highlightedText 
         ? item.quote.split(item.highlightedText) 

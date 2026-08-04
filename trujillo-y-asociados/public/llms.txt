@@ -1,50 +1,22 @@
 # Trujillo & Asociados
 
-> Despacho de abogados especializado en Derecho Laboral mexicano con sede en Ciudad de México. Brindamos asesoría legal a empresas y trabajadores.
+> Despacho de abogados especializado en Derecho Laboral mexicano con sede en Ciudad de México (CDMX) y cobertura en la Zona Metropolitana (CDMX y Estado de México). Brindamos representación legal tanto a patrones (empresas) como a trabajadores.
 
-## Identidad del Despacho
+Información de la firma:
+- Razón Social: TRUJILLO Y ASOCIADOS (ASOCIACIÓN EN PARTICIPACIÓN)
+- Dirección: C. Guaymas 8, Interior 401, Roma Norte, Cuauhtémoc, 06700 Ciudad de México, CDMX
+- Teléfono: +525552087631
+- Correo: despachotrujilloyasociados@gmail.com
+- Áreas de servicio: Ciudad de México, Estado de México y República Mexicana
 
-Trujillo & Asociados es un despacho jurídico mexicano enfocado en Derecho Laboral, Asesoría Corporativa y Litigio Laboral. Atendemos tanto a patrones (empresas) como a trabajadores en todo el territorio nacional, con especial énfasis en la Ciudad de México y área metropolitana.
+## Páginas Principales
 
-## Áreas de Práctica
+- [Página de Inicio](https://abogadostrujilloyasociados.com.mx/): Presentación de la firma, áreas de resolución laboral y propuesta de valor.
+- [Asesoría a Empresas](https://abogadostrujilloyasociados.com.mx/asesoria-empresas): Servicios de consultoría preventiva, auditoría laboral, contratos, rescisión patronal y litigio laboral en CDMX y Edomex.
+- [Asesoría a Trabajadores](https://abogadostrujilloyasociados.com.mx/asesoria-trabajadores): Representación legal por despido injustificado, conciliación prejudicial, salarios caídos y reclamo de indemnizaciones.
+- [Nuestra Firma](https://abogadostrujilloyasociados.com.mx/nuestra-firma): Trayectoria, identidad de la firma y especialización en Ley Federal del Trabajo.
+- [Contacto y Ubicación](https://abogadostrujilloyasociados.com.mx/contacto): Canales de atención presencial en Roma Norte y consulta legal remota.
 
-### Asesoría a Empresas (`/corporate-advisory`)
-Servicios de consultoría laboral preventiva y representación legal para patrones:
-- Elaboración, revisión y actualización de contratos de trabajo individuales (tiempo determinado, tiempo indefinido, por obra, por temporada, sujeto a prueba).
-- Auditoría Legal Laboral: verificación del cumplimiento de obligaciones patronales conforme a la Ley Federal del Trabajo.
-- Gestión de documentación laboral: recibos de nómina, vacaciones, aguinaldo, controles de asistencia.
-- Elaboración y registro de Reglamento Interior de Trabajo ante el Centro Federal de Conciliación y Registro Laboral.
-- Consultoría en subcontratación, sustitución patronal, teletrabajo y condiciones especiales de trabajo.
-- Gestión de terminación de relaciones laborales: negociaciones, rescisiones, convenios privados y ante el Centro de Conciliación Laboral.
-- Cálculo de finiquitos y liquidaciones; redacción de cartas de renuncia y recibos de finiquito.
-- Representación legal en conflictos laborales ante Centros de Conciliación, Tribunales Laborales y Juntas de Conciliación y Arbitraje (locales y federales).
-- Litigio Laboral completo: contestación de demanda, desahogo de audiencias, juicio de amparo.
+## Optional
 
-### Asesoría a Trabajadores (`/workers-advisory`)
-Representación y defensa de los derechos laborales del trabajador:
-- Asesoría legal en conflictos con el patrón: despido injustificado, incumplimiento de pago de salario, reducción unilateral de condiciones de trabajo.
-- Instancia conciliatoria prejudicial ante el Centro de Conciliación Laboral.
-- Presentación de demandas por despido injustificado ante Tribunales Laborales: indemnización constitucional, reinstalación, salarios caídos, prima de antigüedad, aguinaldo, vacaciones y prima vacacional.
-
-## Equipo
-
-El despacho está integrado por abogados especializados en Derecho Laboral mexicano con experiencia en litigio laboral, cumplimiento normativo y asesoría preventiva.
-
-## Contacto (`/contacto`)
-
-- **Sitio web:** https://trujilloyasociados.mx
-- **Área de servicio:** México, Ciudad de México (CDMX)
-- **Formulario de contacto:** disponible en `/contacto`
-- **Consulta vía WhatsApp:** disponible a través del formulario de contacto en el sitio.
-
-## Rutas del Sitio
-
-- `/` — Página principal
-- `/corporate-advisory` — Asesoría a Empresas
-- `/workers-advisory` — Asesoría a Trabajadores
-- `/firm` — Conoce el Despacho
-- `/contacto` — Contacto y Consulta
-
-## Entidades Legales y Palabras Clave
-
-Derecho Laboral, Asesoría Corporativa, Litigio Laboral, Cumplimiento Normativo, Ley Federal del Trabajo, Contratos Individuales de Trabajo, Seguridad Social, Derecho Mercantil, Gobierno Corporativo, Despido Injustificado, Finiquito, Liquidación, Reglamento Interior de Trabajo, Centro de Conciliación Laboral, Tribunales Laborales, Juicio de Amparo.
+- [Ubicación en Google Maps](https://maps.app.goo.gl/ypJ2h25fwe5J2Yrr5): Mapa interactivo de la sede principal en Roma Norte, Cuauhtémoc.

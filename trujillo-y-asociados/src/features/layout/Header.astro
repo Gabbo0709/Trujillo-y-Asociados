@@ -152,7 +152,7 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
     outline-offset: 3px;
   }
 
-  @media (768px < width <= 1024px) {
+  @media (968px < width <= 1024px) {
     .logo-image {
       max-width: 150px;
     }
@@ -193,8 +193,15 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
   }
 
   .line {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  }
+
+  .line-top {
+    transform-origin: 12px 6px;
+  }
+
+  .line-bottom {
+    transform-origin: 12px 18px;
   }
 
   .mobile-toggle[aria-expanded="true"] .line-top {
@@ -215,7 +222,7 @@ import { ROUTES, MAIN_NAV_ITEMS } from '@shared/constants/navigation';
   }
 
   /* Responsive Breakpoints */
-  @media (width <= 768px) {
+  @media (width <= 968px) {
     .site-header {
       grid-template-columns: 1fr auto;
       padding-block: var(--space-6);

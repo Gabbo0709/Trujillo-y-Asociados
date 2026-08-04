@@ -1,0 +1,47 @@
+{
+  "entityGapAnalysis": {
+    "/corporate-advisory": {
+      "found": [],
+      "missing": [
+        "Asesoría Corporativa",
+        "Derecho Mercantil",
+        "Cumplimiento Normativo",
+        "Gobierno Corporativo"
+      ],
+      "score": 0
+    },
+    "/workers-advisory": {
+      "found": [
+        "Asesoría a Trabajadores"
+      ],
+      "missing": [
+        "Derecho Laboral",
+        "Contratos Individuales",
+        "Seguridad Social"
+      ],
+      "score": 25
+    }
+  },
+  "schemaIntegrity": {
+    "/": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs \"Trujillo & Asociados\""
+    ],
+    "/contacto": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs \"Trujillo & Asociados\""
+    ],
+    "/corporate-advisory": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs \"Trujillo & Asociados\""
+    ],
+    "/firm": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs \"Trujillo & Asociados\""
+    ],
+    "/workers-advisory": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs \"Trujillo & Asociados\""
+    ]
+  },
+  "aiSearchReadiness": {
+    "exists": true,
+    "hasServices": true,
+    "hasEntities": true
+  }
+}

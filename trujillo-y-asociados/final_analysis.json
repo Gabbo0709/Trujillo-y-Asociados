@@ -1,0 +1,52 @@
+{
+  "entityGapAnalysis": {
+    "/corporate-advisory": {
+      "found": [],
+      "missing": [
+        "Asesoría Corporativa",
+        "Derecho Mercantil",
+        "Cumplimiento Normativo",
+        "Gobierno Corporativo"
+      ],
+      "score": 0
+    },
+    "/workers-advisory": {
+      "found": [
+        "Asesoría a Trabajadores"
+      ],
+      "missing": [
+        "Derecho Laboral",
+        "Contratos Individuales",
+        "Seguridad Social"
+      ],
+      "score": 25
+    }
+  },
+  "schemaIntegrity": {
+    "/": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs COMPANY_CONFIG \"Trujillo & Asociados\"",
+      "Address is incomplete (missing streetAddress or postalCode)"
+    ],
+    "/contacto": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs COMPANY_CONFIG \"Trujillo & Asociados\"",
+      "Address is incomplete (missing streetAddress or postalCode)"
+    ],
+    "/corporate-advisory": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs COMPANY_CONFIG \"Trujillo & Asociados\"",
+      "Address is incomplete (missing streetAddress or postalCode)"
+    ],
+    "/firm": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs COMPANY_CONFIG \"Trujillo & Asociados\"",
+      "Address is incomplete (missing streetAddress or postalCode)"
+    ],
+    "/workers-advisory": [
+      "Schema name mismatch: \"Trujillo & Asociados Abogados\" vs COMPANY_CONFIG \"Trujillo & Asociados\"",
+      "Address is incomplete (missing streetAddress or postalCode)"
+    ]
+  },
+  "aiSearchReadiness": {
+    "exists": true,
+    "hasServices": true,
+    "hasEntities": true
+  }
+}
