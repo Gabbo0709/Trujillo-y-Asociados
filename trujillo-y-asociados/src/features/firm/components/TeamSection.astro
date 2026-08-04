@@ -167,7 +167,6 @@ const {
   }
 
   @media (width <= 1280px) {
-
     .team-grid {
       display: flex;
       flex-direction: column;
@@ -175,6 +174,41 @@ const {
 
     .member-name {
       font-size: var(--text-2xl);
+    }
+  }
+
+  @media (width <= 768px) {
+    .card-header {
+      gap: var(--space-4);
+    }
+
+    .avatar-box {
+      width: 110px;
+      height: 165px;
+    }
+
+    .member-name {
+      font-size: var(--text-lg);
+      min-width: 0;
+    }
+  }
+
+  @media (width <= 480px) {
+    .card-header {
+      gap: var(--space-3);
+    }
+
+    .avatar-box {
+      width: 96px;
+      height: 144px;
+    }
+
+    .member-name {
+      font-size: var(--text-base);
+    }
+
+    .member-card {
+      padding: var(--space-4);
     }
   }
 </style>

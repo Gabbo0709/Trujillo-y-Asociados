@@ -28,7 +28,7 @@ const optimizedMobile = await getImage({
             <span class="hero-badge-row">EDOMEX</span>
           </strong>
         </span>
-        Derecho Laboral
+        <span class="hero-title-main">Derecho Laboral</span>
       </h1>
     </header>
     
@@ -44,7 +44,9 @@ const optimizedMobile = await getImage({
         </span>
       </a>
       <p class="hero-evaluation-text">
-        Evaluación gratuita a su caso.
+        <span class="hero-eval-line">Evaluación</span>
+        <span class="hero-eval-line">gratuita a</span>
+        <span class="hero-eval-line">su caso.</span>
       </p>
     </aside>
   </article>
@@ -126,27 +128,35 @@ const optimizedMobile = await getImage({
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-title {
     font-weight: var(--font-weight-bold);
     font-size: var(--text-heading);
-    margin: 0;
+    margin: 0 auto;
     color: var(--color-text-muted);
+    text-align: center;
   }
-
 
   .hero-title-group {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.25em;
+  }
+
+  .hero-title-main {
+    display: block;
+    text-align: center;
   }
 
   .hero-badge {
     background-color: var(--color-bg-surface);
     color: var(--color-text-body);
-    font-size: clamp(1rem, 0.6em, 2rem);
+    font-size: var(--text-xl);
     font-weight: var(--font-weight-extrabold);
     padding: 0.35em 0.65em;
     text-transform: uppercase;
@@ -156,7 +166,7 @@ const optimizedMobile = await getImage({
     align-items: center;
     justify-content: center;
     align-self: center;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
     line-height: 1.05;
   }
 
@@ -165,12 +175,25 @@ const optimizedMobile = await getImage({
     white-space: nowrap;
   }
 
-
   @media (width < 768px) {
     .hero-badge {
-      margin-top: 0.5rem;
-      font-size: clamp(0.7rem, 0.4em, 0.85rem);
-      padding: 0.3em 0.5em;
+      margin-top: 0.25rem;
+      font-size: var(--text-xs);
+      padding: 0.25em 0.45em;
+    }
+  }
+
+  @media (width <= 480px) {
+    .hero-header {
+      padding-inline: var(--space-4);
+    }
+
+    .hero-title {
+      font-size: clamp(1.65rem, 1.25rem + 3vw, 2.15rem);
+    }
+
+    .hero-title-main {
+      white-space: nowrap;
     }
   }
 
@@ -185,15 +208,19 @@ const optimizedMobile = await getImage({
   .hero-evaluation-text {
     order: 2;
     font-style: italic;
-    font-size: var(--text-4xl);
+    font-size: var(--text-title);
     font-weight: var(--font-weight-extrabold);
     color: var(--color-bg-surface);
     padding-inline: var(--space-8);
     padding-bottom: var(--space-8);
     opacity: 0.9;
-    line-height: 1;
+    line-height: 1.1;
     margin: 0;
     text-align: center;
+  }
+
+  .hero-eval-line {
+    display: inline;
   }
 
   .hero-cta-link {
@@ -230,7 +257,7 @@ const optimizedMobile = await getImage({
     transform: translate(4px, -4px);
   }
 
-  @media (width <= 1200px) {
+  @media (768px <= width <= 1200px) {
     .hero-presentation {
       min-height: 15dvh;
     }
@@ -239,13 +266,8 @@ const optimizedMobile = await getImage({
       align-content: center;
     }
 
-    .hero-title {
-      font-size: var(--text-subheading);
-      margin: auto auto;
-    }
-
     .hero-badge {
-      font-size: var(--text-sm);
+      font-size: var(--text-base);
     }
 
     .hero-cta-link {
@@ -273,6 +295,10 @@ const optimizedMobile = await getImage({
       order: 1;
       padding-bottom: var(--space-4);
       text-align: left;
+    }
+
+    .hero-eval-line {
+      display: block;
     }
   }
 </style>

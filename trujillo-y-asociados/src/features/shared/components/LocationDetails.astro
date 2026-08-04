@@ -19,7 +19,7 @@ export interface Props {
 const {
   headingLevel = 'h2',
   title = "Sede principal",
-  subtitle = "Ciudad de México & Estado de México",
+  subtitle = "Ciudad de México y Estado de México",
   description = "Nuestra sede principal en Ciudad de México cuenta con instalaciones acondicionadas para brindar una atención profesional, confidencial y personalizada en materia de derecho laboral, ofreciendo representación jurídica integral en la CDMX y el Estado de México (Área Metropolitana).",
   schedule = "Lunes a Viernes: 9:00 AM - 6:00 PM",
   mapsUrl = "https://maps.app.goo.gl/j3RNVwiawjxmcvKf9"
@@ -235,7 +235,8 @@ const Heading = headingLevel;
   .address-link {
     text-decoration: none;
     transition: color var(--ease-smooth);
-    width: 50ch;
+    width: 100%;
+    max-width: 50ch;
   }
 
   .address-link:hover {
@@ -390,5 +391,28 @@ const Heading = headingLevel;
   .btn-map-link:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 3px;
+  }
+
+  @media (width <= 768px) {
+    .map-image-container {
+      max-height: 220px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .map-image {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  @media (width <= 480px) {
+    .map-image-container {
+      max-height: 180px;
+    }
+
+    .btn-details-cta {
+      width: 100%;
+      min-width: 0;
+    }
   }
 </style>
