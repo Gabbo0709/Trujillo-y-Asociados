@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://abogadostrujilloyasociados.com.mx',
+  site: 'https://www.abogadostrujilloyasociados.com.mx',
   output: 'static',
   integrations: [
     sitemap({
