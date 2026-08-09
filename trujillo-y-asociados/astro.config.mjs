@@ -6,10 +6,7 @@ export default defineConfig({
   site: 'https://www.abogadostrujilloyasociados.com.mx',
   output: 'static',
   integrations: [
-    sitemap({
-      changefreq: 'weekly',
-      priority: 0.7
-    }),
+    sitemap(),
   ],
   build: {
     format: 'directory',
